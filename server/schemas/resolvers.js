@@ -20,7 +20,7 @@ const resolvers = {
       return await Pokemon.find({});
     },
     // find battle by ID (user ids?)
-    
+
   },
   Mutation: {
     createUser: async (parent, args) => {
@@ -28,10 +28,13 @@ const resolvers = {
       return user;
     },
     
-    // 
+    
     // create new message
-    // create new battle/chatroom
-
+    // create new battle/chatroom between two users
+    createBattle: async (parent, args) => {
+      const battle = await Battle.create(args);
+      return battle;
+    }
 
     // createMatchup: async (parent, args) => {
     //   const matchup = await Matchup.create(args);

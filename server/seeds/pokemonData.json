@@ -1,0 +1,122 @@
+[
+  {
+    "name": "Bulbasaur",
+    "pokemonType": "water",
+    "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/1.png"
+  },
+  {
+    "name": "Charmander",
+    "pokemonType": "fire",
+    "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/4.png"
+  },
+  {
+    "name": "Squirtle",
+    "pokemonType": "water",
+    "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/7.png"
+  },
+  {
+    "name": "Chikorita",
+    "pokemonType": "grass",
+    "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/152.png"
+  },
+  {
+    "name": "Cyndaquil",
+    "pokemonType": "fire",
+    "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/155.png"
+  },
+  {
+    "name": "Totodile",
+    "pokemonType": "water",
+    "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/158.png"
+  },
+  {
+    "name": "Treecko",
+    "pokemonType": "grass",
+    "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/252.png"
+  },
+  {
+    "name": "Torchic",
+    "pokemonType": "fire",
+    "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/255.png"
+  },
+  {
+    "name": "Mudkip",
+    "pokemonType": "water",
+    "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/258.png"
+  },
+  {
+    "name": "Turtwig",
+    "pokemonType": "grass",
+    "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/387.png"
+  },
+  {
+    "name": "Chimchar",
+    "pokemonType": "fire",
+    "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/390.png"
+  },
+  {
+    "name": "Piplup",
+    "pokemonType": "water",
+    "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/393.png"
+  },
+  {
+    "name": "Snivy",
+    "pokemonType": "grass",
+    "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/495.png"
+  },
+  {
+    "name": "Tepig",
+    "pokemonType": "fire",
+    "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/498.png"
+  },
+  {
+    "name": "Oshawott",
+    "pokemonType": "water",
+    "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/501.png"
+  },
+  {
+    "name": "Chespin",
+    "pokemonType": "grass",
+    "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/650.png"
+  },
+  {
+    "name": "Fennekin",
+    "pokemonType": "fire",
+    "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/653.png"
+  },
+  {
+    "name": "Froakie",
+    "pokemonType": "water",
+    "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/656.png"
+  },
+  {
+    "name": "Rowlet",
+    "pokemonType": "grass",
+    "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/722.png"
+  },
+  {
+    "name": "Litten",
+    "pokemonType": "fire",
+    "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/725.png"
+  },
+  {
+    "name": "Popplio",
+    "pokemonType": "water",
+    "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/728.png"
+  },
+  {
+    "name": "Grookey",
+    "pokemonType": "grass",
+    "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/810.png"
+  },
+  {
+    "name": "Scorbunny",
+    "pokemonType": "fire",
+    "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/813.png"
+  },
+  {
+    "name": "Sobble",
+    "pokemonType": "water",
+    "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/816.png"
+  }
+]
