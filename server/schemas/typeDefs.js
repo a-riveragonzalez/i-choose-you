@@ -22,14 +22,14 @@ const typeDefs = gql`
   type Message {
     _id: ID!
     user: String!
-    dateCreated: String!
-    messageContent: String!
+    dateCreated: String
+    messages: String!
   }
 
   type Quiz {
     _id: ID!
     question: String!
-    choices: [Object]!
+    choices: [String]!
     firePoints: Int
     grassPoints: Int
     waterPoints: Int
@@ -59,8 +59,10 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    createUser(username: String!, email: String!, password: String!): User
-    createMessage(battleId: String!, messageContent: String!): Message
+    createUser(username: String!, email: String!, password: String!): Auth
+
+    createMessage(battleId: String!, messageContent: String!): Battle
+
     createBattle(user1_id: String!, user2_id: String!): Battle 
   }
 `;
