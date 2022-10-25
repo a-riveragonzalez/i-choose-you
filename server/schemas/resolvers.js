@@ -1,4 +1,5 @@
 const { User, Quiz, Pokemon, Battle } = require('../models');
+const { signToken } = require('../utils/auth');
 
 // user, quiz, pokemon, messages, chatroom
 const resolvers = {
@@ -30,9 +31,11 @@ const resolvers = {
   },
 
   Mutation: {
+    // create user
     createUser: async (parent, args) => {
       const user = await User.create(args);
-      return user;
+      const token = signToken(user);
+      return {token, user};
     },
     // create new message
     createMessage: async (parent, {battleId, messageContent}, context) => {
