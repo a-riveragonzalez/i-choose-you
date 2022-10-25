@@ -1,4 +1,5 @@
 const { User, Quiz, Pokemon, Battle } = require('../models');
+const {AuthenticationError} = require("apollo-server-express")
 
 // user, quiz, pokemon, messages, chatroom
 const resolvers = {

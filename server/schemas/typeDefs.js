@@ -4,8 +4,9 @@ const typeDefs = gql`
   # ******************* Models ******************* # 
   type User {
     _id: ID!
-    email: email
+    email: String!
     username: String!
+    password: String!
     quizResult: Quiz
     pokemon: Pokemon
     battle: [Battle]
@@ -53,9 +54,9 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    createUser(user: String!): User
+    createUser(username: String!, email: String!, password: String!): User
     createMessage(battleId: String!, messageContent: String!): Message
-    createBattle(user1: String!, user2: String!): Battle 
+    createBattle(user1_id: String!, user2_id: String!): Battle 
   }
 `;
 
