@@ -41,7 +41,7 @@ const resolvers = {
     // create new message
     createMessage: async (parent, {battleId, messageContent}, context) => {
       if (context.user){
-        return Battle.findOneAndUpdate(
+        const updatedBattle = await Battle.findOneAndUpdate(
           {_id: battleId},
           {
             $addToSet: {
@@ -50,7 +50,8 @@ const resolvers = {
           },
           {new: true,
           runValidators: true}
-        )
+        ).populate("messages")
+        console.log(updatedBattle)
       }
       throw new AuthenticationError('You need to be logged in!')
     },
