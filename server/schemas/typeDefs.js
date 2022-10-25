@@ -1,27 +1,61 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-  type Tech {
+  # ******************* Models ******************* # 
+  type User {
     _id: ID!
-    name: String!
+    email: email
+    username: String!
+    quizResult: Quiz
+    pokemon: Pokemon
+    battle: [Battle]
   }
 
-  type Matchup {
+  type Battle {
     _id: ID!
-    tech1: String!
-    tech2: String!
-    tech1_votes: Int
-    tech2_votes: Int
+    user1_id: String!
+    user2_id: String!
+    messages: [Message] 
   }
+
+  type Message {
+    _id: ID!
+    user: String!
+    dateCreated: String!
+    messageContent: String!
+  }
+
+  type Quiz {
+    _id: ID!
+    question: String!
+    choices: String!
+    firePoints: Int
+    grassPoints: Int
+    waterPoints: Int
+  }
+
+  type Pokemon {
+    _id: ID!
+    pokemonName: String!
+    pokemonType: String!
+    pokemonImg: String!
+  }
+
+  # ******************* Schema ******************* # 
 
   type Query {
-    tech: [Tech]
-    matchups(_id: String): [Matchup]
+    users: [User]
+    user(_id: String): User
+    battles: [Battle]
+    battle(_id: String): Battle 
+    quizzes: [Quiz]
+    pokemongos: [Pokemon]
   }
 
   type Mutation {
-    createMatchup(tech1: String!, tech2: String!): Matchup
-    createVote(_id: String!, techNum: Int!): Matchup
+    createUser(user: String!): User
+    createMessage(battleId: String!, messageContent: String!): Message
+    createBattle(user1: String!, user2: String!): Battle 
   }
 `;
 
