@@ -1,28 +1,50 @@
-const { Tech, Matchup } = require('../models');
+const { User, Quiz, Pokemon, Message, Battle } = require('../models');
 
+// user, quiz, pokemon, messages, chatroom
 const resolvers = {
   Query: {
-    tech: async () => {
-      return Tech.find({});
+    // find all users
+    users: async () => {
+      return await User.find({});
     },
-    matchups: async (parent, { _id }) => {
-      const params = _id ? { _id } : {};
-      return Matchup.find(params);
+    // find one user by ID
+    user: async (parent, args) => {
+      return await User.findById(args.id).populate('battles').populate("pokemon").populate("quiz");
     },
+    // find all quiz questions
+    quiz: async () => {
+      return await Quiz.find({});
+    },
+    // find all Pokemon in database
+    pokemon: async() => {
+      return await Pokemon.find({});
+    },
+    // find battle by ID (user ids?)
+    
   },
   Mutation: {
-    createMatchup: async (parent, args) => {
-      const matchup = await Matchup.create(args);
-      return matchup;
+    createUser: async (parent, args) => {
+      const user = await User.create(args);
+      return user;
     },
-    createVote: async (parent, { _id, techNum }) => {
-      const vote = await Matchup.findOneAndUpdate(
-        { _id },
-        { $inc: { [`tech${techNum}_votes`]: 1 } },
-        { new: true }
-      );
-      return vote;
-    },
+    
+    // 
+    // create new message
+    // create new battle/chatroom
+
+
+    // createMatchup: async (parent, args) => {
+    //   const matchup = await Matchup.create(args);
+    //   return matchup;
+    // },
+    // createVote: async (parent, { _id, techNum }) => {
+    //   const vote = await Matchup.findOneAndUpdate(
+    //     { _id },
+    //     { $inc: { [`tech${techNum}_votes`]: 1 } },
+    //     { new: true }
+    //   );
+    //   return vote;
+    // },
   },
 };
 
