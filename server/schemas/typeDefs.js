@@ -1,18 +1,49 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-  type Tech {
+  # type Tech {
+  #   _id: ID!
+  #   name: String!
+  # }
+
+  # type Matchup {
+  #   _id: ID!
+  #   tech1: String!
+  #   tech2: String!
+  #   tech1_votes: Int
+  #   tech2_votes: Int
+  # }
+
+  # ******************* do we reference schema only? ******************* # 
+
+  type User {
     _id: ID!
-    name: String!
+    email: email
+    username: String!
+    quizResult: Quiz
+    pokemon: Pokemon
+    battle: [Battle]
   }
 
-  type Matchup {
+  type Battle {
     _id: ID!
-    tech1: String!
-    tech2: String!
-    tech1_votes: Int
-    tech2_votes: Int
+    user1_id: String!
+    user2_id: String!
+    messages: [messageSchema] #is this Messages?
   }
+
+  type Quiz {
+    _id: ID!
+    question: String!
+    choices: String!
+    firePoints: Int
+    grassPoints: Int
+    waterPoints: Int
+  }
+
+  
+
+  # ******************* Schema ******************* # 
 
   type Query {
     tech: [Tech]
