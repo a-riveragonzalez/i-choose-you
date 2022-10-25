@@ -23,7 +23,7 @@ const typeDefs = gql`
     _id: ID!
     user: String!
     dateCreated: String
-    messages: String!
+    messageContent: String!
   }
 
   type Quiz {
@@ -64,6 +64,8 @@ const typeDefs = gql`
     createMessage(battleId: String!, messageContent: String!): Battle
 
     createBattle(user1_id: String!, user2_id: String!): Battle 
+
+    login(email: String!, password: String!): Auth
   }
 `;
 
