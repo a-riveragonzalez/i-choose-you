@@ -1,5 +1,6 @@
 const { User, Quiz, Pokemon, Battle } = require('../models');
 const { signToken } = require('../utils/auth');
+const {AuthenticationError} = require("apollo-server-express")
 
 // user, quiz, pokemon, messages, chatroom
 const resolvers = {
