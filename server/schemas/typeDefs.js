@@ -1,21 +1,7 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-  # type Tech {
-  #   _id: ID!
-  #   name: String!
-  # }
-
-  # type Matchup {
-  #   _id: ID!
-  #   tech1: String!
-  #   tech2: String!
-  #   tech1_votes: Int
-  #   tech2_votes: Int
-  # }
-
-  # ******************* do we reference schema only? ******************* # 
-
+  # ******************* Models ******************* # 
   type User {
     _id: ID!
     email: email
@@ -29,7 +15,14 @@ const typeDefs = gql`
     _id: ID!
     user1_id: String!
     user2_id: String!
-    messages: [messageSchema] #is this Messages?
+    messages: [Message] 
+  }
+
+  type Message {
+    _id: ID!
+    user: String!
+    dateCreated: String!
+    messageContent: String!
   }
 
   type Quiz {
@@ -41,18 +34,28 @@ const typeDefs = gql`
     waterPoints: Int
   }
 
-  
+  type Pokemon {
+    _id: ID!
+    pokemonName: String!
+    pokemonType: String!
+    pokemonImg: String!
+  }
 
   # ******************* Schema ******************* # 
 
   type Query {
-    tech: [Tech]
-    matchups(_id: String): [Matchup]
+    users: [User]
+    user: (_id: String): User
+    battles: [Battle]
+    quizzes: [Quiz]
+    pokemongos: [Pokemon]
+    battle(_id: String): Battle 
   }
 
   type Mutation {
-    createMatchup(tech1: String!, tech2: String!): Matchup
-    createVote(_id: String!, techNum: Int!): Matchup
+    createUser(user1: String!, user2: String!): Battle
+    createMessage(user1: String!, user2: String!): Battle
+    createBattle(user1: String!, user2: String!): Battle 
   }
 `;
 
