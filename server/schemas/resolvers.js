@@ -1,28 +1,60 @@
-const { Tech, Matchup } = require('../models');
+const { User, Quiz, Pokemon, Battle } = require('../models');
 
+// user, quiz, pokemon, messages, chatroom
 const resolvers = {
   Query: {
-    tech: async () => {
-      return Tech.find({});
+    // find all users
+    users: async () => {
+      return await User.find({});
     },
-    matchups: async (parent, { _id }) => {
-      const params = _id ? { _id } : {};
-      return Matchup.find(params);
+    // find one user by ID
+    user: async (parent, args) => {
+      return await User.findById(args.id).populate('battle').populate("pokemon").populate("quizResult");
+    },
+    // find all quiz questions
+    quizzes: async () => {
+      return await Quiz.find({});
+    },
+    // find all Pokemon in database
+    pokemongos: async() => {
+      return await Pokemon.find({});
+    },
+    // find battle by ID (populate user ids and messages)
+    battle: async(parent, args) => {
+      return await Battle.findById(args.id).populate('user1_id').populate('user2_id').populate("messages");
+    },
+    // find all battles
+    battles: async () => {
+      return await Battle.find({});
     },
   },
+
   Mutation: {
-    createMatchup: async (parent, args) => {
-      const matchup = await Matchup.create(args);
-      return matchup;
+    createUser: async (parent, args) => {
+      const user = await User.create(args);
+      return user;
     },
-    createVote: async (parent, { _id, techNum }) => {
-      const vote = await Matchup.findOneAndUpdate(
-        { _id },
-        { $inc: { [`tech${techNum}_votes`]: 1 } },
-        { new: true }
-      );
-      return vote;
+    // create new message
+    createMessage: async (parent, {battleId, messageContent}, context) => {
+      if (context.user){
+        return Battle.findOneAndUpdate(
+          {_id: battleId},
+          {
+            $addToSet: {
+              messages: { messageContent, user: context.user._id},
+            },
+          },
+          {new: true,
+          runValidators: true}
+        )
+      }
+      throw new AuthenticationError('You need to be logged in!')
     },
+    // create new battle/chatroom between two users
+    createBattle: async (parent, args) => {
+      const battle = await Battle.create(args);
+      return battle;
+    }
   },
 };
 
