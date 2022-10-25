@@ -12,7 +12,7 @@ db.once('open', async () => {
 
   const pokemongos = await Pokemon.insertMany(pokemonData);
   const quizQuestions = await Quiz.insertMany(quizData);
-  const users = await Pokemon.insertMany(userData);
+  const users = await User.insertMany(userData);
 
   console.log('Database seeded!');
   process.exit(0);
