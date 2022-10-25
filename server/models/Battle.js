@@ -2,11 +2,11 @@ const { Schema, model } = require("mongoose");
 const messageSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
-    ref: "User" 
+    ref: "User",
   },
   dateCreated: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
   messageContent: {
     type: String,
@@ -14,12 +14,14 @@ const messageSchema = new Schema({
 });
 
 const battleSchema = new Schema({
-  user1: {
-    type: String,
+  user1_id: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
     required: true,
   },
-  user2: {
-    type: String,
+  user2_id: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
     required: true,
   },
   messages: [messageSchema],
