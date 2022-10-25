@@ -28,7 +28,7 @@ const typeDefs = gql`
   type Quiz {
     _id: ID!
     question: String!
-    choices: String!
+    choices: [Object]!
     firePoints: Int
     grassPoints: Int
     waterPoints: Int

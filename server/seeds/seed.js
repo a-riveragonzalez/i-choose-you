@@ -1,13 +1,16 @@
 const db = require('../config/connection');
-const { Tech } = require('../models');
+const { User, Pokemon, Quiz } = require('../models');
 
 const pokemonData = require('./pokemonData.json');
+const quizData = require('./quizData.json');
 
 db.once('open', async () => {
-  await Tech.deleteMany({});
+  await Pokemon.deleteMany({});
+  await Quiz.deleteMany({});
 
-  const technologies = await Tech.insertMany(techData);
+  const pokemongos = await Pokemon.insertMany(pokemonData);
+  const quizQuestions = await Quiz.insertmany(quizData);
 
-  console.log('Technologies seeded!');
+  console.log('Database seeded!');
   process.exit(0);
 });
