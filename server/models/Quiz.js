@@ -6,19 +6,19 @@ const quizSchema = new Schema({
     required: true,
     unique: true,
   },
-  choices: {
-    type: String,
+  choices: [{
+    type: Object,
     required: true
-  },
-  firePoints: {
-    type: Number
-  },
-  grassPoints: {
-    type: Number
-  },
-  waterPoints: {
-    type: Number
-  }
+  }]
+  // firePoints: {
+  //   type: Number
+  // },
+  // grassPoints: {
+  //   type: Number
+  // },
+  // waterPoints: {
+  //   type: Number
+  // }
 });
 
 const Quiz = model('Quiz', quizSchema);

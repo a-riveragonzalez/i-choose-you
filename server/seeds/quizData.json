@@ -1,0 +1,67 @@
+[
+  {
+    "question": "Are you an outdoor person or indoor person?",
+    "choices": [
+      { "answer": "Outdoor", "pokemonType": "fire" },
+      { "answer": "Indoors", "pokemonType": "water" },
+      { "answer": "Neither", "pokemonType": "grass" }
+    ]
+  },
+  {
+    "question": "What would you describe your personality as?",
+    "choices": [
+      { "answer": "Kind and caring", "pokemonType": "grass" },
+      { "answer": "Energetic and fun-loving", "pokemonType": "fire" },
+      { "answer": "Mellow and calm", "pokemonType": "water" }
+    ]
+  },
+  {
+    "question": "Your friend did something bad. What do you say to them?",
+    "choices": [
+      { "answer": "Ask them why they did it.", "pokemonType": "fire" },
+      { "answer": "Hear their side of the story.", "pokemonType": "grass" },
+      { "answer": "Just don't get involved.", "pokemonType": "water" }
+    ]
+  },
+  {
+    "question": "Where would you sit in a classroom?",
+    "choices": [
+      { "answer": "Front", "pokemonType": "grass" },
+      { "answer": "Middle", "pokemonType": "water" },
+      { "answer": "Back", "pokemonType": "fire" }
+    ]
+  },
+  {
+    "question": "Which job role would you be in an RPG?",
+    "choices": [
+      { "answer": "Tank", "pokemonType": "water" },
+      { "answer": "Fighter", "pokemonType": "fire" },
+      { "answer": "Healer", "pokemonType": "grass" }
+    ]
+  },
+  {
+    "question": "What sustains you in life?",
+    "choices": [
+      { "answer": "Challenges and goals", "pokemonType": "fire" },
+      { "answer": "Money and stability", "pokemonType": "grass" },
+      { "answer": "Water and food", "pokemonType": "water" }
+    ]
+  },
+  {
+    "question": "What kind of pet would you like to get?",
+    "choices": [
+      { "answer": "Dog", "pokemonType": "fire" },
+      { "answer": "Cat", "pokemonType": "water" },
+      { "answer": "Plants", "pokemonType": "grass" }
+    ]
+  },
+  {
+    "question": "Your birthday is coming up! What are you going to do for the day?",
+    "choices": [
+      { "answer": "Do nothing and just chill eating cake", "pokemonType": "grass" },
+      { "answer": "Stay at home and celebrate with my family", "pokemonType": "water" },
+      { "answer": "Hold a party and invite all my friends!", "pokemonType": "fire" }
+      
+    ]
+  }
+]
