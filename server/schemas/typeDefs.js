@@ -45,16 +45,16 @@ const typeDefs = gql`
 
   type Query {
     users: [User]
-    user: (_id: String): User
+    user(_id: String): User
     battles: [Battle]
+    battle(_id: String): Battle 
     quizzes: [Quiz]
     pokemongos: [Pokemon]
-    battle(_id: String): Battle 
   }
 
   type Mutation {
-    createUser(user1: String!, user2: String!): Battle
-    createMessage(user1: String!, user2: String!): Battle
+    createUser(user: String!): User
+    createMessage(battleId: String!, messageContent: String!): Message
     createBattle(user1: String!, user2: String!): Battle 
   }
 `;
