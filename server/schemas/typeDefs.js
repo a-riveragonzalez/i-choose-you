@@ -42,6 +42,11 @@ const typeDefs = gql`
     pokemonImg: String!
   }
 
+  type Auth{
+    token: ID!
+    user: User
+  }
+
   # ******************* Schema ******************* # 
 
   type Query {
