@@ -1,0 +1,42 @@
+[
+  {
+    "username": "Brock",
+    "password": "Geodude123",
+    "email": "brock@pewter.poke"
+  },
+  {
+    "username": "Misty",
+    "password": "Starmie123",
+    "email": "misty@cerulean.poke"
+  },
+  {
+    "username": "Lt. Surge",
+    "password": "Voltorb123",
+    "email": "ltsurge@vermillion.poke"
+  },
+  {
+    "username": "Erika",
+    "password": "Tangela123",
+    "email": "erika@celadon.poke"
+  },
+  {
+    "username": "Koga",
+    "password": "Weezing123",
+    "email": "koga@fuchsia.poke"
+  },
+  {
+    "username": "Sabrina",
+    "password": "Kadabra123",
+    "email": "sabrina@saffron.poke"
+  },
+  {
+    "username": "Blaine",
+    "password": "Arcanine123",
+    "email": "blaine@cinnabar.poke"
+  },
+  {
+    "username": "Giovanni",
+    "password": "Nidoqueen123",
+    "email": "giovanni@viridian.poke"
+  }
+]
