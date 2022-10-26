@@ -30,9 +30,9 @@ const typeDefs = gql`
     _id: ID!
     question: String!
     choices: [String]!
-    firePoints: Int
-    grassPoints: Int
-    waterPoints: Int
+    # firePoints: Int
+    # grassPoints: Int
+    # waterPoints: Int
   }
 
   type Pokemon {

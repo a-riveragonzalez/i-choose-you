@@ -1,7 +1,7 @@
-import { useQuery, useMutation } from '@apollo/client';
-import { useParams, Link } from 'react-router-dom';
-import { CREATE_VOTE } from '../utils/mutations';
-import { QUERY_MATCHUPS } from '../utils/queries';
+import { useQuery, useMutation } from "@apollo/client";
+import { useParams, Link } from "react-router-dom";
+import { CREATE_VOTE } from "../../utils/mutations";
+import { QUERY_MATCHUPS } from "../../utils/queries";
 
 const Vote = () => {
   let { id } = useParams();
@@ -41,7 +41,7 @@ const Vote = () => {
           </h3>
           <button className="btn btn-info" onClick={() => handleVote(1)}>
             Vote for {matchup[0].tech1}
-          </button>{' '}
+          </button>{" "}
           <button className="btn btn-info" onClick={() => handleVote(2)}>
             Vote for {matchup[0].tech2}
           </button>
