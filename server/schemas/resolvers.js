@@ -11,14 +11,14 @@ const resolvers = {
     },
     // find one user by ID
     user: async (parent, args) => {
-      return await User.findById(args.id)
+      return await User.findById(args._id)
         .populate("battle")
         .populate("pokemon")
         .populate("quizResult");
     },
     // find all quiz questions
     quizzes: async () => {
-      return await Quiz.find({});
+      return await Quiz.find({}).populate("choices");
     },
     // find all Pokemon in database
     pokemongos: async () => {
