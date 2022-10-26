@@ -1,24 +1,55 @@
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+// import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_QUIZ } from "../../utils/queries";
 import "./quiz.css";
 
-
 const Quiz = () => {
-  // const { loading, data } = useQuery(QUERY_MATCHUPS, {
-  //   fetchPolicy: "no-cache",
-  // });
+  let currentQuestionIndex = 0;
+  let firePoints = 0;
+  let waterPoints = 0;
+  let grassPoints = 0;
 
-  const {loading, data} = useQuery(QUERY_QUIZ);
+  const { loading, data } = useQuery(QUERY_QUIZ);
+
+  // console.log(data);
   const quizArray = data?.quizzes || [];
+  // const [currentQuestion, setCurrentQuestion] = useState(quizArray[currentQuestionIndex]);
 
-  // const matchupList = data?.matchups || [];
+
+  function generateQuestionDiv(quiz) {
+    return (
+      <div className="text-box">
+        <h5>{quiz.question}</h5>
+        <ul>
+          <li className="option">{quiz.choices[0].answer}</li>
+          <li className="option">{quiz.choices[1].answer}</li>
+          <li className="option">{quiz.choices[2].answer}</li>
+        </ul>
+      </div>
+    );
+  };
+
+  // const storeAnswer = (event) => {
+  //   event.stopPropagation();
+
+  //   if (event.target === "li"){
+      
+  //     // currentQuestionIndex += 1
+  //   }
+  // };
 
   return (
-    <div className="card bg-white card-rounded w-50">
-      <div className="card-header bg-dark text-center">
-        <h1>Welcome to the Quiz!</h1>
-      </div>
+    <div>
+      {loading ? (
+        <div> Loading... </div>
+      ) : (
+        <div className="questions-container m-1">
+          {/* <button onClick={() => displayQuestions()}> Start Quiz</button> */}
+          {generateQuestionDiv(quizArray[currentQuestionIndex])}
+        </div>
+      )}
+
       {/* <div className="card-body m-5">
         <h2>Here is a list of matchups you can vote on:</h2>
         {loading ? (
@@ -48,3 +79,33 @@ const Quiz = () => {
 };
 
 export default Quiz;
+
+/*
+
+return (
+      <div className="text-box">
+        <h5>{quiz.question}</h5>
+        <ul>
+          <li className="option">{quiz.choices[0].answer}</li>
+          <li className="option">{quiz.choices[1].answer}</li>
+          <li className="option">{quiz.choices[2].answer}</li>
+        </ul>
+      </div>
+    );
+
+
+      // const displayQuestions = () => {
+  //   const quiz = quizArray[currentQuestionIndex];
+  //   console.log(quiz);
+
+  //   generateQuestionDiv(quiz);
+
+  //   if (currentQuestionIndex === quizArray.length - 1) {
+  //     currentQuestionIndex = 0;
+  //     // show quiz result
+  //   } else {
+  //     currentQuestionIndex += 1;
+  //   }
+  // };
+
+*/

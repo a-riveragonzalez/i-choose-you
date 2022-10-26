@@ -40,6 +40,8 @@ export const QUERY_USER = gql`
 export const QUERY_QUIZ = gql`
   query getQuizzes {
     quizzes {
+      _id
+      question
       choices {
         answer
         pokemonType
