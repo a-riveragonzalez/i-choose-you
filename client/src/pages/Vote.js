@@ -1,3 +1,5 @@
+// ********** THIS IS HERE FOR REFERENCE ********** //
+
 import { useQuery, useMutation } from "@apollo/client";
 import { useParams, Link } from "react-router-dom";
 import { CREATE_VOTE } from "../../utils/mutations";
