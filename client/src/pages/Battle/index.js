@@ -1,11 +1,11 @@
-// ********** THIS IS HERE FOR REFERENCE ********** //
-
 import { useQuery, useMutation } from "@apollo/client";
 import { useParams, Link } from "react-router-dom";
 import { CREATE_VOTE } from "../../utils/mutations";
 import { QUERY_MATCHUPS } from "../../utils/queries";
+import "./battle.css";
 
-const Vote = () => {
+
+const Battle = () => {
   let { id } = useParams();
 
   const { loading, data } = useQuery(QUERY_MATCHUPS, {
@@ -29,9 +29,9 @@ const Vote = () => {
   return (
     <div className="card bg-white card-rounded w-50">
       <div className="card-header bg-dark text-center">
-        <h1>Here is the matchup!</h1>
+        <h1>Here is the battle!</h1>
       </div>
-      {loading ? (
+      {/* {loading ? (
         <div>Loading...</div>
       ) : (
         <div className="card-body text-center mt-3">
@@ -57,9 +57,9 @@ const Vote = () => {
           </div>
         </div>
       )}
-      {error && <div>Something went wrong...</div>}
+      {error && <div>Something went wrong...</div>} */}
     </div>
   );
 };
 
-export default Vote;
+export default Battle;
