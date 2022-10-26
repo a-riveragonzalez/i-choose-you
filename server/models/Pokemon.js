@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 const pokemonSchema = new Schema({
-    name: {
+    pokemonName: {
         type: String,
         required: true
     },

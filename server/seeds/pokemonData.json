@@ -1,121 +1,121 @@
 [
   {
-    "name": "Bulbasaur",
+    "pokemonName": "Bulbasaur",
     "pokemonType": "water",
     "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/1.png"
   },
   {
-    "name": "Charmander",
+    "pokemonName": "Charmander",
     "pokemonType": "fire",
     "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/4.png"
   },
   {
-    "name": "Squirtle",
+    "pokemonName": "Squirtle",
     "pokemonType": "water",
     "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/7.png"
   },
   {
-    "name": "Chikorita",
+    "pokemonName": "Chikorita",
     "pokemonType": "grass",
     "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/152.png"
   },
   {
-    "name": "Cyndaquil",
+    "pokemonName": "Cyndaquil",
     "pokemonType": "fire",
     "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/155.png"
   },
   {
-    "name": "Totodile",
+    "pokemonName": "Totodile",
     "pokemonType": "water",
     "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/158.png"
   },
   {
-    "name": "Treecko",
+    "pokemonName": "Treecko",
     "pokemonType": "grass",
     "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/252.png"
   },
   {
-    "name": "Torchic",
+    "pokemonName": "Torchic",
     "pokemonType": "fire",
     "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/255.png"
   },
   {
-    "name": "Mudkip",
+    "pokemonName": "Mudkip",
     "pokemonType": "water",
     "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/258.png"
   },
   {
-    "name": "Turtwig",
+    "pokemonName": "Turtwig",
     "pokemonType": "grass",
     "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/387.png"
   },
   {
-    "name": "Chimchar",
+    "pokemonName": "Chimchar",
     "pokemonType": "fire",
     "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/390.png"
   },
   {
-    "name": "Piplup",
+    "pokemonName": "Piplup",
     "pokemonType": "water",
     "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/393.png"
   },
   {
-    "name": "Snivy",
+    "pokemonName": "Snivy",
     "pokemonType": "grass",
     "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/495.png"
   },
   {
-    "name": "Tepig",
+    "pokemonName": "Tepig",
     "pokemonType": "fire",
     "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/498.png"
   },
   {
-    "name": "Oshawott",
+    "pokemonName": "Oshawott",
     "pokemonType": "water",
     "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/501.png"
   },
   {
-    "name": "Chespin",
+    "pokemonName": "Chespin",
     "pokemonType": "grass",
     "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/650.png"
   },
   {
-    "name": "Fennekin",
+    "pokemonName": "Fennekin",
     "pokemonType": "fire",
     "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/653.png"
   },
   {
-    "name": "Froakie",
+    "pokemonName": "Froakie",
     "pokemonType": "water",
     "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/656.png"
   },
   {
-    "name": "Rowlet",
+    "pokemonName": "Rowlet",
     "pokemonType": "grass",
     "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/722.png"
   },
   {
-    "name": "Litten",
+    "pokemonName": "Litten",
     "pokemonType": "fire",
     "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/725.png"
   },
   {
-    "name": "Popplio",
+    "pokemonName": "Popplio",
     "pokemonType": "water",
     "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/728.png"
   },
   {
-    "name": "Grookey",
+    "pokemonName": "Grookey",
     "pokemonType": "grass",
     "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/810.png"
   },
   {
-    "name": "Scorbunny",
+    "pokemonName": "Scorbunny",
     "pokemonType": "fire",
     "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/813.png"
   },
   {
-    "name": "Sobble",
+    "pokemonName": "Sobble",
     "pokemonType": "water",
     "pokemonImg": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/816.png"
   }

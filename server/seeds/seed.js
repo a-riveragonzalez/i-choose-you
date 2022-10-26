@@ -14,6 +14,8 @@ db.once('open', async () => {
   const quizQuestions = await Quiz.insertMany(quizData);
   const users = await User.insertMany(userData);
 
+  // update quiz with choices 
+
   console.log('Database seeded!');
   process.exit(0);
 });

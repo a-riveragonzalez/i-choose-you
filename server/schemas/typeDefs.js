@@ -29,10 +29,15 @@ const typeDefs = gql`
   type Quiz {
     _id: ID!
     question: String!
-    choices: [String]!
-    # firePoints: Int
-    # grassPoints: Int
-    # waterPoints: Int
+    choices: [Choice] 
+    firePoints: Int
+    grassPoints: Int
+    waterPoints: Int
+  }
+
+  type Choice {
+    answer: String!
+    pokemonType: String!
   }
 
   type Pokemon {
