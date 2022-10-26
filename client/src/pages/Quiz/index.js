@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { QUERY_MATCHUPS } from "../../utils/queries";
+import { QUERY_QUIZ } from "../../utils/queries";
 import "./quiz.css";
 
 
@@ -8,6 +8,9 @@ const Quiz = () => {
   // const { loading, data } = useQuery(QUERY_MATCHUPS, {
   //   fetchPolicy: "no-cache",
   // });
+
+  const {loading, data} = useQuery(QUERY_QUIZ);
+  const quizArray = data?.quizzes || [];
 
   // const matchupList = data?.matchups || [];
 

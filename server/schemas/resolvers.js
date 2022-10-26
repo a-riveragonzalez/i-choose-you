@@ -88,16 +88,3 @@ const resolvers = {
 };
 
 module.exports = resolvers;
-
-/*
-{
-        "_id": "635863027cd585ee119724ed",
-        "email": "garyoak@oak.com",
-        "username": "garyoak",
-        "password": "$2b$10$8m.clWSGkMrOcuU3umqNgOSRDjB2wXVMbAT4C/g.H4EfNAIsF.v9W"
-      }
-
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJuYW1lIjoiZ2FyeW9hayIsImVtYWlsIjoiZ2FyeW9ha0BvYWsuY29tIiwiX2lkIjoiNjM1ODYzMDI3Y2Q1ODVlZTExOTcyNGVkIn0sImlhdCI6MTY2NjczODAxNiwiZXhwIjoxNjczOTM4MDE2fQ.NeB17Nk00aYj5HaZ-cPjyvcCXVTa0xsmcHIXhb4Ml7A
-      
-      635863a51088ee929c0492a6
-      */
