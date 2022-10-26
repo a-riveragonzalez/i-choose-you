@@ -1,0 +1,11 @@
+[
+    {
+      "user1_id": "635984109983ca36ec63edcd",
+      "user2_id": "635984109983ca36ec63edce",
+      "messages": [
+        { "user": "635984109983ca36ec63edcd", "messageContent": "Let's battle" },
+        { "user": "635984109983ca36ec63edce", "messageContent": "As if you can defeat me!" },
+        { "user": "635984109983ca36ec63edcd", "messageContent": "I'll still try!" }
+      ]
+    }
+]
