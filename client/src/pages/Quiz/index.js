@@ -32,11 +32,10 @@ const Quiz = () => {
     }
   }, [currentQuestion]);
 
-  // console.log(data);
 
   function typeWriter() {
     let timer;
-    let timer2;
+    // let timer2;
     if (i < txt.length) {
       console.log(i, txt.length);
       document.querySelector(".question").textContent += txt.charAt(i);
@@ -44,9 +43,7 @@ const Quiz = () => {
       timer = setTimeout(typeWriter, speed);
     } else{
       clearTimeout(timer);
-     
     }
-
   }
 
   const handleOptionClick = (pokemonType) => {
@@ -61,7 +58,6 @@ const Quiz = () => {
         grassPoints += 1;
         break;
     }
-    // typeWriter();
     // console.log(firePoints, waterPoints, grassPoints);
 
     if (currentQuestion < quizArray.length) {
@@ -69,10 +65,10 @@ const Quiz = () => {
       document.querySelector(".question").textContent = "";
     } else {
       console.log("You're done!");
-      //calculate their type via a different function and update the User
+      //TODO: calculate their type via a different function and update the User (may need to make a new mutation)
     }
   };
-  //  typeWriter();
+
 
   return (
     <div>
@@ -104,54 +100,3 @@ const Quiz = () => {
 };
 
 export default Quiz;
-
-/*
-
-return (
-      <div className="text-box">
-        <h5>{quiz.question}</h5>
-        <ul>
-          <li className="option">{quiz.choices[0].answer}</li>
-          <li className="option">{quiz.choices[1].answer}</li>
-          <li className="option">{quiz.choices[2].answer}</li>
-        </ul>
-      </div>
-    );
-
-
-      // const displayQuestions = () => {
-  //   const quiz = quizArray[currentQuestionIndex];
-  //   console.log(quiz);
-
-  //   generateQuestionDiv(quiz);
-
-  //   if (currentQuestionIndex === quizArray.length - 1) {
-  //     currentQuestionIndex = 0;
-  //     // show quiz result
-  //   } else {
-  //     currentQuestionIndex += 1;
-  //   }
-  // };
-
-
-  // function generateQuestionDiv(quiz) {
-  //   return (
-  //     <div className="text-box">
-  //       <h5>{quiz.question}</h5>
-  //       <ul>
-  //         <li className="option">{quiz.choices[0].answer}</li>
-  //         <li className="option">{quiz.choices[1].answer}</li>
-  //         <li className="option">{quiz.choices[2].answer}</li>
-  //       </ul>
-  //     </div>
-  //   );
-  // };
-
-  // const storeAnswer = (event) => {
-  //   event.stopPropagation();
-
-  //   if (event.target === "li"){
-      
-  //     // currentQuestionIndex += 1
-  //   }
-  // };*/
