@@ -18,33 +18,24 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-center align-center min-100-vh bg-primary">
+        <div className="flex-column justify-center align-center min-100-vh ">
           <Header />
           <div className="container">
             <Routes>
               {/* *********** Home Route *********** */}
-              <Route 
-                path="/" 
-                element={<Home />} 
-              />
+              <Route path="/" element={<Home />} />
 
               {/* *********** Login Route *********** */}
-              <Route 
-                path="/login" 
-                element={<Login />} 
-              />
+              <Route path="/login" element={<Login />} />
 
               {/* *********** Quiz Route *********** */}
-              <Route 
-                path="/quiz" 
-                element={<Quiz />} 
-              />
+              <Route path="/quiz" element={<Quiz />} />
+
+              {/* ******************************* All Battle Routes *************************** */}
+              {/* *********** <Route path="/battles" element={<Battle />} /> *********************/}
 
               {/* *********** Battle Route *********** */}
-              <Route 
-                path="/battle/:id" 
-                element={<Battle />} 
-              />
+              <Route path="/battle/:id" element={<Battle />} />
 
               {/* ************************************************************ */}
               {/* <Route 
@@ -53,10 +44,7 @@ function App() {
               /> */}
 
               {/* *********** Wild Card Route *********** */}
-              <Route 
-                path="*" 
-                element={<NotFound />} 
-              />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
           <Footer />

@@ -26,10 +26,13 @@ const resolvers = {
     },
     // find battle by ID (populate user ids and messages)
     battle: async (parent, args) => {
-      return await Battle.findById(args._id)
-        .populate("messages")
-        // .populate("user1_id")
-        // .populate("user2_id")
+      const battleData = await Battle.findById(args._id)
+        .populate("messages").populate({path: "messages", populate: "user"})
+        .populate("user1_id")
+        .populate("user2_id")
+
+      console.log(battleData)
+      return battleData
     },
     // find all battles
     battles: async () => {

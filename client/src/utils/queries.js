@@ -52,15 +52,31 @@ export const QUERY_QUIZ = gql`
 
 // getting battle data
 export const QUERY_BATTLE = gql`
-  query getBattle ($id: String) {
+  query getBattle($id: String) {
     battle(_id: $id) {
-      user1_id
-      user2_id
+      _id
+      user1_id {
+        username
+        pokemon {
+          pokemonImg
+        }
+        _id
+      }
+      user2_id {
+        username
+        pokemon {
+          pokemonImg
+        }
+        _id
+      }
       messages {
-        user
+        _id
         dateCreated
         messageContent
-        _id
+        user {
+          _id
+          username
+        }
       }
     }
   }

@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { useParams, Link } from "react-router-dom";
-import { QUERY_BATTLE} from "../../utils/queries";
-import { CREATE_MESSAGE} from "../../utils/mutations";
+import { QUERY_BATTLE } from "../../utils/queries";
+import { CREATE_MESSAGE } from "../../utils/mutations";
 import "./battle.css";
 
-// battleId : 63599bed8d4594a72080fe11
+// battleId : 635aca1225514e0648c2409a
 const Battle = () => {
   let { id } = useParams();
 
@@ -14,28 +14,29 @@ const Battle = () => {
   });
 
   const messageArray = data?.battle.messages || [];
-  const user1 = data?.battle.user1_id || [];
-  const user2 = data?.battle.user2_id || [];
+  const user1 = data?.battle.user1_id._id || [];
+  const user1Name = data?.battle.user1_id.username || [];
+  const user2 = data?.battle.user2_id._id || [];
+  const user2Name = data?.battle.user2_id.username || [];
 
-  // this is for message input 
-  const [input, setInput] = useState(''); 
+  // this is for message input
+  const [input, setInput] = useState("");
 
   const [createMessage, { error }] = useMutation(CREATE_MESSAGE);
 
-
   // changes the direction of the chat box depending on the user
   const handleTextBoxDirection = (messageUser) => {
-    if (messageUser === user1){
-      return "text-box-right"
+    if (messageUser === user1) {
+      return "text-box-right";
     } else {
-      return "text-box-left"
+      return "text-box-left";
     }
-  } 
+  };
 
-  // handles message input change 
+  // handles message input change
   const handleInputChange = (event) => {
     setInput(event.target.value);
-  }
+  };
 
   // todo handles input message
   const handleFormSubmit = async (event) => {
@@ -43,7 +44,7 @@ const Battle = () => {
 
     // try {
     //   const { data } = await createMessage({
-    //     variables: { "id": id , "messageContent" : input },
+    //     variables: { id: id, messageContent: input },
     //   });
 
     //   navigate(`/matchup/${data.createMatchup._id}`);
@@ -52,7 +53,7 @@ const Battle = () => {
     // }
 
     setInput("");
-  }
+  };
 
   return (
     <div className="battle-room">
@@ -63,7 +64,7 @@ const Battle = () => {
           {/* ************* Battle Title container************* */}
           <div className="battle-header mb-3">
             <h4>
-              {user1} vs. {user2}
+              {user1Name} vs. {user2Name}
             </h4>
           </div>
 
@@ -72,15 +73,20 @@ const Battle = () => {
             <ul className="message-list">
               {messageArray.map((message) => {
                 return (
-                  <li key={message._id} className={`mb-3 text-box-message ${handleTextBoxDirection(message.user)}`}>
-                    <div>{message.user}</div>
+                  <li
+                    key={message._id}
+                    className={`mb-3 text-box-message ${handleTextBoxDirection(
+                      message.user._id
+                    )}`}
+                  >
+                    <div>{message.user.username}</div>
                     <div>{message.messageContent}</div>
                   </li>
                 );
               })}
             </ul>
           </div>
-          
+
           {/* ************* SendMessageForm container************* */}
           <div className="text-white">
             <div className="form-group">
@@ -97,7 +103,7 @@ const Battle = () => {
                 type="submit"
                 onClick={handleFormSubmit}
                 className="btn btn-light message-btn"
-                >
+              >
                 Send
               </button>
             </div>
