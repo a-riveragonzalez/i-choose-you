@@ -70,11 +70,27 @@
     ]
   },
   {
-    "question": "",
+    "question": "It's summer vacation! Where do you want to go?",
     "choices": [
-      { "answer": "", "pokemonType": "grass" },
-      { "answer": "", "pokemonType": "water" },
-      { "answer": "", "pokemonType": "fire" }
+      { "answer": "An amusement park!", "pokemonType": "fire" },
+      { "answer": "Camping!", "pokemonType": "grass" },
+      { "answer": "The beach!", "pokemonType": "water" }
     ]
+  },
+  {
+    "question": "What would you do if you're stressed?",
+    "choices": [
+      { "answer": "Online window shopping", "pokemonType": "water" },
+      { "answer": "Take a break to eat", "pokemonType": "grass" },
+      { "answer": "Get a coffee and continue working", "pokemonType": "fire" }
+    ]
+  },
+  {
+    "question": "You're done! Ready to continue?",
+    "choices": [
+      {"answer": "Yeah", "pokemonType": "water"},
+      {"answer": "Yep!", "pokemonType": "grass"},
+      {"answer": "Yes!!!", "pokemonType": "fire"}
+    ] 
   }
 ]
