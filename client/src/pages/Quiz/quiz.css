@@ -13,12 +13,39 @@
   box-shadow: 0 1px 0 1px black, inset 0 1px 0 1px black, 0 0 0 1px black,
     inset 0 0 0 1px black;
   margin-bottom: 10px;
+  }
+
+/* .choices {
+  overflow: hidden; 
+  margin: 0 auto; 
+  letter-spacing: .15em; 
+  animation: 
+    typing 3.5s steps(30, end),
+    .5s step-end infinite;
+}
+
+.question {
+  overflow: hidden; 
+  margin: 0 auto; 
+  letter-spacing: .15em; 
+  animation: 
+    typing 3.5s steps(30, end),
+    .5s step-end infinite;
+} */
+
+.arrow {
+  display: none;
 }
 
 .option:hover{
   background-color: grey;
   color: white;
   cursor: pointer;
+}
+
+.option:hover .arrow {
+  display: inline;
+  font-size: 20px;
 }
 
 @keyframes bounce {
@@ -28,4 +55,9 @@
   to {
     margin-top: 23px;
   }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
 }
