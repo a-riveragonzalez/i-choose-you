@@ -10,10 +10,16 @@ const resolvers = {
       return await User.find({});
     },
     // find one user by ID
-    user: async (parent, args) => {
-      return await User.findById(args._id)
+    user: async (parent, args, context) => {
+      
+      const userData = await User.findById(context.user._id)
         .populate("battle")
-        .populate("pokemon");
+        .populate("pokemon")
+        .populate("quizResult");
+        console.log(userData)
+        console.log(context)
+
+        return userData
     },
     // find all quiz questions
     quizzes: async () => {
