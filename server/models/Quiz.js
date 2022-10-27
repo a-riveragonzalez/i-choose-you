@@ -3,18 +3,18 @@ const { Schema, model } = require('mongoose');
 const choiceSchema = new Schema ({
   answer: {
     type: String,
-    required: true,
+    // required: true,
   },
   pokemonType: {
     type: String,
-    required: true,
+    // required: true,
   },
 });
 
 const quizSchema = new Schema({
   question: {
     type: String,
-    required: true,
+    // required: true,
     unique: true,
   },
   choices: [choiceSchema],

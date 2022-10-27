@@ -1,5 +1,11 @@
 [
   {
+    "question": "Welcome",
+    "choices": [
+      {"answer": "Ready?", "pokemonType": "normal"}
+    ] 
+  },
+  {
     "question": "Are you an outdoor person or indoor person?",
     "choices": [
       { "answer": "Outdoor", "pokemonType": "fire" },
@@ -61,7 +67,14 @@
       { "answer": "Do nothing and just chill eating cake", "pokemonType": "grass" },
       { "answer": "Stay at home and celebrate with my family", "pokemonType": "water" },
       { "answer": "Hold a party and invite all my friends!", "pokemonType": "fire" }
-      
+    ]
+  },
+  {
+    "question": "",
+    "choices": [
+      { "answer": "", "pokemonType": "grass" },
+      { "answer": "", "pokemonType": "water" },
+      { "answer": "", "pokemonType": "fire" }
     ]
   }
 ]

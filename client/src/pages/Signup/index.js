@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
-import { LOGIN } from '../../utils/mutations';
-import { CREATE_USER } from '../../utils/mutations';
-import "./login.css";
-import AuthService from '../../utils/auth';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
 
-const Login = (props) => {
-  const [formState, setFormState] = useState({ email: '', password: '' });
-  const [login, { error, data }] = useMutation(LOGIN);
+import { CREATE_USER } from "../../utils/mutations";
+import "./signup.css";
+import AuthService from "../../utils/auth";
 
-  // update state based on form input changes
+const Signup = () => {
+  const [formState, setFormState] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+  const [createUser, { error, data }] = useMutation(CREATE_USER);
+
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -20,40 +23,42 @@ const Login = (props) => {
     });
   };
 
-  // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(formState);
+
     try {
-      const { data } = await login({
+      const { data } = await createUser({
         variables: { ...formState },
       });
 
-      AuthService.login(data.login.token);
+      AuthService.login(data.createUser.token);
     } catch (e) {
       console.error(e);
     }
-
-    // clear form values
-    setFormState({
-      email: '',
-      password: '',
-    });
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
+    <main clasnpmsName="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
         <div className="card">
-          <h4 className="card-head p-2">L o g i n</h4>
+          <h4 className="card-head p-2">S i g n U p</h4>
           <div className="card-body">
             {data ? (
               <p>
-                Success! You may now head{' '}
+                Success! You may now head{" "}
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>
+                <input
+                  className="form-input"
+                  placeholder="Your username"
+                  name="username"
+                  type="text"
+                  value={formState.name}
+                  onChange={handleChange}
+                />
                 <input
                   className="form-input"
                   placeholder="Your email"
@@ -72,7 +77,7 @@ const Login = (props) => {
                 />
                 <button
                   className="btn btn-block btn-primary"
-                  style={{ cursor: 'pointer' }}
+                  style={{ cursor: "pointer" }}
                   type="submit"
                 >
                   Submit
@@ -92,4 +97,4 @@ const Login = (props) => {
   );
 };
 
-export default Login;
+export default Signup;

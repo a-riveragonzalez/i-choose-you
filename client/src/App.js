@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import Battle from "./pages/Battle";
+import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
@@ -33,6 +34,9 @@ function App() {
 
               {/* ******************************* All Battle Routes *************************** */}
               {/* *********** <Route path="/battles" element={<Battle />} /> *********************/}
+
+
+              <Route path="/signup" element={<Signup />} />
 
               {/* *********** Battle Route *********** */}
               <Route path="/battle/:id" element={<Battle />} />
