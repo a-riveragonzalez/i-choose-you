@@ -52,7 +52,7 @@ export const QUERY_QUIZ = gql`
 
 // getting battle data
 export const QUERY_BATTLE = gql`
-  query getBattle {
+  query getBattle ($id: String) {
     battle(_id: $id) {
       user1_id
       user2_id
@@ -60,6 +60,7 @@ export const QUERY_BATTLE = gql`
         user
         dateCreated
         messageContent
+        _id
       }
     }
   }

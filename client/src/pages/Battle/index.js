@@ -1,61 +1,109 @@
+import React, { useState } from 'react';
 import { useQuery, useMutation } from "@apollo/client";
 import { useParams, Link } from "react-router-dom";
+import { QUERY_BATTLE} from "../../utils/queries";
+import { CREATE_MESSAGE} from "../../utils/mutations";
 import "./battle.css";
 
-
+// battleId : 63599bed8d4594a72080fe11
 const Battle = () => {
   let { id } = useParams();
 
-  // const { loading, data } = useQuery(QUERY_MATCHUPS, {
-  //   variables: { _id: id },
-  // });
+  const { loading, data } = useQuery(QUERY_BATTLE, {
+    variables: { id: id },
+  });
 
-  // const matchup = data?.matchups || [];
+  const messageArray = data?.battle.messages || [];
+  const user1 = data?.battle.user1_id || [];
+  const user2 = data?.battle.user2_id || [];
 
-  // const [createVote, { error }] = useMutation(CREATE_VOTE);
+  // this is for message input 
+  const [input, setInput] = useState(''); 
 
-  // const handleVote = async (techNum) => {
-  //   try {
-  //     await createVote({
-  //       variables: { _id: id, techNum: techNum },
-  //     });
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
+  const [createMessage, { error }] = useMutation(CREATE_MESSAGE);
+
+
+  // changes the direction of the chat box depending on the user
+  const handleTextBoxDirection = (messageUser) => {
+    if (messageUser === user1){
+      return "text-box-right"
+    } else {
+      return "text-box-left"
+    }
+  } 
+
+  // handles message input change 
+  const handleInputChange = (event) => {
+    setInput(event.target.value);
+  }
+
+  // todo handles input message
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    // try {
+    //   const { data } = await createMessage({
+    //     variables: { "id": id , "messageContent" : input },
+    //   });
+
+    //   navigate(`/matchup/${data.createMatchup._id}`);
+    // } catch (err) {
+    //   console.error(err);
+    // }
+
+    setInput("");
+  }
 
   return (
-    <div className="card bg-white card-rounded w-50">
-      <div className="card-header bg-dark text-center">
-        <h1>Here is the battle!</h1>
-      </div>
-      {/* {loading ? (
-        <div>Loading...</div>
+    <div className="battle-room">
+      {loading ? (
+        <div> loading </div>
       ) : (
-        <div className="card-body text-center mt-3">
-          <h2>
-            {matchup[0].tech1} vs. {matchup[0].tech2}
-          </h2>
-          <h3>
-            {matchup[0].tech1_votes} : {matchup[0].tech2_votes}
-          </h3>
-          <button className="btn btn-info" onClick={() => handleVote(1)}>
-            Vote for {matchup[0].tech1}
-          </button>{" "}
-          <button className="btn btn-info" onClick={() => handleVote(2)}>
-            Vote for {matchup[0].tech2}
-          </button>
-          <div className="card-footer text-center m-3">
-            <br></br>
-            <Link to="/">
-              <button className="btn btn-lg btn-danger">
-                View all matchups
-              </button>
-            </Link>
+        <section className="container">
+          {/* ************* Battle Title container************* */}
+          <div className="battle-header mb-3">
+            <h4>
+              {user1} vs. {user2}
+            </h4>
           </div>
-        </div>
+
+          {/* ************* MessageList container************* */}
+          <div className="text-white">
+            <ul className="message-list">
+              {messageArray.map((message) => {
+                return (
+                  <li key={message._id} className={`mb-3 text-box-message ${handleTextBoxDirection(message.user)}`}>
+                    <div>{message.user}</div>
+                    <div>{message.messageContent}</div>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+          
+          {/* ************* SendMessageForm container************* */}
+          <div className="text-white">
+            <div className="form-group">
+              <textarea
+                name="message"
+                value={input}
+                onChange={handleInputChange}
+                type="text"
+                placeholder="message"
+                className="form-control text-box-message"
+                rows="3"
+              />
+              <button
+                type="submit"
+                onClick={handleFormSubmit}
+                className="btn btn-light message-btn"
+                >
+                Send
+              </button>
+            </div>
+          </div>
+        </section>
       )}
-      {error && <div>Something went wrong...</div>} */}
     </div>
   );
 };

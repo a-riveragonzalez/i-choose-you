@@ -14,8 +14,8 @@ const typeDefs = gql`
 
   type Battle {
     _id: ID!
-    user1_id: String!
-    user2_id: String!
+    user1_id: String
+    user2_id: String
     messages: [Message] 
   }
 
