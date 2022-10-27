@@ -4,40 +4,53 @@ import { useQuery } from "@apollo/client";
 import { QUERY_QUIZ } from "../../utils/queries";
 import "./quiz.css";
 
+let firePoints = 0;
+let waterPoints = 0;
+let grassPoints = 0;
+
 const Quiz = () => {
   let currentQuestionIndex = 0;
-  let firePoints = 0;
-  let waterPoints = 0;
-  let grassPoints = 0;
+  let speed = 50;
+  let i = 0;
 
   const { loading, data } = useQuery(QUERY_QUIZ);
 
   // console.log(data);
   const quizArray = data?.quizzes || [];
-  // const [currentQuestion, setCurrentQuestion] = useState(quizArray[currentQuestionIndex]);
+  const [currentQuestion, setCurrentQuestion] = useState(0);
 
+  function typeWriter() {
+    let txt = document.querySelector(".text-box").innerHTML;
+    if (i < txt.length) {
+      document.querySelector(".text-box").innerHTML += txt.charAt(i);
+      i++;
+      setTimeout(typeWriter, speed);
+    }
+  }
 
-  function generateQuestionDiv(quiz) {
-    return (
-      <div className="text-box">
-        <h5>{quiz.question}</h5>
-        <ul>
-          <li className="option">{quiz.choices[0].answer}</li>
-          <li className="option">{quiz.choices[1].answer}</li>
-          <li className="option">{quiz.choices[2].answer}</li>
-        </ul>
-      </div>
-    );
+  const handleOptionClick = (pokemonType) => {
+    switch (pokemonType) {
+      case "fire":
+        firePoints += 1;
+        break;
+      case "water":
+        waterPoints += 1;
+        break;
+      case "grass":
+        grassPoints += 1;
+        break;
+    }
+
+    // console.log(firePoints, waterPoints, grassPoints);
+
+    if (currentQuestion < quizArray.length) {
+      setCurrentQuestion(currentQuestion + 1);
+      // typeWriter();
+    } else {
+      console.log("You're done!");
+      //calculate their type via a different function and update the User
+    }
   };
-
-  // const storeAnswer = (event) => {
-  //   event.stopPropagation();
-
-  //   if (event.target === "li"){
-      
-  //     // currentQuestionIndex += 1
-  //   }
-  // };
 
   return (
     <div>
@@ -45,35 +58,22 @@ const Quiz = () => {
         <div> Loading... </div>
       ) : (
         <div className="questions-container m-1">
-          {/* <button onClick={() => displayQuestions()}> Start Quiz</button> */}
-          {generateQuestionDiv(quizArray[currentQuestionIndex])}
+          <div className="text-box">
+            {quizArray[currentQuestion].question}
+            <ul>
+              {quizArray[currentQuestion].choices.map((choice) => (
+                <li
+                  className="option"
+                  onClick={() => handleOptionClick(choice.pokemonType)}
+                  key={(currentQuestionIndex += 1)}
+                >
+                  {choice.answer}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       )}
-
-      {/* <div className="card-body m-5">
-        <h2>Here is a list of matchups you can vote on:</h2>
-        {loading ? (
-          <div>Loading...</div>
-        ) : (
-          <ul className="square">
-            {matchupList.map((matchup) => {
-              return (
-                <li key={matchup._id}>
-                  <Link to={{ pathname: `/matchup/${matchup._id}` }}>
-                    {matchup.tech1} vs. {matchup.tech2}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        )}
-      </div>
-      <div className="card-footer text-center m-3">
-        <h2>Ready to create a new matchup?</h2>
-        <Link to="/matchup">
-          <button className="btn btn-lg btn-danger">Create Matchup!</button>
-        </Link>
-      </div> */}
     </div>
   );
 };
@@ -108,4 +108,25 @@ return (
   //   }
   // };
 
-*/
+
+  // function generateQuestionDiv(quiz) {
+  //   return (
+  //     <div className="text-box">
+  //       <h5>{quiz.question}</h5>
+  //       <ul>
+  //         <li className="option">{quiz.choices[0].answer}</li>
+  //         <li className="option">{quiz.choices[1].answer}</li>
+  //         <li className="option">{quiz.choices[2].answer}</li>
+  //       </ul>
+  //     </div>
+  //   );
+  // };
+
+  // const storeAnswer = (event) => {
+  //   event.stopPropagation();
+
+  //   if (event.target === "li"){
+      
+  //     // currentQuestionIndex += 1
+  //   }
+  // };*/
