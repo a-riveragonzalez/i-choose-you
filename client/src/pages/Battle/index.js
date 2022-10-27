@@ -1,6 +1,8 @@
+import React, { useState } from 'react';
 import { useQuery, useMutation } from "@apollo/client";
 import { useParams, Link } from "react-router-dom";
-import { QUERY_BATTLE, QUERY_USERS } from "../../utils/queries";
+import { QUERY_BATTLE} from "../../utils/queries";
+import { CREATE_MESSAGE} from "../../utils/mutations";
 import "./battle.css";
 
 // battleId : 63599bed8d4594a72080fe11
@@ -15,6 +17,12 @@ const Battle = () => {
   const user1 = data?.battle.user1_id || [];
   const user2 = data?.battle.user2_id || [];
 
+  // this is for message input 
+  const [input, setInput] = useState(''); 
+
+  const [createMessage, { error }] = useMutation(CREATE_MESSAGE);
+
+
   // changes the direction of the chat box depending on the user
   const handleTextBoxDirection = (messageUser) => {
     if (messageUser === user1){
@@ -24,6 +32,27 @@ const Battle = () => {
     }
   } 
 
+  // handles message input change 
+  const handleInputChange = (event) => {
+    setInput(event.target.value);
+  }
+
+  // todo handles input message
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    // try {
+    //   const { data } = await createMessage({
+    //     variables: { "id": id , "messageContent" : input },
+    //   });
+
+    //   navigate(`/matchup/${data.createMatchup._id}`);
+    // } catch (err) {
+    //   console.error(err);
+    // }
+
+    setInput("");
+  }
 
   return (
     <div className="battle-room">
@@ -57,19 +86,20 @@ const Battle = () => {
             <div className="form-group">
               <textarea
                 name="message"
-                // onChange={handleInputChange}
+                value={input}
+                onChange={handleInputChange}
                 type="text"
                 placeholder="message"
                 className="form-control text-box-message"
                 rows="3"
               />
               <button
-              type="submit"
-              // onClick={handleFormSubmit}
-              className="btn btn-light message-btn"
-            >
-              Send
-            </button>
+                type="submit"
+                onClick={handleFormSubmit}
+                className="btn btn-light message-btn"
+                >
+                Send
+              </button>
             </div>
           </div>
         </section>
