@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const CREATE_MESSAGE = gql`
   mutation createMessage($battleId: String!, $messageContent: String!) {
@@ -46,6 +46,16 @@ export const LOGIN = gql`
       user {
         username
       }
+    }
+  }
+`;
+
+export const UPDATE_USER_TYPE = gql`
+  mutation UPDATE_USER_TYPE($pokemonType: String!) {
+    updateUserType(pokemonType: $pokemonType) {
+      username
+      quizResult
+      email
     }
   }
 `;
