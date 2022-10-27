@@ -1,0 +1,11 @@
+
+/* ************* Battle Title container************* */
+.matches-header {
+  text-align: center;
+  font-family: "Pokemon Solid", sans-serif;
+  color: rgb(255, 196, 0);
+  height: fit-content;
+  text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
+  letter-spacing: 4px;
+
+}
