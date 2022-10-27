@@ -1,45 +1,51 @@
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useParams, Navigate } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { QUERY_MATCHUPS } from "../../utils/queries";
-import "./home.css";
 
+import { QUERY_USER } from "../../utils/queries";
+import "./home.css";
+import AuthService from "../../utils/auth";
 
 const Home = () => {
-  // const { loading, data } = useQuery(QUERY_MATCHUPS, {
-  //   fetchPolicy: "no-cache",
-  // });
+  const { loading, data } = useQuery(QUERY_USER);
+  console.log(data);
 
-  // const matchupList = data?.matchups || [];
+  const userData = data?.user || {};
+  // navigate to personal profile page if username is yours
+  // if (AuthService.loggedIn() && AuthService.getProfile().data.username === userParam) {
+  //   return <Navigate to="/" />;
+  // }
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  // if (!user?.username) {
+  //   return (
+  //     <h4>
+  //       You need to be logged in to see this. Use the navigation links above to
+  //       sign up or log in!
+  //     </h4>
+  //   );
+  // }
 
   return (
-    <div className="card bg-white card-rounded w-50">
-      <div className="card-header bg-dark text-center">
-        <h1>Welcome to the home screen!</h1>
+    <div>
+      <div className="flex-row justify-center mb-3">
+        <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
+          Viewing {userData.username ? `${userData.username}'s` : "your"}{" "}
+          profile.
+        </h2>
+
+        <div className="col-12 col-md-10 mb-5">
+          {/* <ThoughtList
+            thoughts={user.thoughts}
+            title={`${user.username}'s thoughts...`}
+            showTitle={false}
+            showUsername={false}
+          /> */}
+        </div>
       </div>
-      {/* <div className="card-body m-5">
-        <h2>Here is a list of matchups you can vote on:</h2>
-        {loading ? (
-          <div>Loading...</div>
-        ) : (
-          <ul className="square">
-            {matchupList.map((matchup) => {
-              return (
-                <li key={matchup._id}>
-                  <Link to={{ pathname: `/matchup/${matchup._id}` }}>
-                    {matchup.tech1} vs. {matchup.tech2}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        )}
-      </div>
-      <div className="card-footer text-center m-3">
-        <h2>Ready to create a new matchup?</h2>
-        <Link to="/matchup">
-          <button className="btn btn-lg btn-danger">Create Matchup!</button>
-        </Link>
-      </div> */}
     </div>
   );
 };

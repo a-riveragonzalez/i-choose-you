@@ -17,7 +17,7 @@ export const QUERY_USERS = gql`
 // getting for user dashboard and profile
 export const QUERY_USER = gql`
   query getUser {
-    user(_id: $id) {
+    user {
       username
       quizResult {
         firePoints
