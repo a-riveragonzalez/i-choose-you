@@ -58,6 +58,7 @@ export const QUERY_BATTLE = gql`
         user
         dateCreated
         messageContent
+        _id
       }
     }
   }
