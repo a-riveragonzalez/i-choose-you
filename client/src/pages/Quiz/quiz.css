@@ -1,31 +1,31 @@
-#box {
-    font-size: 8px;
-    font-family: 'DePixel', sans-serif;
-    color: black;
-    border-radius: 2px;
-    padding: 8px;
-    width: 250px;
-    height: 28px;
-    line-height: 16px;
-    margin: auto;
-    background: white;
-    border: 1px solid white;
-    box-shadow: 0 1px 0 1px black,
-                inset 0 1px 0 1px black,
-                0 0 0 1px black,
-                inset 0 0 0 1px black;
+.text-box {
+  font-size: 16px;
+  font-family: "DePixel", sans-serif;
+  color: black;
+  border-radius: 2px;
+  padding: 8px;
+  width: 400px;
+  /* max-height: 28px;
+  line-height: 16px; */
+  margin: auto;
+  background: white;
+  border: 1px solid white;
+  box-shadow: 0 1px 0 1px black, inset 0 1px 0 1px black, 0 0 0 1px black,
+    inset 0 0 0 1px black;
+  margin-bottom: 10px;
+}
+
+.option:hover{
+  background-color: grey;
+  color: white;
+  cursor: pointer;
+}
+
+@keyframes bounce {
+  from {
+    margin-top: 20px;
   }
-  #box > i {
-    width: 0;
-    height: 0;
-    border: 5px solid transparent;
-    border-top-color: black;
+  to {
     margin-top: 23px;
-    animation: bounce 0.5s ease-in-out 0 infinite alternate;
-    float: right;
   }
-  
-  @keyframes bounce {
-    from { margin-top: 20px; }
-    to { margin-top: 23px; }
-  }
+}
