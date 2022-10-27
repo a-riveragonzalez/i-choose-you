@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 // import { Link } from "react-router-dom";
 import ListGroup from "react-bootstrap/ListGroup";
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_QUIZ } from "../../utils/queries";
+import { UPDATE_USER_TYPE } from "../../utils/mutations";
 import "./quiz.css";
 
-let firePoints = 0;
-let waterPoints = 0;
-let grassPoints = 0;
+let firePoints = { points: 0, pokemonType: "fire" };
+let waterPoints = { points: 0, pokemonType: "water" };
+let grassPoints = { points: 0, pokemonType: "grass" };
 
 const Quiz = () => {
   let currentQuestionIndex = 0;
@@ -16,32 +17,32 @@ const Quiz = () => {
   // let j = 0;
 
   const { loading, data } = useQuery(QUERY_QUIZ);
+  const [updateUserType, { error }] = useMutation(UPDATE_USER_TYPE);
   const quizArray = data?.quizzes || [];
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [userType, setUserType] = useState("");
+
   let txt;
   // let txt2;
-  
+
   useEffect(() => {
-    if (currentQuestion > 0) {
+    if (currentQuestion > 0 && currentQuestion < quizArray.length) {
       txt = quizArray[currentQuestion].question;
       // for (let i = 0; i<quizArray[currentQuestion].choices.length; i++){
       //   txt2 += quizArray[currentQuestion].choices[i].answer;
       // }
       typeWriter();
-      console.log("State updated");
     }
   }, [currentQuestion]);
-
 
   function typeWriter() {
     let timer;
     // let timer2;
     if (i < txt.length) {
-      console.log(i, txt.length);
       document.querySelector(".question").textContent += txt.charAt(i);
       i++;
       timer = setTimeout(typeWriter, speed);
-    } else{
+    } else {
       clearTimeout(timer);
     }
   }
@@ -49,26 +50,77 @@ const Quiz = () => {
   const handleOptionClick = (pokemonType) => {
     switch (pokemonType) {
       case "fire":
-        firePoints += 1;
+        firePoints.points += 1;
         break;
       case "water":
-        waterPoints += 1;
+        waterPoints.points += 1;
         break;
       case "grass":
-        grassPoints += 1;
+        grassPoints.points += 1;
         break;
     }
     // console.log(firePoints, waterPoints, grassPoints);
-
+    if (currentQuestion === 11) {
+      setUserType(calculateType().pokemonType);
+      console.log(userType);
+      // updateUserType(userType);
+      //TODO: calculate their type via a different function and update the User (may need to make a new mutation)
+    }
     if (currentQuestion < quizArray.length) {
       setCurrentQuestion(currentQuestion + 1);
       document.querySelector(".question").textContent = "";
-    } else {
-      console.log("You're done!");
-      //TODO: calculate their type via a different function and update the User (may need to make a new mutation)
     }
   };
 
+  const calculateType = () => {
+    let possibleTypes = [];
+    let pokemonType;
+
+    if (
+      firePoints.points !== grassPoints.points &&
+      firePoints.points !== waterPoints.points
+    ) {
+      if (
+        firePoints.points > grassPoints.points &&
+        firePoints.points > waterPoints.points
+      ) {
+        pokemonType = firePoints;
+      } else if (
+        grassPoints.points > firePoints.points &&
+        grassPoints.points > waterPoints.points
+      ) {
+        pokemonType = grassPoints;
+      } else if (
+        waterPoints.points > firePoints.points &&
+        waterPoints.points > grassPoints.points
+      ) {
+        pokemonType = waterPoints;
+      }
+    } else if (
+      firePoints.points === grassPoints.points &&
+      firePoints.points !== waterPoints.points
+    ) {
+      possibleTypes = [firePoints, grassPoints];
+      pokemonType =
+        possibleTypes[Math.floor(Math.random() * possibleTypes.length)];
+    } else if (
+      firePoints.points === waterPoints.points &&
+      firePoints.points !== grassPoints.points
+    ) {
+      possibleTypes = [firePoints, waterPoints];
+      pokemonType =
+        possibleTypes[Math.floor(Math.random() * possibleTypes.length)];
+    } else if (
+      grassPoints.points === waterPoints.points &&
+      firePoints.points !== grassPoints.points
+    ) {
+      possibleTypes = [grassPoints, waterPoints];
+      pokemonType =
+        possibleTypes[Math.floor(Math.random() * possibleTypes.length)];
+    }
+
+    return pokemonType;
+  };
 
   return (
     <div>
@@ -76,23 +128,29 @@ const Quiz = () => {
         <div> Loading... </div>
       ) : (
         <div className="questions-container m-1">
-          <div className="text-box">
-            <div className="question">
-              
+          {console.log(currentQuestion)}
+          {currentQuestion < quizArray.length ? (
+            <div className="text-box">
+              <div className="question"></div>
+              <ListGroup className="choices">
+                {quizArray[currentQuestion].choices.map((choice) => (
+                  <ListGroup.Item
+                    className="option"
+                    onClick={() => handleOptionClick(choice.pokemonType)}
+                    key={(currentQuestionIndex += 1)}
+                  >
+                    <span className="arrow">{"> "}</span>
+                    {choice.answer}
+                  </ListGroup.Item>
+                ))}
+              </ListGroup>
             </div>
-            <ListGroup className="choices">
-              {quizArray[currentQuestion].choices.map((choice) => (
-                <ListGroup.Item
-                  className="option"
-                  onClick={() => handleOptionClick(choice.pokemonType)}
-                  key={(currentQuestionIndex += 1)}
-                >
-                  <span className="arrow">{"> "}</span>
-                  {choice.answer}
-                </ListGroup.Item>
-              ))}
-            </ListGroup>
-          </div>
+          ) : (
+            <div className="results text-box">
+              <div>You are most likely to be a {userType} type!</div>
+              <button>Continue</button>
+            </div>
+          )}
         </div>
       )}
     </div>

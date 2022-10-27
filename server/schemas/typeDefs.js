@@ -7,7 +7,7 @@ const typeDefs = gql`
     email: String!
     username: String!
     password: String!
-    quizResult: Quiz
+    pokemonType: String
     pokemon: Pokemon
     battle: [Battle]
   }
@@ -71,6 +71,8 @@ const typeDefs = gql`
     createBattle(user1_id: String!, user2_id: String!): Battle 
 
     login(email: String!, password: String!): Auth
+
+    updateUserType(pokemonType: String): User
   }
 `;
 

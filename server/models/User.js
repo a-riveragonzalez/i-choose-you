@@ -17,9 +17,8 @@ const userSchema = new Schema({
     required: true,
     unique: true,
   },
-  quizResult: {
-    type: Schema.Types.ObjectId,
-    ref: "Quiz",
+  pokemonType: {
+    type: String,
   },
   pokemon: {
     type: Schema.Types.ObjectId,
