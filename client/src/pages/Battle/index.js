@@ -15,8 +15,14 @@ const Battle = () => {
   const user1 = data?.battle.user1_id || [];
   const user2 = data?.battle.user2_id || [];
 
-  // if message.user === user1 then add class text box right else add class text box left 
-
+  // changes the direction of the chat box depending on the user
+  const handleTextBoxDirection = (messageUser) => {
+    if (messageUser === user1){
+      return "text-box-right"
+    } else {
+      return "text-box-left"
+    }
+  } 
 
 
   return (
@@ -26,7 +32,7 @@ const Battle = () => {
       ) : (
         <section className="container">
           {/* ************* Battle Title container************* */}
-          <div className="text-danger">
+          <div className="battle-header mb-3">
             <h4>
               {user1} vs. {user2}
             </h4>
@@ -37,7 +43,7 @@ const Battle = () => {
             <ul className="message-list">
               {messageArray.map((message) => {
                 return (
-                  <li key={message._id} className="text-box-message text-box-left">
+                  <li key={message._id} className={`mb-3 text-box-message ${handleTextBoxDirection(message.user)}`}>
                     <div>{message.user}</div>
                     <div>{message.messageContent}</div>
                   </li>
@@ -60,7 +66,7 @@ const Battle = () => {
               <button
               type="submit"
               // onClick={handleFormSubmit}
-              className="btn btn-light"
+              className="btn btn-light message-btn"
             >
               Send
             </button>
