@@ -14,14 +14,14 @@ const typeDefs = gql`
 
   type Battle {
     _id: ID!
-    user1_id: String
-    user2_id: String
+    user1_id: User
+    user2_id: User
     messages: [Message] 
   }
 
   type Message {
     _id: ID!
-    user: String!
+    user: User
     dateCreated: String
     messageContent: String!
   }

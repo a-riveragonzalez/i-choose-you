@@ -19,7 +19,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-center align-center min-100-vh bg-primary">
+        <div className="flex-column justify-center align-center min-100-vh ">
           <Header />
           <div className="container">
             <Routes>
@@ -29,10 +29,14 @@ function App() {
               {/* *********** Login Route *********** */}
               <Route path="/login" element={<Login />} />
 
-              <Route path="/signup" element={<Signup />} />
-
               {/* *********** Quiz Route *********** */}
               <Route path="/quiz" element={<Quiz />} />
+
+              {/* ******************************* All Battle Routes *************************** */}
+              {/* *********** <Route path="/battles" element={<Battle />} /> *********************/}
+
+
+              <Route path="/signup" element={<Signup />} />
 
               {/* *********** Battle Route *********** */}
               <Route path="/battle/:id" element={<Battle />} />

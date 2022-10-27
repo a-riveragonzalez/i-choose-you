@@ -1,5 +1,4 @@
 const { Schema, model } = require("mongoose");
-const User = require("./User")
 
 const messageSchema = new Schema({
   user: {
@@ -26,8 +25,6 @@ const battleSchema = new Schema({
     ref: "User",
     required: true,
   },
-  // user1_id: ,
-  // user2_id: ,
   messages: [messageSchema],
 });
 

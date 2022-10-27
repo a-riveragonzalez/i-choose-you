@@ -1,22 +1,11 @@
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
 import "./footer.css";
 
 
 const Footer = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
   return (
-    <footer className="w-100 mt-auto bg-secondary p-4">
-      <div className="container text-center mb-5">
-        {location.pathname !== '/' && (
-          <button
-            className="btn btn-dark mb-3"
-            onClick={() => navigate(-1)}
-          >
-            &larr; Go Back
-          </button>
-        )}
+    <footer className="w-100 mt-auto p-4">
+      <div className="text-center mb-5 footer-font">
         <h4>
           Made with{' '}
           <span
@@ -27,7 +16,7 @@ const Footer = () => {
           >
             ❤️
           </span>{' '}
-          by the Tech Thoughts team.
+          by the Team Rocket 
         </h4>
       </div>
     </footer>
