@@ -1,0 +1,33 @@
+.text-box-message {
+  font-size: 16px;
+  font-family: "DePixel", sans-serif;
+  color: black;
+  border-radius: 2px;
+  padding: 8px;
+  /* width: 400px; */
+  background: white;
+  border: 1px solid white;
+  box-shadow: 0 1px 0 1px black, inset 0 1px 0 1px black, 0 0 0 1px black,
+    inset 0 0 0 1px black;
+}
+
+.text-box-right {
+  margin-left: auto;
+  margin-right: 0;
+  width: 400px;
+}
+
+.text-box-left {
+  margin-right: auto;
+  margin-left: 0;
+  width: 400px;
+}
+
+.message-list {
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+.form-control {
+  width: 100%;
+}

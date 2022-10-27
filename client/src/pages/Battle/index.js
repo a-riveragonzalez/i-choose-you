@@ -1,7 +1,6 @@
 import { useQuery, useMutation } from "@apollo/client";
 import { useParams, Link } from "react-router-dom";
 import { QUERY_BATTLE, QUERY_USERS } from "../../utils/queries";
-import Form from "react-bootstrap/Form";
 import "./battle.css";
 
 // battleId : 63599bed8d4594a72080fe11
@@ -11,13 +10,14 @@ const Battle = () => {
   const { loading, data } = useQuery(QUERY_BATTLE, {
     variables: { id: id },
   });
-  console.log(data);
 
   const messageArray = data?.battle.messages || [];
   const user1 = data?.battle.user1_id || [];
   const user2 = data?.battle.user2_id || [];
 
-  console.log(messageArray);
+  // if message.user === user1 then add class text box right else add class text box left 
+
+
 
   return (
     <div className="battle-room">
@@ -37,7 +37,7 @@ const Battle = () => {
             <ul className="message-list">
               {messageArray.map((message) => {
                 return (
-                  <li key={message._id}>
+                  <li key={message._id} className="text-box-message text-box-left">
                     <div>{message.user}</div>
                     <div>{message.messageContent}</div>
                   </li>
@@ -54,7 +54,7 @@ const Battle = () => {
                 // onChange={handleInputChange}
                 type="text"
                 placeholder="message"
-                className="form-control w-100"
+                className="form-control text-box-message"
                 rows="3"
               />
               <button
