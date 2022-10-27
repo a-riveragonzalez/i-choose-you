@@ -1,0 +1,8 @@
+.card-head {
+  font-size: 30px;
+  /* font-family: 'Pokemon Hollow', sans-serif; */
+  font-family: "Pokemon Solid", sans-serif;
+  color: rgb(255, 196, 0);
+  height: fit-content;
+  text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
+}

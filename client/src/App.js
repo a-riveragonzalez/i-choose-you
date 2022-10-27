@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import Battle from "./pages/Battle";
+import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
@@ -23,28 +24,18 @@ function App() {
           <div className="container">
             <Routes>
               {/* *********** Home Route *********** */}
-              <Route 
-                path="/" 
-                element={<Home />} 
-              />
+              <Route path="/" element={<Home />} />
 
               {/* *********** Login Route *********** */}
-              <Route 
-                path="/login" 
-                element={<Login />} 
-              />
+              <Route path="/login" element={<Login />} />
+
+              <Route path="/signup" element={<Signup />} />
 
               {/* *********** Quiz Route *********** */}
-              <Route 
-                path="/quiz" 
-                element={<Quiz />} 
-              />
+              <Route path="/quiz" element={<Quiz />} />
 
               {/* *********** Battle Route *********** */}
-              <Route 
-                path="/battle/:id" 
-                element={<Battle />} 
-              />
+              <Route path="/battle/:id" element={<Battle />} />
 
               {/* ************************************************************ */}
               {/* <Route 
@@ -53,10 +44,7 @@ function App() {
               /> */}
 
               {/* *********** Wild Card Route *********** */}
-              <Route 
-                path="*" 
-                element={<NotFound />} 
-              />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
           <Footer />
