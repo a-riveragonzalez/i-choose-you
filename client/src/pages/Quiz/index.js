@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 // import { Link } from "react-router-dom";
+import ListGroup from 'react-bootstrap/ListGroup';
 import { useQuery } from "@apollo/client";
 import { QUERY_QUIZ } from "../../utils/queries";
 import "./quiz.css";
@@ -27,8 +28,8 @@ const Quiz = () => {
       setTimeout(typeWriter, speed);
     }
   }
-
-  const handleOptionClick = (pokemonType) => {
+ 
+   const handleOptionClick = (pokemonType) => {
     switch (pokemonType) {
       case "fire":
         firePoints += 1;
@@ -45,12 +46,13 @@ const Quiz = () => {
 
     if (currentQuestion < quizArray.length) {
       setCurrentQuestion(currentQuestion + 1);
-      // typeWriter();
     } else {
       console.log("You're done!");
       //calculate their type via a different function and update the User
     }
   };
+//  typeWriter();
+  
 
   return (
     <div>
@@ -60,17 +62,17 @@ const Quiz = () => {
         <div className="questions-container m-1">
           <div className="text-box">
             {quizArray[currentQuestion].question}
-            <ul>
+            <ListGroup>
               {quizArray[currentQuestion].choices.map((choice) => (
-                <li
+                <ListGroup.Item
                   className="option"
                   onClick={() => handleOptionClick(choice.pokemonType)}
                   key={(currentQuestionIndex += 1)}
                 >
-                  {choice.answer}
-                </li>
+                  <span className="arrow">{">  "}</span>{choice.answer}
+                </ListGroup.Item>
               ))}
-            </ul>
+            </ListGroup>
           </div>
         </div>
       )}

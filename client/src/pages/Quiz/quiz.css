@@ -15,10 +15,19 @@
   margin-bottom: 10px;
 }
 
+.arrow {
+  display: none;
+}
+
 .option:hover{
   background-color: grey;
   color: white;
   cursor: pointer;
+}
+
+.option:hover .arrow {
+  display: inline;
+  font-size: 20px;
 }
 
 @keyframes bounce {
