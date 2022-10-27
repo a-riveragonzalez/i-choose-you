@@ -22,6 +22,7 @@
   animation: 
     typing 3.5s steps(30, end),
     .5s step-end infinite;
+  animation-delay: 3s;
 }
 
 .question {
@@ -45,7 +46,7 @@
 
 .option:hover .arrow {
   display: inline;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 @keyframes bounce {
