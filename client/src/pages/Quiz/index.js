@@ -28,7 +28,7 @@ const Quiz = () => {
       setTimeout(typeWriter, speed);
     }
   }
- 
+//  typeWriter();
    const handleOptionClick = (pokemonType) => {
     switch (pokemonType) {
       case "fire":
@@ -61,7 +61,7 @@ const Quiz = () => {
       ) : (
         <div className="questions-container m-1">
           <div className="text-box">
-            {quizArray[currentQuestion].question}
+           {quizArray[currentQuestion].question}
             <ListGroup>
               {quizArray[currentQuestion].choices.map((choice) => (
                 <ListGroup.Item
@@ -69,7 +69,7 @@ const Quiz = () => {
                   onClick={() => handleOptionClick(choice.pokemonType)}
                   key={(currentQuestionIndex += 1)}
                 >
-                  <span className="arrow">{">  "}</span>{choice.answer}
+                  <span className="arrow">{"> "}</span>{choice.answer}
                 </ListGroup.Item>
               ))}
             </ListGroup>
