@@ -3,10 +3,16 @@ import { gql } from "@apollo/client";
 export const CREATE_MESSAGE = gql`
   mutation createMessage($battleId: String!, $messageContent: String!) {
     createMessage(battleId: $battleId, messageContent: $messageContent) {
-      user1_id
-      user2_id
+      user1_id {
+        username
+      }
+      user2_id {
+        username
+      }
       messages {
-        user
+        user {
+          username
+        }
         dateCreated
         messageContent
       }
@@ -16,15 +22,19 @@ export const CREATE_MESSAGE = gql`
 
 export const CREATE_BATTLE = gql`
   mutation createBattle($user1Id: String!, $user2Id: String!) {
-    createBattle(user1_id: $user1Id, user2_id: $user2Id) {
-      user1_id
-      user2_id
-      messages {
-        user
-        dateCreated
-        messageContent
-      }
+    createBattle(user2_id: $user2Id) {
+      _id
     }
+    # createBattle(user1_id: $user1Id, user2_id: $user2Id) {
+    #   _id
+    # user1_id
+    # user2_id
+    # messages {
+    #   user
+    #   dateCreated
+    #   messageContent
+    # }
+    # }
   }
 `;
 

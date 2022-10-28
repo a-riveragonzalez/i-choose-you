@@ -10,13 +10,13 @@ db.once('open', async () => {
   await Pokemon.deleteMany({});
   await Quiz.deleteMany({});
   // await User.deleteMany({});
-  await Battle.deleteMany({})
+  // await Battle.deleteMany({})
 
 
   const pokemongos = await Pokemon.insertMany(pokemonData);
   const quizQuestions = await Quiz.insertMany(quizData);
   // const users = await User.insertMany(userData);
-  const battles = await Battle.insertMany(battleData);
+  // const battles = await Battle.insertMany(battleData);
 
   console.log('Database seeded!');
   process.exit(0);
