@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 // import { Link } from "react-router-dom";
 import { QUERY_USERS } from "../../utils/queries";
@@ -9,55 +9,68 @@ import "./matches.css";
 
 const Matches = () => {
   const { loading, data } = useQuery(QUERY_USERS);
+  const [randomUsers, setRandomUsers] = useState([])
 
-  const userArray = data?.users || [];
+  let userArray = data?.users || [];
   console.log(userArray);
 
-  const shuffleThenPickUsers = async (users) => {
-    let randomUsers;
+  useEffect(() => {
+    if (userArray.length > 0) {
+      const shuffleThenPickUsers = (users) => {
+        console.log("users: ", users);
+        let randomUsers= [];
 
-    if (users.length > 0) {
-      // shuffle the data array
-      users.sort(function (a, b) {
-        return 0.5 - Math.random();
-      });
+        for (let i = 0; i < 3; i++) {
+          randomUsers.push(users[Math.floor(Math.random() * users.length)])
+        }
 
-      // grabs first 3 elements in array and puts them in randomUsers variable
-      randomUsers = users.slice(0, 3);
+        console.log("randomUsers: ", randomUsers);
+        return randomUsers;
+      };
+
+      const newUserArray = shuffleThenPickUsers(userArray);
+      setRandomUsers(newUserArray);
     }
+  }, [userArray]);
 
-    return [...randomUsers];
-  };
+  // const shuffleThenPickUsers = async (users) => {
+  //   let randomUsers;
+
+  //   if (users.length > 0) {
+  //     // shuffle the data array
+  //     users.sort(function (a, b) {
+  //       return 0.5 - Math.random();
+  //     });
+
+  //     // grabs first 3 elements in array and puts them in randomUsers variable
+  //     randomUsers = users.slice(0, 3);
+  //   }
+
+  //   return randomUsers;
+  // };
 
   // if (!loading) {
   //   shuffleThenPickUsers(userArray);
   // }
 
-  // console.log(shuffleThenPickUsers(["A", "B", "C", "D", "E", "F"]))
-
-  // this is for message input
-  // const [input, setInput] = useState("");
-
-  // const [createMessage, { error }] = useMutation(CREATE_MESSAGE);
-
-  // changes the direction of the chat box depending on the user
-  // const handleTextBoxDirection = (messageUser) => {
-  //   if (messageUser === user1) {
-  //     return "text-box-right";
-  //   } else {
-  //     return "text-box-left";
-  //   }
-  // };
-
-  // handles message input change
-  // const handleInputChange = (event) => {
-  // setInput(event.target.value);
-  // };
+  // this is for creating a battle
+  const [createBattle, { error }] = useMutation(CREATE_BATTLE);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log("you picked this person");
-    console.log(event.target.dataset.matchId);
+    const matchId = event.target.dataset.matchId;
+
+    try {
+      await createBattle({
+        // variables: { user1_id: id, user2_id: matchId },
+      });
+
+      // AuthService.login(data2.login.token);
+    } catch (err) {
+      console.error(err);
+    }
+
+    // navigate(`/battle/${data.createBattle._id}`);
   };
 
   return (
@@ -77,7 +90,7 @@ const Matches = () => {
           {/* ************* Matches container************* */}
           <div className="text-white">
             <ul className="message-list">
-              {userArray.map((match) => {
+              {randomUsers && randomUsers.map((match) => {
                 return (
                   <Card key={match.username} style={{ width: "18rem" }}>
                     <Card.Img
@@ -86,12 +99,14 @@ const Matches = () => {
                       src="https://lorempokemon.fakerapi.it/pokemon/200"
                     />
                     <Card.Body>
-                      <Card.Title className="custom-card-title">{match.username}</Card.Title>
+                      <Card.Title className="custom-card-title">
+                        {match.username}
+                      </Card.Title>
                       <Button
                         variant="primary"
                         onClick={handleFormSubmit}
                         className="btn btn-light w-100 custom-card-btn"
-                        data-match-id={match.username}
+                        data-match-id={match._id}
                       >
                         Battle
                       </Button>
