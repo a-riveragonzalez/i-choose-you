@@ -3,10 +3,16 @@ import { gql } from "@apollo/client";
 export const CREATE_MESSAGE = gql`
   mutation createMessage($battleId: String!, $messageContent: String!) {
     createMessage(battleId: $battleId, messageContent: $messageContent) {
-      user1_id
-      user2_id
+      user1_id {
+        username
+      }
+      user2_id {
+        username
+      }
       messages {
-        user
+        user {
+          username
+        }
         dateCreated
         messageContent
       }

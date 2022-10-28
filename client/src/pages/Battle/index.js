@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { QUERY_BATTLE } from "../../utils/queries";
 import { CREATE_MESSAGE } from "../../utils/mutations";
+import AuthService from "../../utils/auth";
+
 import "./battle.css";
 
-// battleId : 635b6d709fed1556c5926105
+// battleId : 635b81fd09c7f2dd728d3988
 const Battle = () => {
+  const navigate = useNavigate();
   let { id } = useParams();
 
   const { loading, data } = useQuery(QUERY_BATTLE, {
@@ -38,21 +41,22 @@ const Battle = () => {
     setInput(event.target.value);
   };
 
-  // todo handles input message
+  // *****************! handles input message ************************
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    // try {
-    //   const { data } = await createMessage({
-    //     variables: { id: id, messageContent: input },
-    //   });
+    try {
+      await createMessage({
+        variables: { battleId: id, messageContent: input },
+      });
 
-    //   navigate(`/matchup/${data.createMatchup._id}`);
-    // } catch (err) {
-    //   console.error(err);
-    // }
+      // AuthService.login(data2.login.token);
+    } catch (err) {
+      console.error(err);
+    }
 
     setInput("");
+    window.location.reload()
   };
 
   return (

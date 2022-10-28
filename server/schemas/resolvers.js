@@ -32,7 +32,6 @@ const resolvers = {
     // find battle by ID (populate user ids and messages)
     battle: async (parent, args) => {
       const battleData = await Battle.findById(args._id)
-        .populate("messages")
         .populate({ path: "messages", populate: "user" })
         .populate("user1_id")
         .populate("user2_id");
@@ -72,6 +71,8 @@ const resolvers = {
     },
     // create new message
     createMessage: async (parent, { battleId, messageContent }, context) => {
+      // console.log("before creation")
+
       if (context.user) {
         const updatedBattle = await Battle.findOneAndUpdate(
           { _id: battleId },
@@ -81,8 +82,8 @@ const resolvers = {
             },
           },
           { new: true, runValidators: true }
-        ).populate("messages");
-
+        ).populate({path:"messages", populate: "user"}).populate('user1_id').populate('user2_id');
+          // console.log(updatedBattle)
         return updatedBattle;
       }
       throw new AuthenticationError("You need to be logged in!");
@@ -95,8 +96,8 @@ const resolvers = {
     // update the logged in user with their quiz result Pokemon type
     updateUserType: async (parent, { pokemonType }, context) => {
       if (context.user) {
-        console.log(context.user._id);
-        console.log(pokemonType);
+        // console.log(context.user._id);
+        // console.log(pokemonType);
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
           {pokemonType},

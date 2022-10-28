@@ -12,7 +12,7 @@ const Matches = () => {
   console.log(userArray);
 
   const shuffleThenPickUsers = (users) => {
-    let randomUsers = [];
+    let randomUsers;
 
     if (users.length > 0) {
       // shuffle the data array
@@ -20,14 +20,14 @@ const Matches = () => {
         return 0.5 - Math.random();
       });
 
-      // push into new array
-      for (let i = 0; i < 3; i++) {
-        randomUsers.push(users[i]);
-      }
+      // grabs first 3 elements in array and puts them in randomUsers variable
+      randomUsers = users.slice(0, 3)      
     }
 
     return randomUsers;
   };
+
+  console.log(shuffleThenPickUsers(["A", "B", "C", "D", "E", "F"]))
 
   // this is for message input
   // const [input, setInput] = useState("");
@@ -44,12 +44,11 @@ const Matches = () => {
   // };
 
   // handles message input change
-  const handleInputChange = (event) => {
+  // const handleInputChange = (event) => {
     // setInput(event.target.value);
-  };
+  // };
 
-  // todo handles input message
-  const handleFormSubmit = async (event) => {
+  // const handleFormSubmit = async (event) => {
     // event.preventDefault();
     // try {
     //   const { data } = await createMessage({
@@ -60,12 +59,12 @@ const Matches = () => {
     //   console.error(err);
     // }
     // setInput("");
-  };
+  // };
 
   return (
     <div className="battle-room">
       {loading ? (
-        <div> loading </div>
+        <div> loading... </div>
       ) : (
         <section className="container">
           {/* ************* Matches Title container************* */}
@@ -77,23 +76,22 @@ const Matches = () => {
           </div>
 
           {/* ************* MessageList container************* */}
-          {/* <div className="text-white">
+          <div className="text-white">
             <ul className="message-list">
-              {shuffleThenPickUsers(userArray).map((message) => {
+              {shuffleThenPickUsers(userArray).map((match) => {
                 return (
                   <li
-                    key={message._id}
-                    className={`mb-3 text-box-message ${handleTextBoxDirection(
-                      message.user._id
-                    )}`}
+                    key={match._id}
+                    className= "mb-3 text-box-message"
                   >
-                    <div>{message.user.username}</div>
-                    <div>{message.messageContent}</div>
+                    <div>hello!</div>
+                    {/* <div>{message.user.username}</div> */}
+                    {/* <div>{message.messageContent}</div> */}
                   </li>
                 );
               })}
             </ul>
-          </div>   */}
+          </div> 
 
           {/* ************* SendMessageForm container************* */}
           {/* <div className="text-white">
