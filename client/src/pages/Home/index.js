@@ -20,14 +20,23 @@ const Home = () => {
     return <div>Loading...</div>;
   }
 
-  // if (!user?.username) {
-  //   return (
-  //     <h4>
-  //       You need to be logged in to see this. Use the navigation links above to
-  //       sign up or log in!
-  //     </h4>
-  //   );
-  // }
+  if (!userData?.username) {
+    return (
+      <div className="text">
+        <h4>
+          Hey, you can't ride your bike in here! <br></br>You need to be logged in to see this. Use the navigation links above
+          to sign up or log in!
+        </h4>
+        <div className="img">
+          <img
+            className="prof"
+            src="https://www.androidheadlines.com/wp-content/uploads/2020/02/Professor-Oak-Mew-Trailer-Screenshot.jpg"
+            alt="professor-oak"
+          />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div>
