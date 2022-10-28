@@ -1,33 +1,58 @@
 import React, { useState, useEffect } from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ListGroup from "react-bootstrap/ListGroup";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_QUIZ } from "../../utils/queries";
 import { UPDATE_USER_TYPE } from "../../utils/mutations";
 import "./quiz.css";
 
-let firePoints = { points: 0, pokemonType: "fire" };
-let waterPoints = { points: 0, pokemonType: "water" };
-let grassPoints = { points: 0, pokemonType: "grass" };
+let firePoints = {
+  points: 0,
+  pokemonType: "fire",
+  color: "#F07F2F",
+  description:
+    "You are energetic and love to have fun with everybody. You tackle all obstacles in your way with stride. You may have a tendency to act before you think or get emotional easily. You only life once, so might as well make the most out of your life!",
+};
+let waterPoints = {
+  points: 0,
+  pokemonType: "water",
+  color: "#6890F0",
+  description:
+    "You are level-headed and probably one of the most chill people on the planet. You don't like to be bothered and would prefer to keep a low profile. People may think of you as cold sometimes, but you're easy to talk to and are always down to vibe in silence.",
+};
+let grassPoints = {
+  points: 0,
+  pokemonType: "grass",
+  color: "#78C750",
+  description:
+    "You are kind, caring, and serene. People may say your presence is soothing. You're probably a plant parent (if not, you might be in the future). You prefer relaxing at home than going out, but you might be socially awkward with other people.",
+};
 
 const Quiz = () => {
-  let currentQuestionIndex = 0;
-  let speed = 50;
-  let i = 0;
+  // VARIABLES
+  let currentQuestionIndex = 0; // key for mapping choices
+  let speed = 50; // for typeWriter
+  let i = 0; // for typeWriter
   // let j = 0;
 
+  // QUERIES AND MUTATIONS
   const { loading, data } = useQuery(QUERY_QUIZ);
   const [updateUserType, { error }] = useMutation(UPDATE_USER_TYPE);
   const quizArray = data?.quizzes || [];
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [userType, setUserType] = useState("");
+
+  // STATES TO BE USED
+  const [currentQuestion, setCurrentQuestion] = useState(0); // index of current question (used in array)
+  const [userType, setUserType] = useState(""); // user's pokemonType
+  const [spanColor, setSpanColor] = useState({}); // pokemonType color
+  const [personalityDescription, setPersonalityDescription] = useState(""); // user's personality result
 
   let txt;
   // let txt2;
 
-  useEffect(() => {
+  useEffect(() => { 
+    // set the txt variable to the current question's text (used for typeWriter function)
     if (currentQuestion > 0 && currentQuestion < quizArray.length) {
-      txt = quizArray[currentQuestion].question;
+      txt = quizArray[currentQuestion].question; 
       // for (let i = 0; i<quizArray[currentQuestion].choices.length; i++){
       //   txt2 += quizArray[currentQuestion].choices[i].answer;
       // }
@@ -35,6 +60,7 @@ const Quiz = () => {
     }
   }, [currentQuestion]);
 
+  // creates a typewriter animation for each question
   function typeWriter() {
     let timer;
     // let timer2;
@@ -47,6 +73,7 @@ const Quiz = () => {
     }
   }
 
+  // when an option has been clicked for the question, grab the pokemonType from the choice and add it to each pokemon type object
   const handleOptionClick = (pokemonType) => {
     switch (pokemonType) {
       case "fire":
@@ -59,19 +86,33 @@ const Quiz = () => {
         grassPoints.points += 1;
         break;
     }
-    // console.log(firePoints, waterPoints, grassPoints);
+    
+    // if the currentQuestion index is 11, calculate how many points they have and assign them a type
+    // set the corresponding states to be updated for the result div
+    // TODO: also update the logged in user to now have their pokemonType result using updateUserType (requires log in so we can test this later)
     if (currentQuestion === 11) {
-      setUserType(calculateType().pokemonType);
-      console.log(userType);
-      // updateUserType(userType);
-      //TODO: calculate their type via a different function and update the User (may need to make a new mutation)
+      // calculate points and choose pokemonType
+      const result = calculateType();
+
+      // set states
+      setUserType(result.pokemonType);
+      setSpanColor({ color: result.color });
+      setPersonalityDescription(result.description);
+
+      // updates the logged-in user's pokemonType
+      // updateUserType(userType); 
     }
+
+    // if the currentQuestion is less than the length of the quizArray (12)
+    // add 1 to currentQuestion and update the state
+    // clear the question text content and repeat the typeWriter() code
     if (currentQuestion < quizArray.length) {
       setCurrentQuestion(currentQuestion + 1);
       document.querySelector(".question").textContent = "";
     }
   };
 
+  // function to calculate points and determine the user's pokemonType
   const calculateType = () => {
     let possibleTypes = [];
     let pokemonType;
@@ -122,13 +163,13 @@ const Quiz = () => {
     return pokemonType;
   };
 
+
   return (
     <div>
       {loading ? (
         <div> Loading... </div>
       ) : (
         <div className="questions-container m-1">
-          {console.log(currentQuestion)}
           {currentQuestion < quizArray.length ? (
             <div className="text-box">
               <div className="question"></div>
@@ -146,9 +187,18 @@ const Quiz = () => {
               </ListGroup>
             </div>
           ) : (
-            <div className="results text-box">
-              <div>You are most likely to be a {userType} type!</div>
-              <button>Continue</button>
+            <div className="results text-box text-center">
+              <div>
+                <p>
+                  You are a <span style={spanColor}>{userType}</span> type!
+                </p>
+                <p>{personalityDescription}</p>
+              </div>
+              <Link to="/"><button
+                class="btn btn-light continue-btn"
+              >
+                Continue
+              </button> </Link>
             </div>
           )}
         </div>

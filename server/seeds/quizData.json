@@ -40,9 +40,9 @@
   {
     "question": "Which job role would you be in an RPG?",
     "choices": [
-      { "answer": "Tank", "pokemonType": "water" },
-      { "answer": "Fighter", "pokemonType": "fire" },
-      { "answer": "Healer", "pokemonType": "grass" }
+      { "answer": "An knight with high defense", "pokemonType": "water" },
+      { "answer": "A fighter with high attack", "pokemonType": "fire" },
+      { "answer": "A healer with high magic", "pokemonType": "grass" }
     ]
   },
   {

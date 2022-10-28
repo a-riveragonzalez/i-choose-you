@@ -1,10 +1,10 @@
 .text-box {
-  font-size: 16px;
+  font-size: 20px;
   font-family: "DePixel", sans-serif;
   color: black;
   border-radius: 2px;
   padding: 8px;
-  width: 400px;
+  width: 500px;
   /* max-height: 28px;
   line-height: 16px; */
   margin: auto;
@@ -13,7 +13,7 @@
   box-shadow: 0 1px 0 1px black, inset 0 1px 0 1px black, 0 0 0 1px black,
     inset 0 0 0 1px black;
   margin-bottom: 10px;
-  }
+}
 
 /* .choices {
   overflow: hidden; 
@@ -38,7 +38,8 @@
   display: none;
 }
 
-.option:hover{
+
+.option:hover {
   background-color: grey;
   color: white;
   cursor: pointer;
@@ -47,6 +48,11 @@
 .option:hover .arrow {
   display: inline;
   font-size: 16px;
+}
+
+.continue-btn {
+  margin-top: 5px;
+  cursor: pointer;
 }
 
 @keyframes bounce {
@@ -59,6 +65,10 @@
 }
 
 @keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
