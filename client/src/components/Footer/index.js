@@ -16,7 +16,7 @@ const Footer = () => {
           >
             ❤️
           </span>{' '}
-          by the Team Rocket 
+          by Team Rocket 
         </h4>
       </div>
     </footer>

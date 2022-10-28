@@ -36,11 +36,13 @@ const client = new ApolloClient({
 });
 
 function App() {
+  
+
   return (
     <ApolloProvider client={client}>
       <Router>
         <div className="flex-column justify-center align-center min-100-vh ">
-          <Header />
+          <Header/>
           <div className="container">
             <Routes>
               {/* *********** Home Route *********** */}
