@@ -5,3 +5,17 @@
     text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
     letter-spacing: 4px;
 }
+
+.img {
+    display: flex;
+    justify-content: center;
+}
+
+.text {
+    text-align: center;
+}
+
+.prof {
+    height: 300px;
+    width: 500px;
+}
