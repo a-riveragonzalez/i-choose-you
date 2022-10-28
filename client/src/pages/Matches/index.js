@@ -3,6 +3,8 @@ import { useQuery, useMutation } from "@apollo/client";
 // import { Link } from "react-router-dom";
 import { QUERY_USERS } from "../../utils/queries";
 import { CREATE_BATTLE } from "../../utils/mutations";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 import "./matches.css";
 
 const Matches = () => {
@@ -11,7 +13,7 @@ const Matches = () => {
   const userArray = data?.users || [];
   console.log(userArray);
 
-  const shuffleThenPickUsers = (users) => {
+  const shuffleThenPickUsers = async (users) => {
     let randomUsers;
 
     if (users.length > 0) {
@@ -21,13 +23,17 @@ const Matches = () => {
       });
 
       // grabs first 3 elements in array and puts them in randomUsers variable
-      randomUsers = users.slice(0, 3)      
+      randomUsers = users.slice(0, 3);
     }
 
-    return randomUsers;
+    return [...randomUsers];
   };
 
-  console.log(shuffleThenPickUsers(["A", "B", "C", "D", "E", "F"]))
+  // if (!loading) {
+  //   shuffleThenPickUsers(userArray);
+  // }
+
+  // console.log(shuffleThenPickUsers(["A", "B", "C", "D", "E", "F"]))
 
   // this is for message input
   // const [input, setInput] = useState("");
@@ -45,21 +51,14 @@ const Matches = () => {
 
   // handles message input change
   // const handleInputChange = (event) => {
-    // setInput(event.target.value);
+  // setInput(event.target.value);
   // };
 
-  // const handleFormSubmit = async (event) => {
-    // event.preventDefault();
-    // try {
-    //   const { data } = await createMessage({
-    //     variables: { id: id, messageContent: input },
-    //   });
-    //   navigate(`/matchup/${data.createMatchup._id}`);
-    // } catch (err) {
-    //   console.error(err);
-    // }
-    // setInput("");
-  // };
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log("you picked this person");
+    console.log(event.target.dataset.matchId);
+  };
 
   return (
     <div className="battle-room">
@@ -75,45 +74,33 @@ const Matches = () => {
             </h4>
           </div>
 
-          {/* ************* MessageList container************* */}
+          {/* ************* Matches container************* */}
           <div className="text-white">
             <ul className="message-list">
-              {shuffleThenPickUsers(userArray).map((match) => {
+              {userArray.map((match) => {
                 return (
-                  <li
-                    key={match._id}
-                    className= "mb-3 text-box-message"
-                  >
-                    <div>hello!</div>
-                    {/* <div>{message.user.username}</div> */}
-                    {/* <div>{message.messageContent}</div> */}
-                  </li>
+                  <Card key={match.username} style={{ width: "18rem" }}>
+                    <Card.Img
+                      className="w-100"
+                      variant="top"
+                      src="https://lorempokemon.fakerapi.it/pokemon/200"
+                    />
+                    <Card.Body>
+                      <Card.Title className="custom-card-title">{match.username}</Card.Title>
+                      <Button
+                        variant="primary"
+                        onClick={handleFormSubmit}
+                        className="btn btn-light w-100 custom-card-btn"
+                        data-match-id={match.username}
+                      >
+                        Battle
+                      </Button>
+                    </Card.Body>
+                  </Card>
                 );
               })}
             </ul>
-          </div> 
-
-          {/* ************* SendMessageForm container************* */}
-          {/* <div className="text-white">
-            <div className="form-group">
-              <textarea
-                name="message"
-                value={input}
-                onChange={handleInputChange}
-                type="text"
-                placeholder="message"
-                className="form-control text-box-message"
-                rows="3"
-              />
-              <button
-                type="submit"
-                onClick={handleFormSubmit}
-                className="btn btn-light message-btn"
-              >
-                Send
-              </button>
-            </div>
-          </div> */}
+          </div>
         </section>
       )}
     </div>
