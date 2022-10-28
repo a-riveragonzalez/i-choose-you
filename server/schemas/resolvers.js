@@ -89,9 +89,15 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
     // create new battle/chatroom between two users
-    createBattle: async (parent, args) => {
-      const battle = await Battle.create(args);
-      return battle;
+    createBattle: async (parent, {user2_id}, context) => {
+      // const battle = await Battle.create(args);
+      // return battle;
+      console.log(context)
+      if (context.user) {
+        const battle = await Battle.create({user1_id: context.user._id, user2_id: user2_id});
+        return battle;
+      }
+      throw new AuthenticationError("You need to be logged in!");
     },
     // update the logged in user with their quiz result Pokemon type
     updateUserType: async (parent, { pokemonType }, context) => {

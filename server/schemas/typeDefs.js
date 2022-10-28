@@ -68,7 +68,8 @@ const typeDefs = gql`
 
     createMessage(battleId: String!, messageContent: String!): Battle
 
-    createBattle(user1_id: String!, user2_id: String!): Battle 
+    createBattle(user2_id: String!): Battle
+    # createBattle(user1_id: String!, user2_id: String!): Battle 
 
     login(email: String!, password: String!): Auth
 

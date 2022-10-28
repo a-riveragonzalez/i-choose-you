@@ -41,7 +41,7 @@ const Battle = () => {
     setInput(event.target.value);
   };
 
-  // *****************! handles input message ************************
+  //  handles input message and creates new message
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -50,7 +50,6 @@ const Battle = () => {
         variables: { battleId: id, messageContent: input },
       });
 
-      // AuthService.login(data2.login.token);
     } catch (err) {
       console.error(err);
     }
