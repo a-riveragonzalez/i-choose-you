@@ -41,16 +41,19 @@ const Matches = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     const matchId = event.target.dataset.matchId;
-    console.log(matchId)
+    console.log(matchId);
 
     try {
-      const { data1 } = await createBattle({
-        variables: { user2_id: matchId },
+      console.log("I am in the try");
+      const { data } = await createBattle({
+        variables: { user2Id: matchId },
       });
-      navigate(`/battle/${data1.createBattle._id}`);
+      navigate(`/battle/${data.createBattle._id}`);
     } catch (err) {
       console.error(err);
     }
+
+    console.log("I am outside the try");
   };
 
   return (

@@ -21,21 +21,11 @@ export const CREATE_MESSAGE = gql`
 `;
 
 export const CREATE_BATTLE = gql`
-  mutation createBattle($user1Id: String!, $user2Id: String!) {
-    createBattle(user2_id: $user2Id) {
-      _id
-    }
-    # createBattle(user1_id: $user1Id, user2_id: $user2Id) {
-    #   _id
-    # user1_id
-    # user2_id
-    # messages {
-    #   user
-    #   dateCreated
-    #   messageContent
-    # }
-    # }
+  mutation createBattle($user2Id: String!) {
+  createBattle(user2_id: $user2Id) {
+    _id
   }
+} 
 `;
 
 export const CREATE_USER = gql`

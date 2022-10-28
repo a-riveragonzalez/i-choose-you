@@ -36,7 +36,7 @@ const resolvers = {
         .populate("user1_id")
         .populate("user2_id");
 
-      console.log(battleData);
+      // console.log(battleData);
       return battleData;
     },
     // find all battles
@@ -92,12 +92,13 @@ const resolvers = {
     createBattle: async (parent, {user2_id}, context) => {
       // const battle = await Battle.create(args);
       // return battle;
-      console.log(context)
+      console.log("i am in the createBattle")
       if (context.user) {
         const battle = await Battle.create({user1_id: context.user._id, user2_id: user2_id});
         return battle;
       }
       throw new AuthenticationError("You need to be logged in!");
+      console.log("I am outside createBattle")
     },
     // update the logged in user with their quiz result Pokemon type
     updateUserType: async (parent, { pokemonType }, context) => {
