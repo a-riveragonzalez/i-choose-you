@@ -5,7 +5,7 @@ import { QUERY_BATTLE } from "../../utils/queries";
 import { CREATE_MESSAGE } from "../../utils/mutations";
 import "./battle.css";
 
-// battleId : 635aca1225514e0648c2409a
+// battleId : 635b6d709fed1556c5926105
 const Battle = () => {
   let { id } = useParams();
 

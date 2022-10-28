@@ -5,7 +5,7 @@ import { QUERY_USERS } from "../../utils/queries";
 import { CREATE_BATTLE } from "../../utils/mutations";
 import "./matches.css";
 
-const Battle = () => {
+const Matches = () => {
   const { loading, data } = useQuery(QUERY_USERS);
 
   const userArray = data?.users || [];
@@ -14,22 +14,20 @@ const Battle = () => {
   const shuffleThenPickUsers = (users) => {
     let randomUsers = [];
 
-    // shuffle the data array
-    users.sort(function (a, b) {
-      return 0.5 - Math.random();
-    });
+    if (users.length > 0) {
+      // shuffle the data array
+      users.sort(function (a, b) {
+        return 0.5 - Math.random();
+      });
 
-    // push into new array
-    for (let i = 0; i < 3; i++) {
-      randomUsers.push(users[i]);
+      // push into new array
+      for (let i = 0; i < 3; i++) {
+        randomUsers.push(users[i]);
+      }
     }
 
     return randomUsers;
   };
-
-  const threeMatchesArr = shuffleThenPickUsers(userArray) || [];
-
-  console.log(threeMatchesArr);
 
   // this is for message input
   // const [input, setInput] = useState("");
@@ -81,7 +79,7 @@ const Battle = () => {
           {/* ************* MessageList container************* */}
           {/* <div className="text-white">
             <ul className="message-list">
-              {messageArray.map((message) => {
+              {shuffleThenPickUsers(userArray).map((message) => {
                 return (
                   <li
                     key={message._id}
@@ -95,7 +93,7 @@ const Battle = () => {
                 );
               })}
             </ul>
-          </div> */}
+          </div>   */}
 
           {/* ************* SendMessageForm container************* */}
           {/* <div className="text-white">
@@ -124,4 +122,4 @@ const Battle = () => {
   );
 };
 
-export default Battle;
+export default Matches;
