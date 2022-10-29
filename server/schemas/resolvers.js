@@ -7,19 +7,18 @@ const resolvers = {
   Query: {
     // find all users
     users: async () => {
-      return await User.find({});
+      return await User.find({}).populate("battle").populate("pokemon");
     },
     // find one user by ID
     user: async (parent, args, context) => {
-      
       const userData = await User.findById(context.user._id)
         .populate("battle")
-        .populate("pokemon")
-        .populate("quizResult");
-        console.log(userData)
-        console.log(context)
+        .populate("pokemon");
+      // .populate("quizResult");
+      console.log(userData);
+      console.log(context);
 
-        return userData
+      return userData;
     },
     // find all quiz questions
     quizzes: async () => {
@@ -82,23 +81,29 @@ const resolvers = {
             },
           },
           { new: true, runValidators: true }
-        ).populate({path:"messages", populate: "user"}).populate('user1_id').populate('user2_id');
-          // console.log(updatedBattle)
+        )
+          .populate({ path: "messages", populate: "user" })
+          .populate("user1_id")
+          .populate("user2_id");
+        // console.log(updatedBattle)
         return updatedBattle;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
     // create new battle/chatroom between two users
-    createBattle: async (parent, {user2_id}, context) => {
+    createBattle: async (parent, { user2_id }, context) => {
       // const battle = await Battle.create(args);
       // return battle;
-      console.log("i am in the createBattle")
+      console.log("i am in the createBattle");
       if (context.user) {
-        const battle = await Battle.create({user1_id: context.user._id, user2_id: user2_id});
+        const battle = await Battle.create({
+          user1_id: context.user._id,
+          user2_id: user2_id,
+        });
         return battle;
       }
       throw new AuthenticationError("You need to be logged in!");
-      console.log("I am outside createBattle")
+      console.log("I am outside createBattle");
     },
     // update the logged in user with their quiz result Pokemon type
     updateUserType: async (parent, { pokemonType }, context) => {
@@ -107,8 +112,8 @@ const resolvers = {
         // console.log(pokemonType);
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          {pokemonType},
-          { new: true}
+          { pokemonType },
+          { new: true }
         );
         return updatedUser;
       }
