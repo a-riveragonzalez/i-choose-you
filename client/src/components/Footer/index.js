@@ -4,9 +4,9 @@ import "./footer.css";
 
 const Footer = () => {
   return (
-    <footer className="w-100 mt-auto p-4">
-      <div className="text-center mb-5 footer-font">
-        <h4>
+    <footer className="w-100 mt-auto p-1">
+      <div className="text-center mb-1 ">
+        <h4 className='footer-font'>
           Made with{' '}
           <span
             className="emoji"
@@ -16,7 +16,7 @@ const Footer = () => {
           >
             ❤️
           </span>{' '}
-          by Team Rocket 
+          by Team <span className="rocket">R</span>ocket 
         </h4>
       </div>
     </footer>
