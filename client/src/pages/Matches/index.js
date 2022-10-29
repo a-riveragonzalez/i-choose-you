@@ -72,7 +72,7 @@ const Matches = () => {
 
           {/* ************* Matches container************* */}
           <div className="text-white">
-            <ul className="message-list">
+            <section className="row">
               {randomUsers &&
                 randomUsers.map((match) => {
                   return (
@@ -80,7 +80,7 @@ const Matches = () => {
                       <Card.Img
                         className="w-100"
                         variant="top"
-                        src="https://lorempokemon.fakerapi.it/pokemon/200"
+                        src={match.pokemon.pokemonImg}
                       />
                       <Card.Body>
                         <Card.Title className="custom-card-title">
@@ -98,7 +98,7 @@ const Matches = () => {
                     </Card>
                   );
                 })}
-            </ul>
+            </section>
           </div>
         </section>
       )}

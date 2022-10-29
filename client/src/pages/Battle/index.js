@@ -3,13 +3,11 @@ import { useQuery, useMutation } from "@apollo/client";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { QUERY_BATTLE } from "../../utils/queries";
 import { CREATE_MESSAGE } from "../../utils/mutations";
-import AuthService from "../../utils/auth";
 
 import "./battle.css";
 
-// battleId : 635b81fd09c7f2dd728d3988
+// battleId : 635c8b4b473aa9387400fe2e
 const Battle = () => {
-  const navigate = useNavigate();
   let { id } = useParams();
 
   const { loading, data } = useQuery(QUERY_BATTLE, {
