@@ -7,7 +7,9 @@ const resolvers = {
   Query: {
     // find all users
     users: async () => {
-      return await User.find({}).populate("battle").populate("pokemon");
+      return await User.find({})
+      .populate({ path: "battle", populate: "user" })
+      .populate("pokemon");
     },
     // find one user by ID
     user: async (parent, args, context) => {
@@ -40,7 +42,11 @@ const resolvers = {
     },
     // find all battles
     battles: async () => {
-      return await Battle.find({});
+      const battlesData =  await Battle.find({}).populate("user1_id")
+.populate("user2_id");
+
+      // console.log(battlesData)
+      return battlesData;
     },
   },
 
