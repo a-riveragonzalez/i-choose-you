@@ -58,16 +58,16 @@ export const QUERY_BATTLE = gql`
       _id
       user1_id {
         username
-        pokemon {
-          pokemonImg
-        }
+        # pokemon {
+        #   pokemonImg
+        # }
         _id
       }
       user2_id {
         username
-        pokemon {
-          pokemonImg
-        }
+        # pokemon {
+        #   pokemonImg
+        # }
         _id
       }
       messages {
