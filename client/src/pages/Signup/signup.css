@@ -6,3 +6,8 @@
   height: fit-content;
   text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
 }
+
+.continue-btn {
+  margin-top: 5px;
+  cursor: pointer;
+}

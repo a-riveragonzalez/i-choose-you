@@ -1,8 +1,10 @@
 header{
     width: 100%;
+    background-color: lightyellow;
 }
 
 .page-title{
+    
     font-family: 'Pokemon Solid', sans-serif;
     color: rgb(255, 196, 0);
     /* height: fit-content; */
@@ -10,6 +12,9 @@ header{
     letter-spacing: 4px;
 }
 
+.page-title:hover{
+    cursor:default;
+}
 
 .me-auto{
     font-family: "DePixel", sans-serif;

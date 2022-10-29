@@ -8,11 +8,11 @@ const Header = () => {
 
 
   return (
-    <header className="mb-4 py-3 text-center">
+    <header className="mb-4 pt-3 text-center">
       <div className="justify-space-between-lg justify-center align-center">
-        <Link className="page-title" to="/">
-          <h1 className="">I ChOoSe YoU!</h1>
-        </Link>
+
+          <h1 className="page-title">I ChOoSe YoU!</h1>
+
       </div>
         <Navigation/>
     </header>

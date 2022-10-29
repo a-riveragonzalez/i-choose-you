@@ -88,6 +88,7 @@ const Login = (props) => {
           </div>
         </div>
       </div>
+      <h6>Don't have an account? Sign up <Link to="/signup">here</Link>!</h6>
     </main>
   );
 };

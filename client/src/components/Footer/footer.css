@@ -1,0 +1,21 @@
+.rocket{
+    font-weight: bold;
+    color: red;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;  
+    font-family: Arial;
+    font-size: 28px;
+}
+
+.footer-font{
+    font-family: 'DePixel', sans-serif;
+    font-size: 16px;
+    /* color: rgb(255, 196, 0); */
+    color: white;
+    /* height: fit-content; */
+    text-shadow: none;
+    letter-spacing: 4px;
+}
+
+footer{
+    background-color: black;
+}
