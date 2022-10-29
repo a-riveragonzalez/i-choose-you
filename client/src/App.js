@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound";
 import Quiz from "./pages/Quiz";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import UserBattles from "./pages/UserBattles";
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -55,22 +56,17 @@ function App() {
               {/* *********** Quiz Route *********** */}
               <Route path="/quiz" element={<Quiz />} />
 
-              {/* ******************************* All Battle Routes *************************** */}
-              {/* *********** <Route path="/battles" element={<Battle />} /> *********************/}
+              {/* *********** All User Battle Routes *********** */}
+              <Route path="/battles" element={<UserBattles />} />
 
               {/* *********** Matches Route *********** */}
               <Route path="/matches" element={<Matches />} />
 
+              {/* *********** Signup Route *********** */}
               <Route path="/signup" element={<Signup />} />
 
               {/* *********** Battle Route *********** */}
               <Route path="/battle/:id" element={<Battle />} />
-
-              {/* ************************************************************ */}
-              {/* <Route 
-                path="/matchup/:id" 
-                element={<Vote />}
-              /> */}
 
               {/* *********** Wild Card Route *********** */}
               <Route path="*" element={<NotFound />} />

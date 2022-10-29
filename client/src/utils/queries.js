@@ -51,7 +51,7 @@ export const QUERY_QUIZ = gql`
   }
 `;
 
-// getting battle data
+// getting a single battle data
 export const QUERY_BATTLE = gql`
   query getBattle($id: String) {
     battle(_id: $id) {
@@ -83,7 +83,7 @@ export const QUERY_BATTLE = gql`
   }
 `;
 
-// getting pokemon data
+// getting all pokemon data
 export const QUERY_POKEMONGOS = gql`
   query getPokemongos {
     pokemongos {
@@ -92,4 +92,21 @@ export const QUERY_POKEMONGOS = gql`
       pokemonImg
     }
   }
+`;
+
+// getting all battle data
+export const QUERY_BATTLES = gql`
+  query getBattles {
+  battles {
+    _id
+    user1_id {
+      _id
+      username
+    }
+    user2_id {
+      _id
+      username
+    }
+  }
+}
 `;
