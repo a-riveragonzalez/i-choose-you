@@ -45,11 +45,11 @@ const Home = () => {
     <div>
       <div className="flex-row justify-center mb-3">
         <div>
-          
+
         </div>
-        <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
+        <h2 className="col-12 col-md-10 welcome p-3 mb-5">
           WeLcOmE <span className="user">{userData ? `${userData}, ` : "your"}{" "} </span>
-          to the world of Pokemon Dating!
+          To ThE WoRlD Of PoKeMoN DaTiNg!
         </h2>
 
         <div className="col-12 col-md-10 mb-5">

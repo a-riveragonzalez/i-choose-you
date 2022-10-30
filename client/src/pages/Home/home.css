@@ -12,3 +12,19 @@
     height: 300px;
     width: 500px;
 }
+
+.user {
+    font-family: 'DePixel', sans-serif;
+    text-shadow: none;
+    letter-spacing: normal;
+    color: blue;
+}
+
+.welcome {
+    font-family: 'Pokemon Solid', sans-serif;
+    color: rgb(255, 196, 0);
+    /* height: fit-content; */
+    text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
+    letter-spacing: 4px;
+    font-size: 20px;
+}
