@@ -8,19 +8,22 @@ import AuthService from "../../utils/auth";
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_USER);
-  console.log(data);
+  ;
+  const userId = AuthService.getProfile().data._id;
+  console.log(userId)
 
-  const userData = data?.user || {};
+  const userData = AuthService.getProfile().data.username || {};
   // navigate to personal profile page if username is yours
   // if (AuthService.loggedIn() && AuthService.getProfile().data.username === userParam) {
   //   return <Navigate to="/" />;
   // }
+  console.log(userData)
 
   if (loading) {
     return <div>Loading...</div>;
   }
 
-  if (!userData?.username) {
+  if (!userData) {
     return (
       <div className="text">
         <h4>
@@ -42,7 +45,7 @@ const Home = () => {
     <div>
       <div className="flex-row justify-center mb-3">
         <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
-          Viewing {userData.username ? `${userData.username}'s` : "your"}{" "}
+          Viewing {userData ? `${userData}'s` : "your"}{" "}
           profile.
         </h2>
 
