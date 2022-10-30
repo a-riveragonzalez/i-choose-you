@@ -44,9 +44,12 @@ const Home = () => {
   return (
     <div>
       <div className="flex-row justify-center mb-3">
+        <div>
+          
+        </div>
         <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
-          Viewing {userData ? `${userData}'s` : "your"}{" "}
-          profile.
+          WeLcOmE <span className="user">{userData ? `${userData}, ` : "your"}{" "} </span>
+          to the world of Pokemon Dating!
         </h2>
 
         <div className="col-12 col-md-10 mb-5">
