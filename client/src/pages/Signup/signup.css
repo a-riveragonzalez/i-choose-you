@@ -11,3 +11,10 @@
   margin-top: 5px;
   cursor: pointer;
 }
+
+.login-toggle{
+  background-color:rgb(255, 196, 0);
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 5px;
+}
