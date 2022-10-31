@@ -32,8 +32,8 @@ const Home = () => {
   
   if (!Auth.loggedIn()) {
     return (
-      <div className="text">
-        <h4>
+      <div >
+        <h4 className="oak-warning p-2">
           Hey, you can't ride your bike in here! <br></br>You need to be logged
           in to see this. Use the navigation links above to sign up or log in!
         </h4>
