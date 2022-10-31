@@ -32,3 +32,9 @@
   display: flex;
   justify-content: center;
 }
+
+.poke {
+    height: 300px;
+    width: 320px;
+    object-fit: fill;
+}
