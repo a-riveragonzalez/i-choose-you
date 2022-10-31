@@ -38,19 +38,19 @@ const Quiz = () => {
 
   // QUERIES AND MUTATIONS
   const { loading, data } = useQuery(QUERY_QUIZ);
-  // console.log(data);
-  const [updateUserType, { error }] = useMutation(UPDATE_USER_TYPE);
   const quizArray = data?.quizzes || [];
 
   const { loading: loading2, data: pokemonData } = useQuery(QUERY_POKEMONGOS);
   const pokemonArray = pokemonData?.pokemongos || [];
-  console.log(pokemonArray);
 
+  const [updateUserType, { error: error1 }] = useMutation(UPDATE_USER_TYPE);
+  
   // STATES TO BE USED
   const [currentQuestion, setCurrentQuestion] = useState(0); // index of current question (used in array)
   const [userType, setUserType] = useState(""); // user's pokemonType
   const [spanColor, setSpanColor] = useState({}); // pokemonType color
   const [personalityDescription, setPersonalityDescription] = useState(""); // user's personality result
+  // states for the pokemon data
   const [firePokemonState, setFirePokemonState] = useState([]);
   const [waterPokemonState, setWaterPokemonState] = useState([]);
   const [grassPokemonState, setGrassPokemonState] = useState([]);
@@ -70,31 +70,30 @@ const Quiz = () => {
   }, [currentQuestion]);
 
   useEffect(() => {
-    if (pokemonArray.length){
+    if (pokemonArray.length) {
       const firePokemon = pokemonArray.filter(function (pokemon) {
-        console.log(pokemon);
+        // console.log(pokemon);
         return pokemon.pokemonType === "fire";
       });
       setFirePokemonState(firePokemon);
 
       const waterPokemon = pokemonArray.filter(function (pokemon) {
-        console.log(pokemon);
+        // console.log(pokemon);
         return pokemon.pokemonType === "water";
       });
       setWaterPokemonState(waterPokemon);
 
       const grassPokemon = pokemonArray.filter(function (pokemon) {
-        console.log(pokemon);
+        // console.log(pokemon);
         return pokemon.pokemonType === "grass";
       });
       setGrassPokemonState(grassPokemon);
-
     }
-  }, [pokemonArray])
+  }, [pokemonArray]);
 
-  useEffect(() => {
-    console.log(firePokemonState, waterPokemonState, grassPokemonState);
-  }, [firePokemonState, waterPokemonState, grassPokemonState])
+  // useEffect(() => {
+  //   console.log(firePokemonState, waterPokemonState, grassPokemonState);
+  // }, [firePokemonState, waterPokemonState, grassPokemonState])
 
   // creates a typewriter animation for each question
   function typeWriter() {
@@ -125,7 +124,6 @@ const Quiz = () => {
 
     // if the currentQuestion index is 11, calculate how many points they have and assign them a type
     // set the corresponding states to be updated for the result div
-    // TODO: also update the logged in user to now have their pokemonType result using updateUserType (requires log in so we can test this later)
     if (currentQuestion === 11) {
       // calculate points and choose pokemonType
       const result = calculateType();
@@ -138,10 +136,26 @@ const Quiz = () => {
 
       // updates the logged-in user's pokemonType
       try {
-        updateUserType({ variables: { pokemonType: result.pokemonType } });
+        let resultArray;
+        switch (result.pokemonType) {
+          case "fire":
+            resultArray = firePokemonState;
+            break;
+          case "water":
+            resultArray = waterPokemonState;
+            break;
+          case "grass":
+            resultArray = grassPokemonState;
+            break;
+        }
+
+        const randomIndex = Math.floor(Math.random() * resultArray.length);
+        const randomPokemon = resultArray[randomIndex]._id;
+        updateUserType({ variables: { pokemonType: result.pokemonType, pokemon: randomPokemon } });
       } catch (err) {
         console.log(err);
       }
+
     }
 
     // if the currentQuestion is less than the length of the quizArray (12)
