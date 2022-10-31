@@ -49,14 +49,6 @@ const UserBattles = () => {
     }
   }, [battleArray]);
 
-  //  handles input message and creates new message
-  // const handleFormSubmit = async (event) => {
-  //   event.preventDefault();
-  //   console.log(event)
-
-  //   navigate(`/battle/${--event.something--}`);
-  // };
-
   return (
     <div>
       {loading ? (
@@ -70,17 +62,17 @@ const UserBattles = () => {
 
           {/* ************* Battle List container************* */}
           <div className="text-white">
-            <section className="row">
+            <section>
               {userBattleArr &&
                 userBattleArr.map((battles) => {
                   return (
-                    <Card key={battles._id}>
-                      <Card.Body className="text-danger">
+                    <Card key={battles._id} className="row">
+                      <Card.Body className="custom-battle-list col-8 text-center">
                         {battles.user1_id.username} vs.{" "}
                         {battles.user2_id.username}
                       </Card.Body>
-                      <Link to= {`/battle/${battles._id}`} >
-                        <button class="btn btn-light continue-btn">
+                      <Link to= {`/battle/${battles._id}`} className="col-4 my-1">
+                        <button class="btn btn-light continue-battle-btn">
                           Continue Battle
                         </button>
                       </Link>

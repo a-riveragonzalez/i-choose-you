@@ -14,6 +14,8 @@ const Battle = () => {
     variables: { id: id },
   });
 
+  console.log(data);
+
   const messageArray = data?.battle.messages || [];
   const user1 = data?.battle.user1_id._id || [];
   const user1Name = data?.battle.user1_id.username || [];
@@ -47,13 +49,12 @@ const Battle = () => {
       await createMessage({
         variables: { battleId: id, messageContent: input },
       });
-
     } catch (err) {
       console.error(err);
     }
 
     setInput("");
-    window.location.reload()
+    window.location.reload();
   };
 
   return (
