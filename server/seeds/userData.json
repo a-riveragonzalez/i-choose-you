@@ -3,48 +3,48 @@
     "username": "Brock",
     "password": "Geodude123",
     "email": "brock@pewter.poke", 
-    "pokemon": "635b6d709fed1556c59260c5"
+    "pokemon": "635f6d83e30d5b9c1133d084"
   },
   {
     "username": "Misty",
     "password": "Starmie123",
     "email": "misty@cerulean.poke",
-    "pokemon": "635b6d709fed1556c59260bf"
+    "pokemon": "635f6d83e30d5b9c1133d084"
   },
   {
     "username": "Lt. Surge",
     "password": "Voltorb123",
     "email": "ltsurge@vermillion.poke",
-    "pokemon": "635b6d709fed1556c59260d0"
+    "pokemon": "635f6d83e30d5b9c1133d084"
   },
   {
     "username": "Erika",
     "password": "Tangela123",
     "email": "erika@celadon.poke",
-    "pokemon": "635b6d709fed1556c59260cf"
+    "pokemon": "635f6d83e30d5b9c1133d084"
   },
   {
     "username": "Koga",
     "password": "Weezing123",
     "email": "koga@fuchsia.poke",
-    "pokemon": "635b6d709fed1556c59260ce"
+    "pokemon": "635f6d83e30d5b9c1133d084"
   },
   {
     "username": "Sabrina",
     "password": "Kadabra123",
     "email": "sabrina@saffron.poke",
-    "pokemon": "635b6d709fed1556c59260cc"
+    "pokemon": "635f6d83e30d5b9c1133d084"
   },
   {
     "username": "Blaine",
     "password": "Arcanine123",
     "email": "blaine@cinnabar.poke",
-    "pokemon": "635b6d709fed1556c59260cb"
+    "pokemon": "635f6d83e30d5b9c1133d084"
   },
   {
     "username": "Giovanni",
     "password": "Nidoqueen123",
     "email": "giovanni@viridian.poke",
-    "pokemon": "635b6d709fed1556c59260c9"
+    "pokemon": "635f6d83e30d5b9c1133d084"
   }
 ]
