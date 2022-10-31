@@ -20,9 +20,9 @@ const Home = () => {
   console.log(userData);
   console.log(userQuery);
 
-  // const userPokemon = userQuery.user.pokemon.pokemonImg
+  const userPokemon = userQuery.user?.pokemon.pokemonImg
   
-  // console.log(userPokemon)
+  console.log(userPokemon)
 
   if (loading) {
     return <div>Loading...</div>;
@@ -51,8 +51,8 @@ const Home = () => {
   return (
     <div>
       <div className="flex-row justify-space-between mb-3">
-        <Card className="col-10 col-md-6 col-sm-3 p-3 mb-5 profile">
-          {/* <Card.Img src={userPokemon ? `${userPokemon}` : "placeholder"} /> */}
+        <Card className="col-10 col-md-6 col-sm-3 profile">
+          <Card.Img className="poke bg-white" src={userPokemon ? `${userPokemon}` : "placeholder"} />
         </Card>
         <Card className="col-10 col-md-6 col-sm-3 p-3 bg-white mb-5">
           <Card.Body>
