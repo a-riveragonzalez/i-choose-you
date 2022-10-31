@@ -54,7 +54,7 @@ const Home = () => {
         <Card className="col-10 col-md-6 col-sm-3 p-3 mb-5 profile">
           {/* <Card.Img src={userPokemon ? `${userPokemon}` : "placeholder"} /> */}
         </Card>
-        <Card className="col-10 col-md-6 col-sm-3 p-3 mb-5">
+        <Card className="col-10 col-md-6 col-sm-3 p-3 bg-white mb-5">
           <Card.Body>
             <h2 className="welcome">
               WeLcOmE{" "}
