@@ -63,7 +63,7 @@ const Matches = () => {
       ) : (
         <section className="container">
           {/* ************* Matches Title container************* */}
-          <div className="battle-header mb-3">
+          <div className="matches-header mb-3 p-2">
             <h4>
               here are your three potential matches. Battle to see if this
               trainer joins you on an adventure
@@ -72,18 +72,18 @@ const Matches = () => {
 
           {/* ************* Matches container************* */}
           <div className="text-white">
-            <section className="row">
+            <section className="row justify-center">
               {randomUsers &&
                 randomUsers.map((match) => {
                   return (
-                    <Card key={match.username} style={{ width: "18rem" }}>
+                    <Card key={match.username} style={{ width: "18rem" }} className= "bg-white match-cards">
                       <Card.Img
                         className="w-100"
                         variant="top"
                         src={match.pokemon.pokemonImg}
                       />
                       <Card.Body>
-                        <Card.Title className="custom-card-title">
+                        <Card.Title className="custom-card-title mb-3">
                           {match.username}
                         </Card.Title>
                         <Button

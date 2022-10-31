@@ -1,4 +1,3 @@
-
 /* ************* Matches Title container************* */
 .matches-header {
   text-align: center;
@@ -7,16 +6,31 @@
   height: fit-content;
   text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
   letter-spacing: 4px;
-
+  background-color: white;
+  box-shadow: 0 1px 0 1px black, inset 0 1px 0 1px black, 0 0 0 1px black,
+    inset 0 0 0 1px black;
+  border: 1px solid white;
 }
 
 /* ************* Matches container************* */
-.custom-card-title {
-  color: black;
-  text-align: center;
+.match-cards {
+  box-shadow: 0 1px 0 1px black, inset 0 1px 0 1px black, 0 0 0 1px black,
+    inset 0 0 0 1px black;
+  border: 1px solid white;
 }
 
-.custom-card-btn{
+.custom-card-title {
+  text-align: center;
+  font-family: "Pokemon Solid", sans-serif;
+  color: rgb(255, 196, 0);
+  height: fit-content;
+  text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
+  letter-spacing: 4px;
+  font-size: 25px;
+}
+
+.custom-card-btn {
   /* display: flex; */
-  
+  font-family: "DePixel", sans-serif;
+  color: black;
 }

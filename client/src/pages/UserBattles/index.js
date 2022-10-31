@@ -56,8 +56,8 @@ const UserBattles = () => {
       ) : (
         <section className="container">
           {/* ************* Battle Title container************* */}
-          <div className="battle-header mb-3">
-            <h4>Here are your current battles</h4>
+          <div className="battle-header mb-5 custom-battle-header">
+            <h2>here are your current battles:</h2>
           </div>
 
           {/* ************* Battle List container************* */}
@@ -66,12 +66,12 @@ const UserBattles = () => {
               {userBattleArr &&
                 userBattleArr.map((battles) => {
                   return (
-                    <Card key={battles._id} className="row">
+                    <Card key={battles._id} className="battle-list-container row bg-white">
                       <Card.Body className="custom-battle-list col-8 text-center">
                         {battles.user1_id.username} vs.{" "}
                         {battles.user2_id.username}
                       </Card.Body>
-                      <Link to= {`/battle/${battles._id}`} className="col-4 my-1">
+                      <Link to= {`/battle/${battles._id}`} className="col-4 my-2">
                         <button class="btn btn-light continue-battle-btn">
                           Continue Battle
                         </button>
