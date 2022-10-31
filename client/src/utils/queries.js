@@ -20,18 +20,11 @@ export const QUERY_USER = gql`
   query getUser {
     user {
       username
-      quizResult {
-        firePoints
-        grassPoints
-        waterPoints
-      }
       pokemon {
+        _id
         pokemonName
         pokemonType
         pokemonImg
-      }
-      battle {
-        _id
       }
     }
   }

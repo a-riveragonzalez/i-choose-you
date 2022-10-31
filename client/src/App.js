@@ -12,6 +12,7 @@ import Quiz from "./pages/Quiz";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import UserBattles from "./pages/UserBattles";
+import "./background.css"
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -43,7 +44,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-center align-center min-100-vh ">
+        <div className="flex-column justify-center align-center min-100-vh main">
           <Header/>
           <div className="container">
             <Routes>
