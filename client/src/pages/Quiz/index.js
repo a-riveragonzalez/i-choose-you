@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ListGroup from "react-bootstrap/ListGroup";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_QUIZ } from "../../utils/queries";
+import { QUERY_POKEMONGOS } from "../../utils/queries";
 import { UPDATE_USER_TYPE } from "../../utils/mutations";
 import "./quiz.css";
 
@@ -37,8 +38,13 @@ const Quiz = () => {
 
   // QUERIES AND MUTATIONS
   const { loading, data } = useQuery(QUERY_QUIZ);
+  console.log(data);
   const [updateUserType, { error }] = useMutation(UPDATE_USER_TYPE);
   const quizArray = data?.quizzes || [];
+  
+  // const { pokemongoData } = useQuery(QUERY_POKEMONGOS);
+  // const pokemonArray = pokemongoData?.pokemon || [];
+  // console.log(pokemongoData, pokemonArray);
 
   // STATES TO BE USED
   const [currentQuestion, setCurrentQuestion] = useState(0); // index of current question (used in array)
@@ -98,6 +104,22 @@ const Quiz = () => {
       setUserType(result.pokemonType); // fire, grass, or water
       setSpanColor({ color: result.color });
       setPersonalityDescription(result.description);
+
+      
+
+      // pokemongoData
+      // switch(result.pokemonType){
+      //   case "fire":
+      //     const firePokemon = pokemongoData.filter(function(pokeType){
+      //       console.log(pokeType);
+      //       return pokeType === "fire"
+      //     });
+      //     console.log(firePokemon);
+      //     break;
+      //   default:
+      //     console.log("default");
+      // };
+
 
       // updates the logged-in user's pokemonType
       try{
@@ -176,6 +198,7 @@ const Quiz = () => {
         <div className="questions-container m-1">
           {currentQuestion < quizArray.length ? (
             <div className="text-box">
+              {/* {console.log(pokemonArray)} */}
               <div className="question"></div>
               <ListGroup className="choices">
                 {quizArray[currentQuestion].choices.map((choice) => (
