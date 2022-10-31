@@ -80,6 +80,7 @@ export const QUERY_BATTLE = gql`
 export const QUERY_POKEMONGOS = gql`
   query getPokemongos {
     pokemongos {
+      _id
       pokemonName
       pokemonType
       pokemonImg

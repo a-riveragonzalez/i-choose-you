@@ -3,8 +3,15 @@
   justify-content: center;
 }
 
-.text {
+.oak-warning {
+  font-family: "DePixel", sans-serif;
   text-align: center;
+  font-size: 14px;
+  background: white;
+  border: 1px solid white;
+  box-shadow: 0 1px 0 1px black, inset 0 1px 0 1px black, 0 0 0 1px black,
+    inset 0 0 0 1px black;
+    border-radius: 2px;
 }
 
 .prof {
