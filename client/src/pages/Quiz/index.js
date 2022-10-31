@@ -95,12 +95,16 @@ const Quiz = () => {
       const result = calculateType();
 
       // set states
-      setUserType(result.pokemonType);
+      setUserType(result.pokemonType); // fire, grass, or water
       setSpanColor({ color: result.color });
       setPersonalityDescription(result.description);
 
       // updates the logged-in user's pokemonType
-      // updateUserType(userType); 
+      try{
+        updateUserType({variables: {pokemonType: result.pokemonType}}); 
+      } catch(err){
+        console.log(err);
+      }
     }
 
     // if the currentQuestion is less than the length of the quizArray (12)
@@ -195,7 +199,7 @@ const Quiz = () => {
                 <p>{personalityDescription}</p>
               </div>
               <Link to="/"><button
-                class="btn btn-light continue-btn"
+                className="btn btn-light continue-btn"
               >
                 Continue
               </button> </Link>

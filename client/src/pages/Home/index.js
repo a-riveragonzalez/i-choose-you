@@ -6,16 +6,16 @@ import { useQuery } from "@apollo/client";
 
 import { QUERY_USER } from "../../utils/queries";
 import "./home.css";
-import AuthService from "../../utils/auth";
+import Auth from "../../utils/auth";
 
 const Home = () => {
-  const userId = AuthService.getProfile().data._id;
+  const userId = Auth.loggedIn() ? Auth.getProfile().data._id : null
   const { loading, data } = useQuery(QUERY_USER);
   console.log(userId);
   console.log(data);
 
   const userQuery = data || {};
-  const userData = AuthService.getProfile().data.username || {};
+  const userData = Auth.loggedIn() ? Auth.getProfile().data.username : {}
   
   console.log(userData);
   console.log(userQuery);
@@ -30,7 +30,7 @@ const Home = () => {
 
   
   
-  if (!userData) {
+  if (!Auth.loggedIn()) {
     return (
       <div className="text">
         <h4>

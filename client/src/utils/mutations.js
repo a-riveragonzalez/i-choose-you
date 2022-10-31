@@ -54,7 +54,7 @@ export const UPDATE_USER_TYPE = gql`
   mutation UPDATE_USER_TYPE($pokemonType: String!) {
     updateUserType(pokemonType: $pokemonType) {
       username
-      quizResult
+      pokemonType
       email
     }
   }

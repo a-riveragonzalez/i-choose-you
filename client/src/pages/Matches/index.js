@@ -23,6 +23,7 @@ const Matches = () => {
         let randomUsers = [];
 
         for (let i = 0; i < 3; i++) {
+          // if not (!) the token's user id matches with the random index ID
           randomUsers.push(users[Math.floor(Math.random() * users.length)]);
         }
 

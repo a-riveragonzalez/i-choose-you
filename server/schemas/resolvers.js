@@ -114,6 +114,7 @@ const resolvers = {
     },
     // update the logged in user with their quiz result Pokemon type
     updateUserType: async (parent, { pokemonType }, context) => {
+      console.log("I'm in the updateUserType mutation");
       if (context.user) {
         // console.log(context.user._id);
         // console.log(pokemonType);
