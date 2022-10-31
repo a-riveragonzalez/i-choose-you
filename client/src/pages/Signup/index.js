@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 
 import { CREATE_USER } from "../../utils/mutations";
@@ -13,6 +13,7 @@ const Signup = () => {
     password: "",
   });
   const [createUser, { error, data }] = useMutation(CREATE_USER);
+  // const [userState, setUserState] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -33,22 +34,20 @@ const Signup = () => {
       });
 
       AuthService.login(data.createUser.token);
+      // setUserState(true);
     } catch (e) {
       console.error(e);
     }
   };
 
   return (
-    <main clasnpmsName="flex-row justify-center mb-4">
+    <main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-head p-2">S i g n U p</h4>
+        <div className="card bg-light">
+          <h4 className="card-head p-2">S i G n U p</h4>
           <div className="card-body">
             {data ? (
-              <p>
-                Success! You may now head{" "}
-                <Link to="/">back to the homepage.</Link>
-              </p>
+              <Navigate to="/quiz"></Navigate>
             ) : (
               <form onSubmit={handleFormSubmit}>
                 <input
@@ -93,6 +92,7 @@ const Signup = () => {
           </div>
         </div>
       </div>
+      <h6 className="login-toggle">Already have an account? Log in <Link to="/login">here</Link>!</h6>
     </main>
   );
 };

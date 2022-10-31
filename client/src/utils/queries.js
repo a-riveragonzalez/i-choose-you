@@ -4,6 +4,7 @@ import { gql } from "@apollo/client";
 export const QUERY_USERS = gql`
   query getUsers {
     users {
+      _id
       pokemon {
         pokemonName
         pokemonType
@@ -19,18 +20,11 @@ export const QUERY_USER = gql`
   query getUser {
     user {
       username
-      quizResult {
-        firePoints
-        grassPoints
-        waterPoints
-      }
       pokemon {
+        _id
         pokemonName
         pokemonType
         pokemonImg
-      }
-      battle {
-        _id
       }
     }
   }
@@ -50,23 +44,23 @@ export const QUERY_QUIZ = gql`
   }
 `;
 
-// getting battle data
+// getting a single battle data
 export const QUERY_BATTLE = gql`
   query getBattle($id: String) {
     battle(_id: $id) {
       _id
       user1_id {
         username
-        pokemon {
-          pokemonImg
-        }
+        # pokemon {
+        #   pokemonImg
+        # }
         _id
       }
       user2_id {
         username
-        pokemon {
-          pokemonImg
-        }
+        # pokemon {
+        #   pokemonImg
+        # }
         _id
       }
       messages {
@@ -82,7 +76,7 @@ export const QUERY_BATTLE = gql`
   }
 `;
 
-// getting pokemon data
+// getting all pokemon data
 export const QUERY_POKEMONGOS = gql`
   query getPokemongos {
     pokemongos {
@@ -91,4 +85,21 @@ export const QUERY_POKEMONGOS = gql`
       pokemonImg
     }
   }
+`;
+
+// getting all battle data
+export const QUERY_BATTLES = gql`
+  query getBattles {
+  battles {
+    _id
+    user1_id {
+      _id
+      username
+    }
+    user2_id {
+      _id
+      username
+    }
+  }
+}
 `;

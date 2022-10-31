@@ -6,3 +6,15 @@
   height: fit-content;
   text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
 }
+
+.continue-btn {
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.login-toggle{
+  background-color:rgb(255, 196, 0);
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 5px;
+}

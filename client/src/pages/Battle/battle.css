@@ -19,7 +19,11 @@
   height: fit-content;
   text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
   letter-spacing: 4px;
-
+  border: 1px solid white;
+  box-shadow: 0 1px 0 1px black, inset 0 1px 0 1px black, 0 0 0 1px black,
+    inset 0 0 0 1px black;
+  background-color: white;
+  padding: 5px
 }
 
 /* ************* MessageList container ************* */

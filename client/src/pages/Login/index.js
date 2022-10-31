@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN } from '../../utils/mutations';
 import { CREATE_USER } from '../../utils/mutations';
@@ -44,14 +44,11 @@ const Login = (props) => {
   return (
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
-        <div className="card">
+        <div className="card bg-light">
           <h4 className="card-head p-2">L o g i n</h4>
           <div className="card-body">
             {data ? (
-              <p>
-                Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
-              </p>
+              <Navigate to="/"></Navigate>
             ) : (
               <form onSubmit={handleFormSubmit}>
                 <input
@@ -88,6 +85,7 @@ const Login = (props) => {
           </div>
         </div>
       </div>
+      <h6 className="signup-toggle">Don't have an account? Sign up <Link to="/signup">here</Link>!</h6>
     </main>
   );
 };

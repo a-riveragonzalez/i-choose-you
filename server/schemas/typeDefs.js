@@ -64,11 +64,12 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    createUser(username: String!, email: String!, password: String!): Auth
+    createUser(username: String!, email: String!, password: String!, pokemon: String): Auth
 
     createMessage(battleId: String!, messageContent: String!): Battle
 
-    createBattle(user1_id: String!, user2_id: String!): Battle 
+    createBattle(user2_id: String!): Battle
+    # createBattle(user1_id: String!, user2_id: String!): Battle 
 
     login(email: String!, password: String!): Auth
 

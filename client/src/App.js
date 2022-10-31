@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink } from "@apollo/client";
 import { setContext } from '@apollo/client/link/context';
 import Battle from "./pages/Battle";
+import Matches from "./pages/Matches";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -10,6 +11,8 @@ import NotFound from "./pages/NotFound";
 import Quiz from "./pages/Quiz";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import UserBattles from "./pages/UserBattles";
+import "./background.css"
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -36,11 +39,13 @@ const client = new ApolloClient({
 });
 
 function App() {
+  
+
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-center align-center min-100-vh ">
-          <Header />
+        <div className="flex-column justify-center align-center min-100-vh main">
+          <Header/>
           <div className="container">
             <Routes>
               {/* *********** Home Route *********** */}
@@ -52,20 +57,17 @@ function App() {
               {/* *********** Quiz Route *********** */}
               <Route path="/quiz" element={<Quiz />} />
 
-              {/* ******************************* All Battle Routes *************************** */}
-              {/* *********** <Route path="/battles" element={<Battle />} /> *********************/}
+              {/* *********** All User Battle Routes *********** */}
+              <Route path="/battles" element={<UserBattles />} />
 
+              {/* *********** Matches Route *********** */}
+              <Route path="/matches" element={<Matches />} />
 
+              {/* *********** Signup Route *********** */}
               <Route path="/signup" element={<Signup />} />
 
               {/* *********** Battle Route *********** */}
               <Route path="/battle/:id" element={<Battle />} />
-
-              {/* ************************************************************ */}
-              {/* <Route 
-                path="/matchup/:id" 
-                element={<Vote />}
-              /> */}
 
               {/* *********** Wild Card Route *********** */}
               <Route path="*" element={<NotFound />} />

@@ -7,19 +7,20 @@ const resolvers = {
   Query: {
     // find all users
     users: async () => {
-      return await User.find({});
+      return await User.find({})
+        .populate({ path: "battle", populate: "user" })
+        .populate("pokemon");
     },
     // find one user by ID
     user: async (parent, args, context) => {
-      
       const userData = await User.findById(context.user._id)
         .populate("battle")
-        .populate("pokemon")
-        .populate("quizResult");
-        console.log(userData)
-        console.log(context)
+        .populate("pokemon");
+      // .populate("quizResult");
+      console.log(userData);
+      console.log(context);
 
-        return userData
+      return userData;
     },
     // find all quiz questions
     quizzes: async () => {
@@ -32,17 +33,21 @@ const resolvers = {
     // find battle by ID (populate user ids and messages)
     battle: async (parent, args) => {
       const battleData = await Battle.findById(args._id)
-        .populate("messages")
         .populate({ path: "messages", populate: "user" })
         .populate("user1_id")
         .populate("user2_id");
 
-      console.log(battleData);
+      // console.log(battleData);
       return battleData;
     },
     // find all battles
     battles: async () => {
-      return await Battle.find({});
+      const battlesData = await Battle.find({})
+        .populate("user1_id")
+        .populate("user2_id");
+
+      // console.log(battlesData)
+      return battlesData;
     },
   },
 
@@ -72,6 +77,8 @@ const resolvers = {
     },
     // create new message
     createMessage: async (parent, { battleId, messageContent }, context) => {
+      // console.log("before creation")
+
       if (context.user) {
         const updatedBattle = await Battle.findOneAndUpdate(
           { _id: battleId },
@@ -81,26 +88,40 @@ const resolvers = {
             },
           },
           { new: true, runValidators: true }
-        ).populate("messages");
-
+        )
+          .populate({ path: "messages", populate: "user" })
+          .populate("user1_id")
+          .populate("user2_id");
+        // console.log(updatedBattle)
         return updatedBattle;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
     // create new battle/chatroom between two users
-    createBattle: async (parent, args) => {
-      const battle = await Battle.create(args);
-      return battle;
+    createBattle: async (parent, { user2_id }, context) => {
+      // const battle = await Battle.create(args);
+      // return battle;
+      console.log("i am in the createBattle");
+      if (context.user) {
+        const battle = await Battle.create({
+          user1_id: context.user._id,
+          user2_id: user2_id,
+        });
+        return battle;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+      console.log("I am outside createBattle");
     },
     // update the logged in user with their quiz result Pokemon type
     updateUserType: async (parent, { pokemonType }, context) => {
+      console.log("I'm in the updateUserType mutation");
       if (context.user) {
-        console.log(context.user._id);
-        console.log(pokemonType);
+        // console.log(context.user._id);
+        // console.log(pokemonType);
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          {pokemonType},
-          { new: true}
+          { pokemonType },
+          { new: true }
         );
         return updatedUser;
       }

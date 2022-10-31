@@ -1,0 +1,30 @@
+.battle-list-container {
+  box-shadow: 0 1px 0 1px black, inset 0 1px 0 1px black, 0 0 0 1px black,
+    inset 0 0 0 1px black;
+  border: 1px solid white;
+}
+
+.custom-battle-list {
+  color: black;
+  /* text-align: center; */
+  font-family: "Pokemon Solid", sans-serif;
+  color: rgb(255, 196, 0);
+  height: fit-content;
+  text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
+  letter-spacing: 4px;
+  font-size: 21px;
+  margin-top: 4px;
+}
+
+.continue-battle-btn {
+  font-family: "DePixel", sans-serif;
+  color: black;
+}
+
+.custom-battle-header {
+  background-color: white;
+  padding-bottom: 10px;
+  border: 1px solid white;
+  box-shadow: 0 1px 0 1px black, inset 0 1px 0 1px black, 0 0 0 1px black,
+    inset 0 0 0 1px black;
+}

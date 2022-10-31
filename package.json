@@ -18,6 +18,7 @@
   "dependencies": {
     "bootstrap": "^5.2.2",
     "react-500": "^1.0.1",
+    "jwt-decode": "^3.1.2",
     "react-bootstrap": "^2.5.0"
   }
 }
