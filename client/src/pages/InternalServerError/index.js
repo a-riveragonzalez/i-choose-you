@@ -1,8 +1,8 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+//import { useLocation } from 'react-router-dom';
 import "./internalServerError.css";
-
-function InternalServerError() {
+import Error from "react-500";
+/*function InternalServerError() {
   let location = useLocation();
   return (
     <div className="card bg-white card-rounded w-50">
@@ -16,3 +16,10 @@ function InternalServerError() {
 }
 
 export default InternalServerError;
+*/
+
+export default function InternalServerError(){
+  return(
+    <Error/>
+  )
+}
