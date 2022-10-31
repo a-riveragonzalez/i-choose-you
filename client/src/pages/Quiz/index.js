@@ -38,33 +38,63 @@ const Quiz = () => {
 
   // QUERIES AND MUTATIONS
   const { loading, data } = useQuery(QUERY_QUIZ);
-  console.log(data);
+  // console.log(data);
   const [updateUserType, { error }] = useMutation(UPDATE_USER_TYPE);
   const quizArray = data?.quizzes || [];
-  
-  // const { pokemongoData } = useQuery(QUERY_POKEMONGOS);
-  // const pokemonArray = pokemongoData?.pokemon || [];
-  // console.log(pokemongoData, pokemonArray);
+
+  const { loading: loading2, data: pokemonData } = useQuery(QUERY_POKEMONGOS);
+  const pokemonArray = pokemonData?.pokemongos || [];
+  console.log(pokemonArray);
 
   // STATES TO BE USED
   const [currentQuestion, setCurrentQuestion] = useState(0); // index of current question (used in array)
   const [userType, setUserType] = useState(""); // user's pokemonType
   const [spanColor, setSpanColor] = useState({}); // pokemonType color
   const [personalityDescription, setPersonalityDescription] = useState(""); // user's personality result
+  const [firePokemonState, setFirePokemonState] = useState([]);
+  const [waterPokemonState, setWaterPokemonState] = useState([]);
+  const [grassPokemonState, setGrassPokemonState] = useState([]);
 
   let txt;
   // let txt2;
 
-  useEffect(() => { 
+  useEffect(() => {
     // set the txt variable to the current question's text (used for typeWriter function)
     if (currentQuestion > 0 && currentQuestion < quizArray.length) {
-      txt = quizArray[currentQuestion].question; 
+      txt = quizArray[currentQuestion].question;
       // for (let i = 0; i<quizArray[currentQuestion].choices.length; i++){
       //   txt2 += quizArray[currentQuestion].choices[i].answer;
       // }
       typeWriter();
     }
   }, [currentQuestion]);
+
+  useEffect(() => {
+    if (pokemonArray.length){
+      const firePokemon = pokemonArray.filter(function (pokemon) {
+        console.log(pokemon);
+        return pokemon.pokemonType === "fire";
+      });
+      setFirePokemonState(firePokemon);
+
+      const waterPokemon = pokemonArray.filter(function (pokemon) {
+        console.log(pokemon);
+        return pokemon.pokemonType === "water";
+      });
+      setWaterPokemonState(waterPokemon);
+
+      const grassPokemon = pokemonArray.filter(function (pokemon) {
+        console.log(pokemon);
+        return pokemon.pokemonType === "grass";
+      });
+      setGrassPokemonState(grassPokemon);
+
+    }
+  }, [pokemonArray])
+
+  useEffect(() => {
+    console.log(firePokemonState, waterPokemonState, grassPokemonState);
+  }, [firePokemonState, waterPokemonState, grassPokemonState])
 
   // creates a typewriter animation for each question
   function typeWriter() {
@@ -92,39 +122,24 @@ const Quiz = () => {
         grassPoints.points += 1;
         break;
     }
-    
+
     // if the currentQuestion index is 11, calculate how many points they have and assign them a type
     // set the corresponding states to be updated for the result div
     // TODO: also update the logged in user to now have their pokemonType result using updateUserType (requires log in so we can test this later)
     if (currentQuestion === 11) {
       // calculate points and choose pokemonType
       const result = calculateType();
+      console.log(pokemonArray);
 
       // set states
       setUserType(result.pokemonType); // fire, grass, or water
       setSpanColor({ color: result.color });
       setPersonalityDescription(result.description);
 
-      
-
-      // pokemongoData
-      // switch(result.pokemonType){
-      //   case "fire":
-      //     const firePokemon = pokemongoData.filter(function(pokeType){
-      //       console.log(pokeType);
-      //       return pokeType === "fire"
-      //     });
-      //     console.log(firePokemon);
-      //     break;
-      //   default:
-      //     console.log("default");
-      // };
-
-
       // updates the logged-in user's pokemonType
-      try{
-        updateUserType({variables: {pokemonType: result.pokemonType}}); 
-      } catch(err){
+      try {
+        updateUserType({ variables: { pokemonType: result.pokemonType } });
+      } catch (err) {
         console.log(err);
       }
     }
@@ -189,7 +204,6 @@ const Quiz = () => {
     return pokemonType;
   };
 
-
   return (
     <div>
       {loading ? (
@@ -198,7 +212,6 @@ const Quiz = () => {
         <div className="questions-container m-1">
           {currentQuestion < quizArray.length ? (
             <div className="text-box">
-              {/* {console.log(pokemonArray)} */}
               <div className="question"></div>
               <ListGroup className="choices">
                 {quizArray[currentQuestion].choices.map((choice) => (
@@ -221,11 +234,9 @@ const Quiz = () => {
                 </p>
                 <p>{personalityDescription}</p>
               </div>
-              <Link to="/"><button
-                className="btn btn-light continue-btn"
-              >
-                Continue
-              </button> </Link>
+              <Link to="/">
+                <button className="btn btn-light continue-btn">Continue</button>{" "}
+              </Link>
             </div>
           )}
         </div>
