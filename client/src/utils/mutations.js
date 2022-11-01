@@ -51,8 +51,8 @@ export const LOGIN = gql`
 `;
 
 export const UPDATE_USER_TYPE = gql`
-  mutation UPDATE_USER_TYPE($pokemonType: String!) {
-    updateUserType(pokemonType: $pokemonType) {
+  mutation UPDATE_USER_TYPE($pokemonType: String, $pokemon: String) {
+    updateUserType(pokemonType: $pokemonType, pokemon: $pokemon) {
       username
       pokemonType
       email
