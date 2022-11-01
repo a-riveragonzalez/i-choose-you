@@ -4,7 +4,7 @@
 
 ## Link to Site 
 
-> [I Choose You! - <i>Tinder for Pokemon</i>]()
+> [I Choose You! - <i>Tinder for Pokemon</i>](https://ichooseyou.herokuapp.com/)
 
 ## Description
 ---
@@ -31,6 +31,7 @@ Have you ever wanted a companion in life? Are you tired of being alone? Do you n
 - [Contributors](#contributors)
 - [Credits](#credits)
 - [GitHUB Repository](#github-repository)
+- [Deployed URL](#deployed-url)
 - [License](#license)
 - [Questions](#questions)
 
@@ -66,7 +67,7 @@ THEN the battle screen appears and you are able to message the other user.
 
 ## How To Use
 ---
-><b><i>I Choose You </b></i> is a free web application. To use the app, you first go to the link provided [here](). Users (Trainers) must sign up or log in to an existing account. A new user will then take a personality quiz to determine what Pokemon type they are, showing what kind of traits they show depending on the answers they chose during the quiz. They can match with other Trainers and “battle” them – which means they can talk and get to know each other! Depending on how the battle goes, they can deepen their relationship.
+><b><i>I Choose You </b></i> is a free web application. To use the app, you first go to the link provided [here](https://ichooseyou.herokuapp.com/). Users (Trainers) must sign up or log in to an existing account. A new user will then take a personality quiz to determine what Pokemon type they are, showing what kind of traits they show depending on the answers they chose during the quiz. They can match with other Trainers and “battle” them – which means they can talk and get to know each other! Depending on how the battle goes, they can deepen their relationship.
 
 ## Mock Up 
 ---
@@ -127,6 +128,10 @@ THEN the battle screen appears and you are able to message the other user.
 ---
 
 > https://github.com/a-riveragonzalez/i-choose-you
+## Deployed URL
+---
+
+> https://ichooseyou.herokuapp.com/
 
 ## License
 ---
