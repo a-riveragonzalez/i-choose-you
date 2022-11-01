@@ -4,12 +4,12 @@
 
 ## Link to Site 
 
-> [I Choose You! - <i>Tinder for Pokemon</i>](https://impulse-the-game.herokuapp.com/)
+> [I Choose You! - <i>Tinder for Pokemon</i>]()
 
 ## Description
 ---
 
-Have you ever wanted a companion in life? Are you tired of being alone? Do you need someone who doesn't mind you talking endlessly about your love of Pokemon? Then <b> <i> I Choose You </i></b> is the app for you! 
+Have you ever wanted a companion in life? Are you tired of being alone? Do you need someone who doesn't mind you talking endlessly about your love of Pokemon? Then <b> <i> I Choose You </i></b> is the app for you! Here you can be and find the very best, like no one ever was.
 <br> <br> <b><i>I Choose You </i> </b> is a responsive MERN web application that allows users to create profiles, take a quiz to determine their pokemon, and match with other users to battle(or chat). 
 <br> <br> <b>Technologies used : </b>
 <ul> 
@@ -27,6 +27,7 @@ Have you ever wanted a companion in life? Are you tired of being alone? Do you n
 - [User Story](#user-story)
 - [Acceptance Criteria](#acceptance-criteria)
 - [How To Use](#how-to-use)
+- [Mock Up](#mock-up)
 - [Contributors](#contributors)
 - [Credits](#credits)
 - [GitHUB Repository](#github-repository)
@@ -65,37 +66,45 @@ THEN the battle screen appears and you are able to message the other user.
 
 ## How To Use
 ---
-### <u>The Home Page:</u>
+><b><i>I Choose You </b></i> is a free web application. To use the app, you first go to the link provided [here](). Users (Trainers) must sign up or log in to an existing account. A new user will then take a personality quiz to determine what Pokemon type they are, showing what kind of traits they show depending on the answers they chose during the quiz. They can match with other Trainers and “battle” them – which means they can talk and get to know each other! Depending on how the battle goes, they can deepen their relationship.
 
-![home page](/public/images/main-board.png)
+## Mock Up 
+---
+### The Home Page (before login/sign up):
 
-### <u>The Login Page:</u>
+> ![home page](/assets/poke-homepage-oak.png)
 
-![login page with email and password](/public/images/game-login.png)
+### The Login Page:
 
-### <u>The Sign Up Page:</u>
+> ![login page with email and password](/assets/poke-login.png)
 
-![sign up page with username, email, and password](/public/images/game-login.png)
+### The Sign Up Page:
 
-### <u>The Quiz Page:</u>
+> ![sign up page with username, email, and password](/assets/poke-signup.png)
 
-![Quiz Gif with questions asked and answer](/public/images/game-profile.png)
+### The Quiz Page:
 
-### <u>The Matches Page:</u>
+> ![Quiz Gif with questions asked and answer](/assets/poke-quiz.gif)
 
-![Matches Page with three matches](/public/images/game-profile.png)
+### The Home Page (after login/sign up):
 
-### <u>The Battle Page:</u>
+> ![home page](/assets/poke-home-page.png)
 
-![Battle Page with user battling/chatting with another user ](/public/images/game-profile.png)
+### The Matches Page:
 
-### <u>The Battle List Page:</u>
+> ![Matches Page with three matches](/assets/poke-matches.png)
 
-![Battle List page with list of user's ongoing battles](/public/images/game-profile.png)
+### The Battle Page:
 
-### <u>The 404 Page:</u>
+> ![Battle Page with user battling/chatting with another user ](/assets/poke-battle-2.png)
 
-![404 page with a picture of surprised pikachu](/public/images/game-profile.png)
+### The Battle List Page:
+
+> ![Battle List page with list of user's ongoing battles](/assets/poke-battle-list.png)
+
+### The 404 Page:
+
+> ![404 page with a picture of surprised pikachu](/assets/poke-404.png)
 
 ## Contributors
 
