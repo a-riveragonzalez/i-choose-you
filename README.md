@@ -10,7 +10,7 @@
 ---
 
 Have you ever wanted a companion in life? Are you tired of being alone? Do you need someone who doesn't mind you talking endlessly about your love of Pokemon? Then <b> <i> I Choose You </i></b> is the app for you! 
-<br> <br> <b><i>I Choose You </i> </b> is a collaborative MERN web application that allows users to create profiles, take a quiz to determine their pokemon, and match with other users to battle(or chat). 
+<br> <br> <b><i>I Choose You </i> </b> is a responsive MERN web application that allows users to create profiles, take a quiz to determine their pokemon, and match with other users to battle(or chat). 
 <br> <br> <b>Technologies used : </b>
 <ul> 
 <li> React for the front end
@@ -67,29 +67,35 @@ THEN the battle screen appears and you are able to message the other user.
 ---
 ### <u>The Home Page:</u>
 
-![game board with character options](/public/images/main-board.png)
-<br />
+![home page](/public/images/main-board.png)
 
 ### <u>The Login Page:</u>
 
-![login page with username, email, and password](/public/images/game-login.png)
-<br />
+![login page with email and password](/public/images/game-login.png)
+
+### <u>The Sign Up Page:</u>
+
+![sign up page with username, email, and password](/public/images/game-login.png)
 
 ### <u>The Quiz Page:</u>
 
-![Profile Page with logged in user shown](/public/images/game-profile.png)
+![Quiz Gif with questions asked and answer](/public/images/game-profile.png)
 
 ### <u>The Matches Page:</u>
 
-![Profile Page with logged in user shown](/public/images/game-profile.png)
+![Matches Page with three matches](/public/images/game-profile.png)
 
 ### <u>The Battle Page:</u>
 
-![Profile Page with logged in user shown](/public/images/game-profile.png)
+![Battle Page with user battling/chatting with another user ](/public/images/game-profile.png)
 
 ### <u>The Battle List Page:</u>
 
-![Profile Page with logged in user shown](/public/images/game-profile.png)
+![Battle List page with list of user's ongoing battles](/public/images/game-profile.png)
+
+### <u>The 404 Page:</u>
+
+![404 page with a picture of surprised pikachu](/public/images/game-profile.png)
 
 ## Contributors
 
