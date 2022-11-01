@@ -2,68 +2,98 @@
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-## Link to Site (hosted on Heroku)
+## Link to Site 
 
-[I Choose You! - <i>Tinder for Pokemon</i>](https://impulse-the-game.herokuapp.com/)
-
-## Table of Contents
-- [Description](#description)
-- [How To Play](#how-to-play)
-- [Motivation](#motivation)
-- [Screenshots](#screenshots)
-- [Contributors](#contributors)
-- [License](#license)
+> [I Choose You! - <i>Tinder for Pokemon</i>](https://impulse-the-game.herokuapp.com/)
 
 ## Description
+---
 
-  Do you love to shop, but don't love the guilty feelings of spending all that money? Do you enjoy playing video games where the winner will always be YOU? If so, then <i><b>Do you know what time it is?</i></b> (It's currently 1:23pm, if must know) - but more importantly, that means<br /> <i>IT'S TIME TO PLAY:</i>
-  <br />
-  # <b><i><span style="color:orangered">"IMPULSE!"</b></i></span>   
+Have you ever wanted a companion in life? Are you tired of being alone? Do you need someone who doesn't mind you talking endlessly about your love of Pokemon? Then <b> <i> I Choose You </i></b> is the app for you! 
+<br> <br> <b><i>I Choose You </i> </b> is a collaborative MERN web application that allows users to create profiles, take a quiz to determine their pokemon, and match with other users to battle(or chat). 
+<br> <br> <b>Technologies used : </b>
+<ul> 
+<li> React for the front end
+<li> GraphQL with a Node.js and Express.js server
+<li> MongoDB and the Mongoose ODM for the database
+<li> JWT authentication 
+<li> CSS and Bootstrap for styling
+</ul>
 
+## Table of Contents
+---
 
-## How To Play
+- [Description](#description)
+- [User Story](#user-story)
+- [Acceptance Criteria](#acceptance-criteria)
+- [How To Use](#how-to-use)
+- [Contributors](#contributors)
+- [Credits](#credits)
+- [GitHUB Repository](#github-repository)
+- [License](#license)
+- [Questions](#questions)
 
-  <u>Goal of the Game:</u> Get to the FINISH LINE with at least xMoneyLevel and xMoodLevel (or maybe the icon has to be green level)? <br />
-  1. Log In to keep track of your scores and all of the merchandise you've acquired. 
-  2. From the homepage, choose one of three CHARACTER CLASSES to start the game. <br />
-  <i>Note: Each class has 2 attributes, <b>MONEY</b> and <b>MOOD</b> levels which will change as the game progresses.</i>
-  3. Click on the `Roll Dice` button to advance your Character Icon from 1-4 spaces.
-  4. When your character lands on a square, you will be presented with two options: `Buy Item` and `Choose Life Event`. On the Item Card, you can see what changes will occur to your MONEY and MOOD levels if you were to purchase the item. On the Life Event Card, the MONEY and MOOD properties will be hidden until you select that option. <br />
-  <i>Note: If you do not purchase the item, the game will automatically select the Life Event Card for you.</i>
-  5. Once you've chosen between the two options, a pop-up card will update you on your acquired good or life event. Click `Continue` to, dare we say, continue.
-  6. Click on `Roll Dice` to advance your character again and repeat the process until your character icon reaches the final square of the game board.
-  7. Your final game stats will be displayed with the option to play again.
-  8. Click `Play Again` ... you can't fight the <b><i><span style="color:orangered">IMPULSE!</b></i></span>
+## User Story
 
-## Motivation
+---
 
-  The challenge for the team was to build their first full-stack app from scratch, implementing Node.js and several packages including, but not limited to, Express.js, Sequelize, and Handlebars - all centered around a MVC-structure in support of an interactive and responsive game. 
+```md
+AS A young person ready to mingle looking to be and find the very best
+I WANT to connect to people who share a love of pokemon
+SO THAT we can connect, battle, and become friends
+```
 
+## Acceptance Criteria
 
+---
 
-## Screenshots
+```md
+GIVEN a pokemon dating/chat web application
+WHEN I open the website
+THEN I am prompted to log in or sign up
+WHEN I first sign up
+THEN I am prompted to take a quiz of a series of personality questions
+WHEN I complete the quiz
+THEN I am presented with the pokemon that matches the result of the personality quiz and a button to go HOME
+WHEN I click on the home button
+THEN I am taken to the home/dashboard that has my pokemon, and a button to find matches.
+WHEN I click the button to find matches
+THEN I am presented with a screen that says “here are your three potential matches. Battle to see if this trainer joins you on an adventure” . There are three matches from the database and a button on each match that says “Battle”
+WHEN I click on Battle
+THEN the battle screen appears and you are able to message the other user.
+```
+
+## How To Use
+---
 ### <u>The Home Page:</u>
 
 ![game board with character options](/public/images/main-board.png)
 <br />
 
 ### <u>The Login Page:</u>
+
 ![login page with username, email, and password](/public/images/game-login.png)
 <br />
 
 ### <u>The Quiz Page:</u>
+
 ![Profile Page with logged in user shown](/public/images/game-profile.png)
 
 ### <u>The Matches Page:</u>
+
 ![Profile Page with logged in user shown](/public/images/game-profile.png)
 
 ### <u>The Battle Page:</u>
+
 ![Profile Page with logged in user shown](/public/images/game-profile.png)
 
 ### <u>The Battle List Page:</u>
+
 ![Profile Page with logged in user shown](/public/images/game-profile.png)
 
 ## Contributors
+
+---
 
 <table>
   <tr>
@@ -74,6 +104,20 @@
   </tr>
 </table>
 
-## License
+## Credits
+---
+>Special thanks to the Pokemon API : https://pokeapi.co/
 
-This project is covered under the [MIT License](https://opensource.org/licenses/MIT).
+## GitHUB Repository
+---
+
+> https://github.com/a-riveragonzalez/i-choose-you
+
+## License
+---
+
+> This project is covered under the [MIT License](https://opensource.org/licenses/MIT).
+
+## Questions
+---
+> For any troubleshooting and/or questions regarding <b><i>I Choose You</i></b>, email us at arelyrivera1996@gmail.com 
