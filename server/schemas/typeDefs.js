@@ -73,7 +73,7 @@ const typeDefs = gql`
 
     login(email: String!, password: String!): Auth
 
-    updateUserType(pokemonType: String): User
+    updateUserType(pokemonType: String, pokemon: String): User
   }
 `;
 

@@ -101,7 +101,7 @@ const resolvers = {
     createBattle: async (parent, { user2_id }, context) => {
       // const battle = await Battle.create(args);
       // return battle;
-      console.log("i am in the createBattle");
+      // console.log("i am in the createBattle");
       if (context.user) {
         const battle = await Battle.create({
           user1_id: context.user._id,
@@ -113,20 +113,20 @@ const resolvers = {
       console.log("I am outside createBattle");
     },
     // update the logged in user with their quiz result Pokemon type
-    updateUserType: async (parent, { pokemonType }, context) => {
-      console.log("I'm in the updateUserType mutation");
+    updateUserType: async (parent, { pokemonType, pokemon }, context) => {
       if (context.user) {
         // console.log(context.user._id);
         // console.log(pokemonType);
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { pokemonType },
+          { pokemonType, pokemon },
           { new: true }
         );
         return updatedUser;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+
   },
 };
 
