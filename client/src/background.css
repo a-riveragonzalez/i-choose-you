@@ -1,3 +1,7 @@
 .main {
-    background-image: url("https://cdn.donmai.us/original/71/6a/716a642b684b1b54a9a1f47c818e73ed.png");
+  /* background-image: url("https://cypressintegration.com/wp-content/uploads/grey-background.jpg");
+  background-size: cover; */
+
+  background: rgb(136,136,136);
+background: linear-gradient(0deg, rgba(136,136,136,1) 0%, rgba(255,255,255,1) 100%);
 }

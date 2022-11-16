@@ -1,15 +1,21 @@
 header{
     width: 100%;
-    background-color: lightyellow;
+    /* background-color: lightyellow; */
 }
 
 .page-title{
-    
     font-family: 'Pokemon Solid', sans-serif;
     color: rgb(255, 196, 0);
     /* height: fit-content; */
     text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
     letter-spacing: 4px;
+    /* margin-bottom: 0px !important; */
+
+    display: flex;
+    margin: auto 20px;
+
+    font-size: 32px !important;
+
 }
 
 .page-title:hover{
@@ -29,4 +35,15 @@ header{
 .active{
     color: red!important;
     padding: 1px;
+}
+
+.nav-icon {
+    max-width: 100%;
+    height: auto;
+    margin-top: 3px !important;
+}
+
+.navbar {
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    margin-top: 0px !important;
 }
