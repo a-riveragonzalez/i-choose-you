@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { Link, useParams, Navigate } from "react-router-dom";
@@ -11,18 +11,22 @@ import Auth from "../../utils/auth";
 const Home = () => {
   const userId = Auth.loggedIn() ? Auth.getProfile().data._id : null;
   const { loading, data } = useQuery(QUERY_USER);
-  console.log(userId);
-  console.log(data);
+  // console.log(userId);
+  // console.log(data);
+  const [userPokemonImg, setUserPokemonImg] = useState("");
 
   const userQuery = data || {};
   const userData = Auth.loggedIn() ? Auth.getProfile().data.username : {};
 
-  console.log(userData);
-  console.log(userQuery);
+  // console.log(userData);
+  // console.log(userQuery);
 
-  const userPokemon = userQuery.user?.pokemon.pokemonImg;
+  useEffect(() => {
+    const userPokemon = userQuery.user?.pokemon.pokemonImg || "" ;
+    console.log(userPokemon);
+    setUserPokemonImg(userPokemon);
+  }, userPokemonImg);
 
-  console.log(userPokemon);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -48,7 +52,58 @@ const Home = () => {
 
   return (
     <div>
-      {/* <div className="flex-row justify-space-between mb-3">
+      {/* welcome text  */}
+      <div className="battle-header mt-2 mb-5 custom-battle-header ">
+        <h3 className="user">
+          Welcome{" "}
+          <span className="welcome">{userData ? `${userData}` : "your"}</span> ,
+          to the world of Pokemon Dating
+        </h3>
+      </div>
+
+      {!userPokemonImg ? (
+        <div className="battle-header my-5 custom-battle-header home-pic-div w-75 mx-auto">
+          {/* {console.log("picture is null")} */}
+          <p>You don't have a profile pic yet! Take the quiz here.</p>
+          <Button
+              className="btn btn-light w-100 custom-card-btn"
+              variant="primary"
+              href="../../quiz"
+            >
+              Take Quiz!
+            </Button>
+        </div>
+      ) : (
+        <div>
+          {/* {console.log("picture is NOT null")} */}
+          {/* pokemon profile pic */}
+          <div className="battle-header my-5 custom-battle-header home-pic-div w-75 mx-auto">
+            <Card.Img
+              className="poke "
+              src={userPokemonImg ? `${userPokemonImg}` : "placeholder"}
+            />
+          </div>
+
+          {/* matches button  */}
+          <div className="matches mb-3">
+            <Button
+              className="btn btn-light w-100 custom-card-btn"
+              variant="primary"
+              href="../../matches"
+            >
+              Poke Matches
+            </Button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Home;
+
+{
+  /* <div className="flex-row justify-space-between mb-3">
         <Card className="col-10 col-md-6 col-sm-3 profile">
           <Card.Img
             className="poke bg-white"
@@ -66,37 +121,5 @@ const Home = () => {
             </h2>
           </Card.Body>
         </Card>
-      </div> */}
-
-      {/* welcome text  */}
-      <div className="battle-header mt-2 mb-5 custom-battle-header ">
-        <h3 className="user">
-          Welcome{" "}
-          <span className="welcome">{userData ? `${userData}` : "your"}</span> , to the world of Pokemon Dating
-        </h3>
-      </div>
-
-      {/* user's pokemon image */}
-
-      <div className="battle-header my-5 custom-battle-header home-pic-div w-75 mx-auto">
-      <Card.Img
-            className="poke "
-            src={userPokemon ? `${userPokemon}` : "placeholder"}
-          />
-      </div>
-
-      {/* matches button  */}
-      <div className="matches mb-3">
-        <Button
-          className="btn btn-light w-100 custom-card-btn"
-          variant="primary"
-          href="../../matches"
-        >
-          Poke Matches
-        </Button>
-      </div>
-    </div>
-  );
-};
-
-export default Home;
+      </div> */
+}
