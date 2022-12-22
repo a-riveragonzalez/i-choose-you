@@ -57,7 +57,7 @@ const UserBattles = () => {
         <section className="container">
           {/* ************* Battle Title container************* */}
           <div className="battle-header mb-5 custom-battle-header">
-            <h2>here are your current battles:</h2>
+            <h3 className="user">here are your current battles:</h3>
           </div>
 
           {/* ************* Battle List container************* */}

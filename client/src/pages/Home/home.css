@@ -23,7 +23,7 @@
   font-family: "DePixel", sans-serif;
   text-shadow: none;
   letter-spacing: normal;
-  color: blue;
+  color: #1b89bc;
 }
 
 .welcome {
@@ -32,7 +32,9 @@
   /* height: fit-content; */
   text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
   letter-spacing: 4px;
-  font-size: 20px;
+  /* font-size: 34px; */
+  font-size: 30px;
+
 }
 
 .matches {

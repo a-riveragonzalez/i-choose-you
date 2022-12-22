@@ -69,17 +69,16 @@ const Home = () => {
       </div> */}
 
       {/* welcome text  */}
-      <div className="battle-header my-5 custom-battle-header ">
-        <h2 className="user">
+      <div className="battle-header mt-2 mb-5 custom-battle-header ">
+        <h3 className="user">
           Welcome{" "}
-          <span className="welcome">{userData ? `${userData}, ` : "your"} </span>{" "}
-          to the world of Pokemon Dating
-        </h2>
+          <span className="welcome">{userData ? `${userData}` : "your"}</span> , to the world of Pokemon Dating
+        </h3>
       </div>
 
       {/* user's pokemon image */}
 
-      <div className="battle-header my-5 custom-battle-header home-pic-div w-75">
+      <div className="battle-header my-5 custom-battle-header home-pic-div w-75 mx-auto">
       <Card.Img
             className="poke "
             src={userPokemon ? `${userPokemon}` : "placeholder"}
@@ -87,7 +86,7 @@ const Home = () => {
       </div>
 
       {/* matches button  */}
-      <div className="matches">
+      <div className="matches mb-3">
         <Button
           className="btn btn-light w-100 custom-card-btn"
           variant="primary"
