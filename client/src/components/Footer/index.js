@@ -18,13 +18,11 @@ const Footer = () => {
           by Team <span className="rocket">R</span>ocket 
         </h4> */}
         <p className="footer-font my-1">
-          Copyright <span>&copy;</span> 2022
-          <br></br>
-          Designed by Team <span className="rocket">R</span>ocket
-        </p>
-        <a href="https://github.com/a-riveragonzalez/i-choose-you">
+          Team <span className="rocket">R</span>ocket | Copyright <span>&copy;</span> 2022 | <a href="https://github.com/a-riveragonzalez/i-choose-you">
           <i class="fa-brands fa-github fa-lg"></i> 
         </a>
+        </p>
+        
       </div>
     </footer>
   );
