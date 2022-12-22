@@ -65,7 +65,7 @@ const Matches = () => {
         <section className="container">
           {/* ************* Matches Title container************* */}
           <div className="matches-header mb-3 p-2">
-            <h4>
+            <h4 className="user">
               here are your three potential matches. Battle to see if this
               trainer joins you on an adventure
             </h4>

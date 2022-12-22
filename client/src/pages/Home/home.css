@@ -11,7 +11,7 @@
   border: 1px solid white;
   box-shadow: 0 1px 0 1px black, inset 0 1px 0 1px black, 0 0 0 1px black,
     inset 0 0 0 1px black;
-    border-radius: 2px;
+  border-radius: 2px;
 }
 
 .prof {
@@ -23,7 +23,7 @@
   font-family: "DePixel", sans-serif;
   text-shadow: none;
   letter-spacing: normal;
-  color: blue;
+  color: #1b89bc;
 }
 
 .welcome {
@@ -32,7 +32,9 @@
   /* height: fit-content; */
   text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
   letter-spacing: 4px;
-  font-size: 20px;
+  /* font-size: 34px; */
+  font-size: 30px;
+
 }
 
 .matches {
@@ -41,13 +43,18 @@
 }
 
 .poke {
-    height: 300px;
-    width: 320px;
-    object-fit: fill;
+  height: 300px;
+  width: 320px;
+  object-fit: fill;
+}
+
+.home-pic-div {
+  background-image: url("https://media-s3-us-east-1.ceros.com/hype-beast/images/2018/07/13/a9a51bc0b8d626db493ab5f9a971b043/background-hero.png?imageOpt=1&fit=bounds&width=2163");
+  background-color: white;
 }
 
 img {
-    max-width: 100%;
-    height: auto;
-    width: auto;
+  max-width: 100%;
+  height: auto;
+  width: auto;
 }

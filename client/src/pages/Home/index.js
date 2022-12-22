@@ -9,30 +9,28 @@ import "./home.css";
 import Auth from "../../utils/auth";
 
 const Home = () => {
-  const userId = Auth.loggedIn() ? Auth.getProfile().data._id : null
+  const userId = Auth.loggedIn() ? Auth.getProfile().data._id : null;
   const { loading, data } = useQuery(QUERY_USER);
   console.log(userId);
   console.log(data);
 
   const userQuery = data || {};
-  const userData = Auth.loggedIn() ? Auth.getProfile().data.username : {}
-  
+  const userData = Auth.loggedIn() ? Auth.getProfile().data.username : {};
+
   console.log(userData);
   console.log(userQuery);
 
-  const userPokemon = userQuery.user?.pokemon.pokemonImg
-  
-  console.log(userPokemon)
+  const userPokemon = userQuery.user?.pokemon.pokemonImg;
+
+  console.log(userPokemon);
 
   if (loading) {
     return <div>Loading...</div>;
   }
 
-  
-  
   if (!Auth.loggedIn()) {
     return (
-      <div >
+      <div>
         <h4 className="oak-warning p-2">
           Hey, you can't ride your bike in here! <br></br>You need to be logged
           in to see this. Use the navigation links above to sign up or log in!
@@ -50,9 +48,12 @@ const Home = () => {
 
   return (
     <div>
-      <div className="flex-row justify-space-between mb-3">
+      {/* <div className="flex-row justify-space-between mb-3">
         <Card className="col-10 col-md-6 col-sm-3 profile">
-          <Card.Img className="poke bg-white" src={userPokemon ? `${userPokemon}` : "placeholder"} />
+          <Card.Img
+            className="poke bg-white"
+            src={userPokemon ? `${userPokemon}` : "placeholder"}
+          />
         </Card>
         <Card className="col-10 col-md-6 col-sm-3 p-3 bg-white mb-5">
           <Card.Body>
@@ -65,8 +66,27 @@ const Home = () => {
             </h2>
           </Card.Body>
         </Card>
+      </div> */}
+
+      {/* welcome text  */}
+      <div className="battle-header mt-2 mb-5 custom-battle-header ">
+        <h3 className="user">
+          Welcome{" "}
+          <span className="welcome">{userData ? `${userData}` : "your"}</span> , to the world of Pokemon Dating
+        </h3>
       </div>
-      <div className="matches">
+
+      {/* user's pokemon image */}
+
+      <div className="battle-header my-5 custom-battle-header home-pic-div w-75 mx-auto">
+      <Card.Img
+            className="poke "
+            src={userPokemon ? `${userPokemon}` : "placeholder"}
+          />
+      </div>
+
+      {/* matches button  */}
+      <div className="matches mb-3">
         <Button
           className="btn btn-light w-100 custom-card-btn"
           variant="primary"
@@ -78,7 +98,5 @@ const Home = () => {
     </div>
   );
 };
-
-
 
 export default Home;
