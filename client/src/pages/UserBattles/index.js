@@ -57,7 +57,7 @@ const UserBattles = () => {
         <section className="container">
           {/* ************* Battle Title container************* */}
           <div className="battle-header mb-5 custom-battle-header">
-            <h3 className="user">here are your current battles:</h3>
+            <h3 className="user pt-1">here are your current battles:</h3>
           </div>
 
           {/* ************* Battle List container************* */}
@@ -71,7 +71,7 @@ const UserBattles = () => {
                         {battles.user1_id.username} vs.{" "}
                         {battles.user2_id.username}
                       </Card.Body>
-                      <Link to= {`/battle/${battles._id}`} className="col-4 my-2">
+                      <Link to= {`/battle/${battles._id}`} className="col-4 my-2 mobile-btn">
                         <button class="btn btn-light continue-battle-btn">
                           Continue Battle
                         </button>
