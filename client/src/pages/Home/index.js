@@ -22,8 +22,13 @@ const Home = () => {
   // console.log(userQuery);
 
   useEffect(() => {
-    const userPokemon = userQuery.user?.pokemon.pokemonImg || "" ;
-    console.log(userPokemon);
+    const userPokemon = userQuery.user?.pokemon.pokemonImg;
+    if (userPokemon){
+      console.log("there is a picture");
+    } else{
+      console.log("there is no picture")
+    }
+    // console.log(userPokemon);
     setUserPokemonImg(userPokemon);
   }, userPokemonImg);
 
