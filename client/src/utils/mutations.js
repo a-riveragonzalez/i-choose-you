@@ -29,8 +29,8 @@ export const CREATE_BATTLE = gql`
 `;
 
 export const CREATE_USER = gql`
-  mutation createUser($username: String!, $email: String!, $password: String!) {
-    createUser(username: $username, email: $email, password: $password) {
+  mutation createUser($username: String!, $email: String!, $password: String!, $pokemon: String) {
+    createUser(username: $username, email: $email, password: $password, pokemon: $pokemon) {
       token
       user {
         username

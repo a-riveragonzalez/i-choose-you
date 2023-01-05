@@ -53,6 +53,11 @@
   background-color: white;
 }
 
+.take-quiz-btn{
+  text-shadow: 0 0 black;
+  /* font-weight: bold; */
+}
+
 img {
   max-width: 100%;
   height: auto;
