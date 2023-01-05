@@ -11,8 +11,6 @@ import Auth from "../../utils/auth";
 const Home = () => {
   const userId = Auth.loggedIn() ? Auth.getProfile().data._id : null;
   const { loading, data } = useQuery(QUERY_USER);
-  // console.log(userId);
-  // console.log(data);
   const [userPokemonImg, setUserPokemonImg] = useState("");
 
   const userQuery = data || {};
@@ -20,6 +18,8 @@ const Home = () => {
 
   // console.log(userData);
   // console.log(userQuery);
+
+  // const userPokemon = userQuery.user?.pokemon.pokemonImg;
 
   useEffect(() => {
     const userPokemon = userQuery.user?.pokemon.pokemonImg;
@@ -66,12 +66,12 @@ const Home = () => {
         </h3>
       </div>
 
-      {!userPokemonImg ? (
+      {userPokemonImg == "https://www.pokencyclopedia.info/sprites/misc/spr_substitute/art__substitute.png" ? (
         <div className="battle-header my-5 custom-battle-header home-pic-div w-75 mx-auto">
           {/* {console.log("picture is null")} */}
-          <p>You don't have a profile pic yet! Take the quiz here.</p>
+          <p>You don't have a Pokemon yet! Take the quiz here.</p>
           <Button
-              className="btn btn-light w-100 custom-card-btn"
+              className="btn btn-light w-100 custom-card-btn take-quiz-btn"
               variant="primary"
               href="../../quiz"
             >
