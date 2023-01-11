@@ -3,6 +3,8 @@ import { useQuery, useMutation } from "@apollo/client";
 import { Link, useNavigate } from "react-router-dom";
 import { QUERY_USERS } from "../../utils/queries";
 import { CREATE_BATTLE } from "../../utils/mutations";
+import AuthService from "../../utils/auth";
+
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import "./matches.css";
@@ -11,6 +13,9 @@ const Matches = () => {
   const navigate = useNavigate();
   const { loading, data } = useQuery(QUERY_USERS);
   const [randomUsers, setRandomUsers] = useState([]);
+  
+  // finds logged in username
+  const userId = AuthService.getProfile().data.username; 
 
   let userArray = data?.users || [];
   console.log(userArray);
@@ -19,15 +24,16 @@ const Matches = () => {
   useEffect(() => {
     if (userArray.length > 0) {
       const shuffleThenPickUsers = (users) => {
-        console.log("users: ", users);
         let randomUsers = [];
 
-        for (let i = 0; i < 3; i++) {
+        while (randomUsers.length < 3) {
           // if not (!) the token's user id matches with the random index ID
-          randomUsers.push(users[Math.floor(Math.random() * users.length)]);
-        }
+          let randomIndex = Math.floor(Math.random() * users.length)
 
-        console.log("randomUsers: ", randomUsers);
+          if (users[randomIndex].username != userId && !randomUsers.includes(users[randomIndex])) {
+            randomUsers.push(users[randomIndex]);
+          }
+        }
         return randomUsers;
       };
 
