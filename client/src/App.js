@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink } from "@apollo/client";
 import { setContext } from '@apollo/client/link/context';
+import Profile from './pages/Profile';
 import Battle from "./pages/Battle";
 import Matches from "./pages/Matches";
 import Signup from "./pages/Signup";
@@ -51,6 +52,9 @@ function App() {
             <Routes>
               {/* *********** Home Route *********** */}
               <Route path="/" element={<Home />} />
+              
+              {/* *********** Profile Route *********** */}
+              <Route path="/profile" element={<Profile />} />
 
               {/* *********** Login Route *********** */}
               <Route path="/login" element={<Login />} />

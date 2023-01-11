@@ -12,15 +12,16 @@ const Navigation = () => {
     <Navbar bg="light" variant="light" className="mt-4 ">
       <Container>
         <Nav className="me-auto p-1">
-          <Nav.Link
-            href="/"
-            className={pathName === "/" ? "nav-link active" : "nav-link"}
-          >
-            Home
-          </Nav.Link>
-
           {Auth.loggedIn() ? (
             <>
+              <Nav.Link
+                href="/profile"
+                className={
+                  pathName === "/profile" ? "nav-link active" : "nav-link"
+                }
+              >
+                Profile
+              </Nav.Link>
               <Nav.Link
                 href="/battles"
                 className={
@@ -35,21 +36,21 @@ const Navigation = () => {
               <Nav.Link
                 href="#"
                 onClick={() => Auth.logout()}
-                className="nav-link ml-5"
+                className="nav-link ml-5 login-out"
               >
                 Logout{" "}
-                {/* TODO: Can we make it so that it doesn't have both and it's either or? Maybe use the token and use a ternary expression*/}
               </Nav.Link>
             </>
           ) : (
             <Nav.Link
               href="/login"
               className={
-                pathName === "/login" ? "nav-link ml-5 active" : "nav-link ml-5"
+                pathName === "/login"
+                  ? "nav-link ml-5 active login-out"
+                  : "nav-link ml-5 login-out"
               }
             >
               Login{" "}
-              {/* TODO: Can we make it so that it doesn't have both and it's either or? Maybe use the token and use a ternary expression*/}
             </Nav.Link>
           )}
         </Nav>
