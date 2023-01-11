@@ -35,21 +35,19 @@ const Navigation = () => {
               <Nav.Link
                 href="#"
                 onClick={() => Auth.logout()}
-                className="nav-link ml-5"
+                className="nav-link ml-5 login-out"
               >
-                Logout{" "}
-                {/* TODO: Can we make it so that it doesn't have both and it's either or? Maybe use the token and use a ternary expression*/}
+                Log Out{" "}
               </Nav.Link>
             </>
           ) : (
             <Nav.Link
               href="/login"
               className={
-                pathName === "/login" ? "nav-link ml-5 active" : "nav-link ml-5"
+                pathName === "/login" ? "nav-link ml-5 active login-out" : "nav-link ml-5 login-out"
               }
             >
-              Login{" "}
-              {/* TODO: Can we make it so that it doesn't have both and it's either or? Maybe use the token and use a ternary expression*/}
+              Log In{" "}
             </Nav.Link>
           )}
         </Nav>
