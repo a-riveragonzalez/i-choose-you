@@ -7,19 +7,16 @@ header {
 .page-title {
   font-family: "Pokemon Solid", sans-serif;
   color: rgb(255, 196, 0);
-  /* height: fit-content; */
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   letter-spacing: 4px;
-  /* margin-bottom: 0px !important; */
-
   display: flex;
   margin: auto 20px;
-
   font-size: 32px !important;
 }
 
 .page-title:hover {
-  cursor: default;
+  text-decoration: none;
+  color: rgb(255, 196, 0);
 }
 
 .me-auto {

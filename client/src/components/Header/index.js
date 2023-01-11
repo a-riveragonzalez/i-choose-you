@@ -16,7 +16,9 @@ const Header = () => {
               alt="pokeball icon"
               className="nav-icon "
             ></img>{" "}
-            <p className="page-title ">I ChOoSe YoU!</p>
+            <Link className="page-title" to="/">
+              I ChOoSe YoU!
+            </Link>
           </h1>
         </div>
         <div className="col-12 col-md-5">

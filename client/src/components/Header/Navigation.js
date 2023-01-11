@@ -12,15 +12,16 @@ const Navigation = () => {
     <Navbar bg="light" variant="light" className="mt-4 ">
       <Container>
         <Nav className="me-auto p-1">
-          <Nav.Link
-            href="/"
-            className={pathName === "/" ? "nav-link active" : "nav-link"}
-          >
-            Home
-          </Nav.Link>
-
           {Auth.loggedIn() ? (
             <>
+              <Nav.Link
+                href="/profile"
+                className={
+                  pathName === "/profile" ? "nav-link active" : "nav-link"
+                }
+              >
+                Profile
+              </Nav.Link>
               <Nav.Link
                 href="/battles"
                 className={
@@ -37,17 +38,19 @@ const Navigation = () => {
                 onClick={() => Auth.logout()}
                 className="nav-link ml-5 login-out"
               >
-                Log Out{" "}
+                Logout{" "}
               </Nav.Link>
             </>
           ) : (
             <Nav.Link
               href="/login"
               className={
-                pathName === "/login" ? "nav-link ml-5 active login-out" : "nav-link ml-5 login-out"
+                pathName === "/login"
+                  ? "nav-link ml-5 active login-out"
+                  : "nav-link ml-5 login-out"
               }
             >
-              Log In{" "}
+              Login{" "}
             </Nav.Link>
           )}
         </Nav>
