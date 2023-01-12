@@ -2,8 +2,8 @@
   /* background-image: url("https://cypressintegration.com/wp-content/uploads/grey-background.jpg");
   background-size: cover; */
 
-  background: rgb(136,136,136);
-  background: linear-gradient(0deg, rgba(136,136,136,1) 0%, rgba(255,255,255,1) 100%);
+  background: rgb(232, 232, 232);
+  /* background: linear-gradient(0deg, rgba(136,136,136,1) 0%, rgba(255,255,255,1) 100%); */
 
   /* background: rgb(6, 25, 69); */
 }

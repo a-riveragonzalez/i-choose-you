@@ -19,11 +19,26 @@
   width: 500px;
 }
 
+.bulbasaur-img {
+  /* width: ; */
+  background-image: url("./bulbasaur-in-the-woods.png");
+  width: 100%;
+  height: 500px;
+  background-size: cover;
+}
+
 .user {
   font-family: "DePixel", sans-serif;
   text-shadow: none;
   letter-spacing: normal;
   color: #1b89bc;
+}
+
+.opening {
+  /* background-color: white; */
+  text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
+  color: rgba(208, 208, 208, 0.032);
 }
 
 .welcome {
@@ -34,7 +49,6 @@
   letter-spacing: 4px;
   /* font-size: 34px; */
   font-size: 30px;
-
 }
 
 .matches {
@@ -53,7 +67,7 @@
   background-color: white;
 }
 
-.take-quiz-btn{
+.take-quiz-btn {
   text-shadow: 0 0 black;
   /* font-weight: bold; */
 }
