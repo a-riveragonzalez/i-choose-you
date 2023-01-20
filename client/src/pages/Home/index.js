@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 
 import "./home.css";
-// import bulbasaurImg from "./bulbasaur-in-the-woods.png";
+import bulbasaurImg from "./bulbasaur-in-the-woods.png";
 import pokemonGoImg from './pokemon-go.png';
 import pokemonSwitchImg from './pokemon-switch.png';
 import pokemonTCGImg from './pokemon-tcg.png';
-const imgList = [pokemonGoImg, pokemonSwitchImg, pokemonTCGImg];
+const imgList = [pokemonGoImg, pokemonSwitchImg, pokemonTCGImg, bulbasaurImg];
 
 const Home = () => {
   const [counter, setCounter] = useState(0);
