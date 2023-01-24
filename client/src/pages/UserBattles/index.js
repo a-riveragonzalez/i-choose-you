@@ -72,7 +72,7 @@ const UserBattles = () => {
                         {battles.user2_id.username}
                       </Card.Body>
                       <Link to= {`/battle/${battles._id}`} className="col-4 my-2 mobile-btn">
-                        <button class="btn btn-light continue-battle-btn">
+                        <button className="btn btn-light continue-battle-btn">
                           Continue Battle
                         </button>
                       </Link>
