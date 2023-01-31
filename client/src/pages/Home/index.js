@@ -7,6 +7,8 @@ import bulbasaurImg from "./bulbasaur-in-the-woods.png";
 import pokemonGoImg from "./pokemon-go.png";
 import pokemonSwitchImg from "./pokemon-switch.png";
 import pokemonTCGImg from "./pokemon-tcg.png";
+import plusleAndMinun from './plusle-minun.png';
+
 const data = [
   { image: pokemonGoImg, caption: "" },
   { image: pokemonSwitchImg, caption: "" },
@@ -55,16 +57,31 @@ const Home = () => {
 
       <hr></hr>
 
-      <div className="summary-div">
+
         <div className="summary-flex">
           <div>
-            <p>SUMMARY GOES HERE</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           </div>
-          <div className="plusle-minun"></div>
+          <div className="plusle-minun-container">
+            <img src={plusleAndMinun} alt="pokemon pair"/>
+          </div>
+        </div>
+
+
+      <hr></hr>
+
+      <div className="features-container">
+        <div class="starter-section">
+          <div className="feature-box">PICS GO HERE</div>
+          <div className="feature-desc">DESC GOES HERE</div>
+        </div>
+        <div class="chat-section">
+          <div className="feature-desc">DESC GOES HERE</div>
+          <div className="feature-box">PICS GO HERE</div>
+          
         </div>
       </div>
-      
-      <hr></hr>
     </>
   );
 };

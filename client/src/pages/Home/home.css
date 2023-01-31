@@ -75,24 +75,40 @@
   box-shadow: 1px 1px black;
 }
 
-.summary-div{
-  text-align: center;
+.summary-flex, .features-container{
   margin: 30px 0;
-}
-
-.summary-flex{
-  display: flex;
-  justify-content: space-between;
 }
 
 .summary-flex div{
   width: 45%;
-  height: auto;
+  text-align: center;
+  margin: auto 0;
 }
 
-.plusle-minun{
+.plusle-minun-container{
   background-color: rgb(36, 34, 57);
   border-radius: 50%;
+}
+
+.plusle-minun-container img{
+  width: auto;
+}
+
+.summary-flex, .starter-section, .chat-section{
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.feature-box, .feature-desc{
+  width: 45%;
+  margin: auto 0;
+  margin: 5px;
+  padding: 5px;
+}
+
+.feature-box{
+  border: 2px solid rgb(36, 34, 57);
 }
 
 .welcome {
