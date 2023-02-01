@@ -27,55 +27,73 @@ const Profile = () => {
     setUserPokemonImg(userPokemon);
   }, userPokemonImg);
 
-  return (
-    <div>
-      {/* welcome text  */}
-      <div className="battle-header mt-2 mb-5 custom-battle-header ">
-        <h3 className="user">
-          Welcome{" "}
-          <span className="welcome">{userData ? `${userData}` : "your"}</span> ,
-          to the world of Pokemon Dating
-        </h3>
-      </div>
-
-      {userPokemonImg ==
-      "https://www.pokencyclopedia.info/sprites/misc/spr_substitute/art__substitute.png" ? (
-        <div className="battle-header my-5 custom-battle-header home-pic-div w-75 mx-auto">
-          {/* {console.log("picture is null")} */}
-          <p>You don't have a Pokemon yet! Take the quiz here.</p>
-          <Button
-            className="btn btn-light w-100 custom-card-btn take-quiz-btn"
-            variant="primary"
-            href="../../quiz"
-          >
-            Take Quiz!
-          </Button>
+  if (!Auth.loggedIn()) {
+    return (
+      <div>
+        <h4 className="oak-warning p-2">
+          Hey, you can't ride your bike in here! <br></br>You need to be logged
+          in to see this. Use the navigation links above to sign up or log in!
+        </h4>
+        <div className="img">
+          <img
+            className="prof"
+            src="https://www.androidheadlines.com/wp-content/uploads/2020/02/Professor-Oak-Mew-Trailer-Screenshot.jpg"
+            alt="professor-oak"
+          />
         </div>
-      ) : (
-        <div>
-          {/* {console.log("picture is NOT null")} */}
-          {/* pokemon profile pic */}
-          <div className="battle-header my-5 custom-battle-header home-pic-div w-75 mx-auto">
-            <Card.Img
-              className="poke "
-              src={userPokemonImg ? `${userPokemonImg}` : "placeholder"}
-            />
-          </div>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        {/* welcome text  */}
+        <div className="battle-header mt-2 mb-5 custom-battle-header ">
+          <h3 className="user">
+            Welcome{" "}
+            <span className="welcome">{userData ? `${userData}` : "your"}</span>{" "}
+            , to the world of Pokemon Dating
+          </h3>
+        </div>
 
-          {/* matches button  */}
-          <div className="matches mb-3">
+        {userPokemonImg ==
+        "https://www.pokencyclopedia.info/sprites/misc/spr_substitute/art__substitute.png" ? (
+          <div className="battle-header my-5 custom-battle-header home-pic-div w-75 mx-auto">
+            {/* {console.log("picture is null")} */}
+            <p>You don't have a Pokemon yet! Take the quiz here.</p>
             <Button
-              className="btn btn-light w-100 custom-card-btn"
+              className="btn btn-light w-100 custom-card-btn take-quiz-btn"
               variant="primary"
-              href="../../matches"
+              href="../../quiz"
             >
-              Poke Matches
+              Take Quiz!
             </Button>
           </div>
-        </div>
-      )}
-    </div>
-  );
+        ) : (
+          <div>
+            {/* {console.log("picture is NOT null")} */}
+            {/* pokemon profile pic */}
+            <div className="battle-header my-5 custom-battle-header home-pic-div w-75 mx-auto">
+              <Card.Img
+                className="poke "
+                src={userPokemonImg ? `${userPokemonImg}` : "placeholder"}
+              />
+            </div>
+
+            {/* matches button  */}
+            <div className="matches mb-3">
+              <Button
+                className="btn btn-light w-100 custom-card-btn"
+                variant="primary"
+                href="../../matches"
+              >
+                Poke Matches
+              </Button>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  }
 };
 
 export default Profile;

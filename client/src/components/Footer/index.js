@@ -19,7 +19,7 @@ const Footer = () => {
         </h4> */}
         <p className="footer-font my-1">
           Team <span className="rocket">R</span>ocket | Copyright <span>&copy;</span> 2022 | <a href="https://github.com/a-riveragonzalez/i-choose-you">
-          <i class="fa-brands fa-github fa-lg"></i> 
+          <i className="fa-brands fa-github fa-lg"></i> 
         </a>
         </p>
         

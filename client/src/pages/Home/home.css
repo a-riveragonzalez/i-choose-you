@@ -26,6 +26,91 @@
   color: #1b89bc;
 }
 
+.carousel-div {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.carousel{
+  width: 100%;
+}
+
+.slogan-div{
+  position: absolute;
+  background-color: lightgray;
+  width: 40%;
+  height: 50%;
+  margin: auto 0;
+  margin-right: 25px;
+  z-index: 10;
+  top: 25%;
+  right: 0;
+  padding: 10px;
+  text-align: center;
+  font-size: 1em;
+}
+
+.slogan-div h1{
+  color:rgb(255, 196, 0);
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.slogan-div .sign-up-btn{
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: rgb(255, 196, 0);
+  color: black;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  font-family: "DePixel", sans-serif;
+  cursor: pointer;
+}
+
+.slogan-div .sign-up-btn:hover{
+  background-color: grey;
+  color: white;
+  text-decoration: none;
+  box-shadow: 1px 1px black;
+}
+
+.summary-flex, .features-container{
+  margin: 30px 0;
+}
+
+.summary-flex div{
+  width: 45%;
+  text-align: center;
+  margin: auto 0;
+}
+
+.plusle-minun-container{
+  background-color: rgb(36, 34, 57);
+  border-radius: 50%;
+}
+
+.plusle-minun-container img{
+  width: auto;
+}
+
+.summary-flex, .starter-section, .chat-section{
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.feature-box, .feature-desc{
+  width: 45%;
+  margin: auto 0;
+  margin: 5px;
+  padding: 5px;
+}
+
+.feature-box{
+  border: 2px solid rgb(36, 34, 57);
+}
+
 .welcome {
   font-family: "Pokemon Solid", sans-serif;
   color: rgb(255, 196, 0);
@@ -34,7 +119,6 @@
   letter-spacing: 4px;
   /* font-size: 34px; */
   font-size: 30px;
-
 }
 
 .matches {
@@ -53,7 +137,7 @@
   background-color: white;
 }
 
-.take-quiz-btn{
+.take-quiz-btn {
   text-shadow: 0 0 black;
   /* font-weight: bold; */
 }
