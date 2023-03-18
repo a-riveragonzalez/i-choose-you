@@ -69,39 +69,32 @@ THEN the battle screen appears and you are able to message the other user.
 ---
 ><b><i>I Choose You </b></i> is a free web application. To use the app, you first go to the link provided [here](https://ichooseyou.herokuapp.com/). Users (Trainers) must sign up or log in to an existing account. A new user will then take a personality quiz to determine what Pokemon type they are, showing what kind of traits they show depending on the answers they chose during the quiz. They can match with other Trainers and “battle” them – which means they can talk and get to know each other! Depending on how the battle goes, they can deepen their relationship.
 
-## Mock Up 
+## Preview 
 ---
-### The Home Page (before login/sign up):
+### The Home Page (after login/sign up):
 
-> ![home page](/assets/poke-homepage-oak.png)
-
-### The Login Page:
-
-> ![login page with email and password](/assets/poke-login.png)
+> ![home page](/assets/ichooseyouprofile.jpg)
 
 ### The Sign Up Page:
 
-> ![sign up page with username, email, and password](/assets/poke-signup.png)
+> ![sign up page with username, email, and password](/assets/ichooseyousignup.jpg)
 
 ### The Quiz Page:
 
 > ![Quiz Gif with questions asked and answer](/assets/poke-quiz.gif)
 
-### The Home Page (after login/sign up):
-
-> ![home page](/assets/poke-home-page.png)
-
 ### The Matches Page:
 
-> ![Matches Page with three matches](/assets/poke-matches.png)
+> ![Matches Page with three matches](/assets/ichooseyoumatches.jpg)
 
 ### The Battle Page:
 
-> ![Battle Page with user battling/chatting with another user ](/assets/poke-battle-2.png)
+> ![Battle Page with user battling/chatting with another user ](/assets/ichooseyoumessages.jpg)
 
 ### The Battle List Page:
 
-> ![Battle List page with list of user's ongoing battles](/assets/poke-battle-list.png)
+> ![Battle List page with list of user's ongoing battles](/assets/ichooseyoubattlemenu.jpg)
+
 
 ### The 404 Page:
 
